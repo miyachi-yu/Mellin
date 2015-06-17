@@ -7,132 +7,132 @@ $Id: README,v 1.5 2008/09/25 08:37:43 miyachi Exp $
 ****                                                                     ****
 *****************************************************************************
 
-* $B%G%#%l%/%H%j$N9=B$(B
+* ディレクトリの構造
 
-$B!!%i%$%V%i%jKh$K%5%V%G%#%l%/%H%j$,$D$/$i$l$F$$$k!#(B
-$B!!(BTranform       Mellin$B$*$h$S5U(BMellin$BJQ49%k!<%A%s$H$=$l$KIU?o$9$k4XO"(B
-                 $B%k!<%A%s!#(B
+　ライブラリ毎にサブディレクトリがつくられている。
+　Tranform       Mellinおよび逆Mellin変換ルーチンとそれに付随する関連
+                 ルーチン。
 
-  example        $B%/%i%9%i%$%V%i%j$N;HMQNc(B
+  example        クラスライブラリの使用例
   
-  doc            $B4XO">pJs!"%j%U%!%l%s%9%^%K%e%"%kEy(B
+  doc            関連情報、リファレンスマニュアル等
 
-  include/lib    $B%Q%C%1!<%8$N%S%k%I;~$K<+F0E*$K@8@.$5$l$k(B
+  include/lib    パッケージのビルド時に自動的に生成される
 
-* $B:G=i$K$9$k;v(B
+* 最初にする事
 
-  -- $BI,MW$J%Q%C%1!<%8$N=`Hw(B
+  -- 必要なパッケージの準備
 
-$B!!(B- aclocal, autoheader, autoconf, automake, make, pkg-config, libxml++-2.6
-    doxygen, cernlib ( cfortran ), db4-dev, libtool $BEy(B
+　- aclocal, autoheader, autoconf, automake, make, pkg-config, libxml++-2.6
+    doxygen, cernlib ( cfortran ), db4-dev, libtool 等
     
-$B!!4D6-@_Dj$K(B aclocal$B!"(Bautoheader$B!"(Bautomake$B!"(Bautoconf$B!"(Blibtool $BEy$r;H$C$F$$$^$9!#(B
-$B!!$^$?%j%U%!%l%s%9%^%K%e%"%k$O(Bdoxygen$B$r;H$$$^$9!#K:$l$:$K%$%s%9%H!<%k(B
-$B!!$7$^$7$g$&!#(B
+　環境設定に aclocal、autoheader、automake、autoconf、libtool 等を使っています。
+　またリファレンスマニュアルはdoxygenを使います。忘れずにインストール
+　しましょう。
 
-  Utility/Config.{hh,cc} $B$O(Blibxml++-2.6$B$rMxMQ$7$F$$$^$9!#(B
-$B!!(Blibxml++-2.6 libxml++-2.6-dev $BEy$r%$%s%9%H!<%k$7$F$*$-$^$7$g$&!#(B
+  Utility/Config.{hh,cc} はlibxml++-2.6を利用しています。
+　libxml++-2.6 libxml++-2.6-dev 等をインストールしておきましょう。
 
-$B!!(Bexample/mellin$B$N%3%s%Q%$%k$K(Bcfortran$B%Q%C%1!<%8$,I,MW$G$9!#(B
-$B!!7W;;%N!<%I$K$O%$%s%9%H!<%k$5$l$F$$$^$9$,!"8D?MMxMQ$N(BPC$B$G$O(B
-$B!!DL>o%$%s%9%H!<%k$5$l$^$;$s!#(BDeabin$B!"(BFedora$B6&$K:G6a$O%Q%C%1!<%8$,(B
-$B!!MQ0U$5$l$F$$$k$N$G!"(BCERNlib$B4XO"$N$b$N$r$H$j$"$($:%$%s%9%H!<%k(B
-$B!!$7$F$*$-$^$7$g$&!#(Byum$B$d(Bapt$B$G(Bcernlib$B$r8!:w$7$F!"(Bdevel$BHG$b$U$/$a$F(B
-$B!!$H$j$"$($:%$%s%9%H!<%k$7$F$/$@$5$$!#(B
+　example/mellinのコンパイルにcfortranパッケージが必要です。
+　計算ノードにはインストールされていますが、個人利用のPCでは
+　通常インストールされません。Deabin、Fedora共に最近はパッケージが
+　用意されているので、CERNlib関連のものをとりあえずインストール
+　しておきましょう。yumやaptでcernlibを検索して、devel版もふくめて
+　とりあえずインストールしてください。
 
 	
-  -- $B4D6-@_Dj(B
+  -- 環境設定
   $ aclocal
   $ libtoolize --force --copy
   $ autoheader
   $ automake --add-missing --copy --force-missing
-$B!!(B$ autoconf --force
-$B!!(B$ ./configure
+　$ autoconf --force
+　$ ./configure
 
-$B!!$G$9!#%3%s%Q%$%k$9$k4D6-$,$+$o$C$?$i!"K:$l$:$K!#(B
+　です。コンパイルする環境がかわったら、忘れずに。
 
-  Mac OS $B$G$O(B Fink$B$rMxMQ$7$F!"%3%s%Q%$%iEy(B(gcc-4$B!"(Bg++-4$B!K$rCV$-49$($^$9!#(B
+  Mac OS では Finkを利用して、コンパイラ等(gcc-4、g++-4）を置き換えます。
   $ CPPFLAGS=-I/sw/include LDFLAGS=-L/sw/lib CC=gcc-4 CXX=g++-4 ./configure
-  $B$H$7$F$/$@$5$$!#(B
+  としてください。
   
-* $B%3%s%Q%$%k$N$7$+$?(B
+* コンパイルのしかた
 
   $  make
-  $B$G(Binclude/lib$B$NCf$K%X%C%@!<%U%!%$%k!"6&M-%i%$%V%i%j$,%$%s%9%H!<%k(B
-$B!!$5$l$^$9!#(B
+  でinclude/libの中にヘッダーファイル、共有ライブラリがインストール
+　されます。
 
-* $B%W%m%0%i%`<B9T$N$7$+$?(B
+* プログラム実行のしかた
 
-  example$B%G%#%l%/%H%j$K$G$-$k<B9T%U%!%$%k$rNc$K$H$C$F@bL@$7$^$9!#(B
-  make $B$r$9$k$H!"(Bexample/mellin$B$,$G$-$^$9!#$3$l$O(BTransform$B%i%$%V%i%j(B
-$B!!$N%5%s%W%k%W%m%0%i%`$G$9!#Nc$($P(B
+  exampleディレクトリにできる実行ファイルを例にとって説明します。
+  make をすると、example/mellinができます。これはTransformライブラリ
+　のサンプルプログラムです。例えば
   $  ./example/mellin
-$B!!$H%3%^%s%I$rF~NO$7$F$_$F$/$@$5$$!#$b$7%i%$%V%i%j$,$J$$$h$H$$$&(B
-$B!!%(%i!<$,I=<($5$l$?$i!"6&M-%i%$%V%i%j$N$"$k%G%#%l%/%H%j$,(B
+　とコマンドを入力してみてください。もしライブラリがないよという
+　エラーが表示されたら、共有ライブラリのあるディレクトリが
   LD_LIBRARY_PATH
-$B!!$KF~$C$F$$$J$$$N$,860x$G$9!#<+F0E*$K@_Dj$9$k%9%/%j%W%H(B
-$B!!(Bsetup.sh
-  $B$,$"$j$^$9!#FI$_9~$_$^$7$g$&!#(B
-$B!!(B$  source setup.sh
+　に入っていないのが原因です。自動的に設定するスクリプト
+　setup.sh
+  があります。読み込みましょう。
+　$  source setup.sh
 
-  LD_LIBRARY_PATH $B$,@5$7$/@_Dj$5$l$F$$$l$P$"$H$O%3%^%s%I$r;XDj$7$F(B
-$B!!<B9T$9$l$P$h$$$G$7$g$&!#(B
+  LD_LIBRARY_PATH が正しく設定されていればあとはコマンドを指定して
+　実行すればよいでしょう。
 
-* $B%j%U%!%l%s%9%^%K%e%"%k(B
+* リファレンスマニュアル
 
   $  make doc
-  $B$G%j%U%!%l%s%9%^%K%e%"%k$,@8@.$5$l$^$9!#%j%U%!%l%s%9%^%K%e%"%k$r:n$k(B
-$B!!$K$O(B doxygen $B$,I,MW$G$9!#(B
+  でリファレンスマニュアルが生成されます。リファレンスマニュアルを作る
+　には doxygen が必要です。
 
 
-$B!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v(B
-$B!v!!!!!!!!!!!!!!!!!!!!!!!!!!!!%W%m%0%i%`3+H/!!(B
-$B!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v!v(B
+＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+＊　　　　　　　　　　　　　　プログラム開発　
+＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
 
-$B!v!!?75,%i%$%V%i%j$N9=C[J}K!(B (Makefile.in) $B$N=q$-J}(B
+＊　新規ライブラリの構築方法 (Makefile.in) の書き方
 
-$B!!(B-- Makefile.in $B$N@bL@(B
+　-- Makefile.in の説明
 
-$B!!%i%$%V%i%j:n@.$N$?$a$N6&DL%k!<%k$O(B Rules.mk.in$B!"(BLibs.mk.in $B$K4^$^$l$F$$$k(B
-$B!!$N$G!"3F%i%$%V%i%j$G$O(Bmake$B$N4D6-JQ?t$rE,@Z$K@_Dj$9$k$@$1$G!"%i%$%V%i%j$N(B
-$B!!9=C[$,$G$-$k$h$&$K$J$C$F$$$^$9!#Nc$H$7$F(B Tranform/Makefile.in $B$r8+$F$/$@(B
-$B!!$5$$!#(B
-$B!!(B
-$B!!!{!!%i%$%V%i%j9=C[MQ4D6-JQ?t(B
+　ライブラリ作成のための共通ルールは Rules.mk.in、Libs.mk.in に含まれている
+　ので、各ライブラリではmakeの環境変数を適切に設定するだけで、ライブラリの
+　構築ができるようになっています。例として Tranform/Makefile.in を見てくだ
+　さい。
+　
+　○　ライブラリ構築用環境変数
 
-$B!!(BLIBRARY$B!!!!!!(B $B!!%i%$%V%i%j$NL>A0!#@_DjCM$r;H$C$F(B lib$(LIBRARY).so
-$B!!!!!!!!!!!!!!!!!!$,$D$/$i$l$k!#(B
-$B!!(BLIB_OBJS $B!!!!!!(B $B%i%$%V%i%j$K4^$`$Y$-%*%V%8%'%/%H%U%!%$%k%j%9%H!#(B
-$B!!!!!!!!!!!!!!!!!!$3$NJQ?t$KNs5-$5$l$?%*%V%8%'%/%H$,%3%s%Q%$%k$5$l!"(B
-$B!!!!!!!!!!!!!!!!!!%i%$%V%i%j$KEPO?$5$l$k!#(B
-$B!!(BEXTRA_INC$B!!!!!!(B $BI8=`0J30$N%3%s%Q%$%k%*%W%7%g%s!#(B
-$B!!!!!!!!!!!!!!!!!!I,MW$J%$%s%/%k!<%I%G%#%l%/%H%jEy$,$"$l$P@_Dj$9$k!#(B
-$B!!(BINTERFACE$B!!!!!!(B LIB_OBJS$B$K$"$k$b$N$K$D$$$F$O!"BP1~$9$k%X%C%@%U%!%$%k(B
-$B!!!!!!!!!!!!!!!!!!$O<+F0E*$K(Binclude$B%G%#%l%/%H%j$K%$%s%9%H!<%k$5$l$k!#(B
-$B!!!!!!!!!!!!!!!!!!$=$l0J30!"Nc$($P(Bcc$B%U%!%$%k$,$J$$$b$NEy!"$G%$%s%9%H!<%k(B
-$B!!!!!!!!!!!!!!!!!!$,I,MW$J$b$N$O$3$3$K2C$($k!#(B
+　LIBRARY　　　 　ライブラリの名前。設定値を使って lib$(LIBRARY).so
+　　　　　　　　　がつくられる。
+　LIB_OBJS 　　　 ライブラリに含むべきオブジェクトファイルリスト。
+　　　　　　　　　この変数に列記されたオブジェクトがコンパイルされ、
+　　　　　　　　　ライブラリに登録される。
+　EXTRA_INC　　　 標準以外のコンパイルオプション。
+　　　　　　　　　必要なインクルードディレクトリ等があれば設定する。
+　INTERFACE　　　 LIB_OBJSにあるものについては、対応するヘッダファイル
+　　　　　　　　　は自動的にincludeディレクトリにインストールされる。
+　　　　　　　　　それ以外、例えばccファイルがないもの等、でインストール
+　　　　　　　　　が必要なものはここに加える。
 
-$B!!!{!!%F%9%HMQ%W%m%0%i%`:n@.MQJQ?t(B
+　○　テスト用プログラム作成用変数
 
-$B!!(BUSE_*$B!!!!!!!!!!(B $BNc$($P(BlibQCD.so $B$,I,MW$G$"$l$P(B USE_QCD = yes $B$H$9$k!#(B
-$B!!!!!!!!!!!!!!!!!!$=$l$>$l$N%i%$%V%i%j$GI,MW$H$5$l$kDI2C%i%$%V%i%jEy$O(B
-$B!!!!!!!!!!!!!!!!!!<+F0E*$K@_Dj$5$l$^$9!#(B
-$B!!(BTARGET$B!!!!!!!!!!:n@.$9$k<B9T%U%!%$%k0lMw(B
-$B!!(BOBJS$B!!!!!!!!!!!!%i%$%V%i%j$K4^$a$J$$%*%V%8%'%/%H0lMw(B
-$B!!(BEXTRA_LIB$B!!!!!!(B $BI,MW$JDI2C%i%$%V%i%j$N$?$a$N%j%s%+%*%W%7%g%s(B
+　USE_*　　　　　 例えばlibQCD.so が必要であれば USE_QCD = yes とする。
+　　　　　　　　　それぞれのライブラリで必要とされる追加ライブラリ等は
+　　　　　　　　　自動的に設定されます。
+　TARGET　　　　　作成する実行ファイル一覧
+　OBJS　　　　　　ライブラリに含めないオブジェクト一覧
+　EXTRA_LIB　　　 必要な追加ライブラリのためのリンカオプション
 
 
-$B!v!!?75,%i%$%V%i%j$NEPO?(B
+＊　新規ライブラリの登録
 
-$B!!!{!!(Bconfigure.ac $B$K(B Makefile$B$rDI2C(B
+　○　configure.ac に Makefileを追加
 
-$B!!(Bconfigure.ac $B$N2<It$K(B configure $B%9%/%j%W%H$G:n$i$l$k%U%!%$%k$N0lMw(B
-$B!!$,$"$j$^$9!#$=$3$K$"$i$?$K(BMakefile$B$rDI2C$7$^$9!#(B
+　configure.ac の下部に configure スクリプトで作られるファイルの一覧
+　があります。そこにあらたにMakefileを追加します。
 
-$B!!!{!!(BLibs.mk.in $B$NJT=8(B
+　○　Libs.mk.in の編集
 
-$B!!:n@.$7$?%i%$%V%i%j$rB>$+$iMxMQ$G$-$k$h$&$K$9$k$?$a$K!"0MB8%k!<%k$r(B
-$B!!@_Dj$7$^$9!#B>$N$b$N$r;29M$KDI2C$7$F$/$@$5$$!#0MB8@-$N9b$$$b$N$r=i$a$K(B
-$B!!0MB8@-$NDc$$$b$N$r8e$NJ}$KDI2C$7$^$9!#(B
+　作成したライブラリを他から利用できるようにするために、依存ルールを
+　設定します。他のものを参考に追加してください。依存性の高いものを初めに
+　依存性の低いものを後の方に追加します。
 
-$B!!I,MW$H$9$k%i%$%V%i%j$,$"$l$P!"B>$r;29M$K@_Dj$7$^$9!#(B
+　必要とするライブラリがあれば、他を参考に設定します。
