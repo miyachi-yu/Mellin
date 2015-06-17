@@ -1,0 +1,14 @@
+Makefile.in
+Makefile
+main
+*.so
+*.d
+*.o
+*~
+testArguments
+testConfig
+*.lo
+*.la
+.deps
+.libs
+testThread

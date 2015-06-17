@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mellin [
+
+  <!ELEMENT mellin (alpha,parametrization) >
+  
+  <!ELEMENT alpha (scheme)>
+  <!ATTLIST alpha lambda  CDATA #REQUIRED >
+  
+  <!ELEMENT scheme EMPTY>
+  <!ATTLIST scheme type   (MSbar)   #REQUIRED
+		   order  (LO|NLO)  #REQUIRED >
+
+  <!ELEMENT parametrization EMPTY>
+  <!ATTLIST parametrization src  CDATA #REQUIRED >
+
+]>
+
+<mellin>
+<alpha lambda="0.235"><scheme type="MSbar" order="NLO"/></alpha>
+<parametrization src="pdfset.xml"/>
+</mellin>
