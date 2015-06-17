@@ -1,0 +1,187 @@
+<html>
+<head>
+<link href="mellin.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<h1 
+ style="width: 100%; font-size: 20pt; background-color: #eeeeee;
+ padding: 5px; border-right: 4px #666666 outset; border-bottom: 4px #666666 outset;" >
+<i> 
+Mellin: Next Generation QCD Global Analysis Framework </i></h1>
+
+<h2> Mellin パッケージ使用にあったっての注意事項　</h2>
+
+<ul>
+ <li> <a href="howto_build.html">プログラムのコンパイル方法</a> </li>
+ <li> <a href="conf_file.html">設定ファイルについて</a>
+      <ul>
+       <li> <a href="FF.html"> FF、PDFパラメータ設定ファイル </a></li>
+       </ul>
+      </li>
+      
+ <li> <a href="howto_library.html">新規ライブラリの作り方</a> </li>
+ <li> <a href="html">クラスリファレンス</a> <br>
+      クラスリファレンスを参照する場合は、
+<pre>
+$ make doc
+</pre>
+      でリファレンスを構築してください。
+      構築には<tt>doxygen</tt>が必要です。
+      </li>
+ <li> <a href="lookuptable.html">Lookup Tableについて</a></li>
+
+ <li> <a href="expdata.html">実験データーの取扱い</a></li>
+ <li> <a href="xsec.html">断面積</a></li>
+ <li> <a href="MellinInversion.html">逆Mellin変換</a></li>
+ <li> <a href="Fitting.html">Fittingの使い方</a></li>
+</ul>
+
+<h1>ライブラリについて</h1>
+
+<h2>基本ライブラリ</h2>
+
+<dl>
+
+ <dt> Utility </dt>
+ <dd> 各種のツールが含まれています。
+      <tt>Arguments</tt>クラス、<tt>Config</tt>クラス、
+      <tt>Timer</tt>クラス等。
+      </dd>
+
+ <dt> Tranform </dt>
+ <dd> 特殊関数および積分ルーチン等が含まれています。
+      データキャッシュ用のクラスとして
+      LookupTableテンプレートクラス（ディスクベース）、
+      DataCacheクラス（メモリベース）があります。
+      
+      </dd>
+
+ <dt> QCD </dt>
+ <dd> QCDの基本量を取り扱うためのクラスが含まれています。
+      </dd>
+
+</dl>
+
+<h2>パートン分布関数・フラグメンテーション関数</h2>
+
+<dl>
+
+ <dt> Evolution </dt>
+ <dd> PDF等の発展方程式計算のための基本クラスが含められています。
+
+      </dd>
+
+ <dt> unpolPDF </dt>
+ <dd> Unpolarized PDFのSplitting Function の実装 </dd>
+
+ <dt> polPDF </dt>
+ <dd> Polarized PDFのSplitting Function の実装 </dd>
+
+ <dt> Fragmentation </dt>
+ <dd> Unpolarized Fragmentation Function (FF) Splitting Function の実装 </dd>
+
+ <dt> polFrag </dt>
+ <dd> Polarized FF Splitting Function の実装 </dd>
+
+
+</dl>
+
+<h2>断面積・構造関数計算</h2>
+
+<dl>
+
+ <dt> <a href="xsec.html">Xsec</a> </dt>
+ <dd> 断面積・構造関数を計算するための基本クラスが含められています。
+      </dd>
+
+ <dt> FragXsec_T </dt>
+ <dd> 電子・陽電子消滅でのハドロン生成断面積
+      <tt id="formula"> &sigma;<sup>&pi;, K</sup></tt> 
+      の実装
+      </dd>
+
+
+ <dt> unpolDIS </dt>
+ <dd> 非偏極深非弾性散乱実験での構造関数
+      <tt id="formula">F<sub>1</sub>(x,Q<sup>2</sup>)</tt>の実装 </dd>
+
+
+ <dt> polDIS </dt>
+ <dd> 偏極深非弾性散乱実験での構造関数
+      <tt id="formula">g<sub>1</sub>(x,Q<sup>2</sup>)</tt>の実装 </dd>
+
+
+ <dt> unpolSIDIS </dt>
+ <dd> 非偏極深非弾性散乱実験(Semi-inclusive 測定)での
+      構造関数
+      <tt id="formula">F<sub>1</sub><sup>h</sup>(x,Q<sup>2</sup>)</tt>の実装 </dd>
+
+
+
+ <dt>polSIDIS</dt>
+ <dd> 非偏極深非弾性散乱実験(Semi-inclusive 測定)での
+      構造関数
+      <tt id="formula"> g<sub>1</sub><sup>h</sup>(x,Q<sup>2</sup>)</tt>の実装 </dd>
+
+ <dt> IntegXsec </dt>
+ <dd> 断面積・構造関数等の計算を<tt id="formula">x</tt>空間で
+      行うためのライブラリ
+      </dd>
+
+ <dt> IntegUnpolDIS </dt>
+ <dd> <tt id="formula">F<sub>1</sub>(x,Q<sup>2</sup>)</tt>の計算を
+      <tt id="formula">x</tt>空間で
+      行うためのライブラリ
+      </dd>
+
+ <dt> IntegPolDIS </dt>
+ <dd> <tt id="formula">g<sub>1</sub>(x,Q<sup>2</sup>)</tt>の計算を
+      <tt id="formula">x</tt>空間で
+      行うためのライブラリ
+      </dd>
+
+
+</dl>
+
+
+<h2>その他</h2>
+
+<dl>
+ <dt> StrFncParam </dt>
+ <dd> 構造関数<tt id="formula">>F<sub>2</sub>(x,Q<sup>2</sup>)</tt>や、
+      光子吸収断面積
+      <tt id="formula">&sigma;<sub>&gamma;*  N</sub></tt> の
+      Parametrization の実装
+      </dd>
+
+ <dt> ExpData </dt>
+ <dd> 実験データーを取り扱うためのクラスライブラリ
+      </dd>
+
+ <dt> PDFLIB </dt>
+ <dd> 各種 Parton Distribution Function Parameterization の実装 </dd>
+
+ <dt> <a href="Fitting.html">Fitting</a> </dt>
+ <dd> 実験データ(ExpData)を計算モデル(Xsec)を利用してフィットする
+      ためのライブラリ。
+      <a href="http://root.cern.ch/">ROOT</a>の<tt>TMinuit</tt>
+      を利用。
+      </dd>
+
+ <dt> browser </dt>
+ <dd> <a href="http://root.cern.ch/">ROOT</a>をつかって、
+      分布関数・構造関数・実験データ等を表示するツール。
+      </dd>
+      
+ <dt> example </dt>
+ <dd> 各種ライブラリのテスト・使用例等
+      </dd>
+      
+
+</dl>
+
+
+
+</body>
+</html>

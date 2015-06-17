@@ -1,0 +1,44 @@
+<html>
+<head>
+<link href="mellin.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="navigator"><a href="index.html">HOME</a></div>
+<h1>Xsec パッケージのポリシー</h1>
+
+断面積計算ライブラリの設計方針をまとめておきます。
+基本となるクラスは
+<OL>
+ <li> <tt>Xsec</tt>: 断面積を計算するクラス
+      </li>
+ <li> <tt>XsecComp</tt>: 断面積計算のための<tt>Kernel</tt>と
+      <tt>CKernel</tt>を管理するクラス
+      </li>
+ <li> <tt>CKernel</tt>: 係数関数をつかい、要求されたモーメント
+      での計算結果を保持するクラス
+      </li>
+ <li> <tt>Wilsons</tt>: 係数関数用の関数クラス<tt>Coefficinet</tt>
+      のポインタを保持するクラス
+      </li>
+ <li> <tt>Coefficient</tt>: 係数関数用の基本クラス
+      </li>
+</OL>
+
+です。なにかの断面積を計算したいと思ったら、
+<tt>Coefficient</tt>を継承し、係数関数クラスを作成する。
+作成した係数関数クラスオブジェクトを<tt>Wilsons</tt>クラスオブジェクトに登録する。
+<tt>Wilson</tt>クラスを継承して、コンストラクタの中で必要な
+係数関数を作成してもよいでしょう。
+
+<p>
+<tt>Wilsons</tt>クラスオブジェクトへのポインタを<tt>CKernel</tt>に
+登録する。
+
+<p>
+<tt>XsecComp</tt>を継承しておき、
+コンストラクタの中で必要な<tt>Kernel</tt>を作成し、登録。
+<tt>CKernel</tt>も登録する。
+
+
+</body>
+</html>

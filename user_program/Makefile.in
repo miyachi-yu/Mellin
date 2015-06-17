@@ -1,0 +1,68 @@
+# $Id: Makefile.in,v 1.3 2013/04/10 09:15:36 miyachi Exp $
+#
+#   This is an example of user program using installed Mellin package.
+#   Using headers and libraries installed by "make install",
+#   one can make own program using Mellin Class Library.
+#
+#   copy the entire user_program directory and rename.
+
+TARGET = user_program
+
+# ---------------------------------------------------------------------- #
+# Default setting  
+# ---------------------------------------------------------------------- #
+prefix      = @prefix@
+exec_prefix = @exec_prefix@
+
+CXX         = @CXX@
+
+CFLAGS      = @CFLAGS@
+CXXFLAGS    = @CXXFLAGS@
+CPPFLAGS    = @CPPFLAGS@
+LDFLAGS     = @LDFLAGS@
+LDLIBS      = @LDFLAGS@
+
+CPPFLAGS   += -I@includedir@
+LDFLAGS    += -L@libdir@
+
+## -----------------------------------------------------------------
+## Mellin libraries
+## -----------------------------------------------------------------
+LIB_UTILITY   = -lUtility @LIBXML_LIBS@
+LIB_TRANSFORM = -lTransform
+LIB_STRFUNC   = -lStrFncParam
+LIB_QCD       = -lQCD -lPDFSET
+LIB_PDFLIB    = -lPDFLIB
+LIB_EVOLUTION = -lEvolution $(LIB_TRANSFORM) $(LIB_QCD) $(LIB_UTILITY)
+
+LIB_PDF_FF    = -lFragmentation -lunpolPDF -lpolPDF $(LIB_EVOLUTION)  $(LIB_PDFLIB)
+
+LIB_EXPDATA   = -lExpData
+
+LIB_XSEC      = -lFragXsec_T -lpolDIS -lunpolDIS -lunpolSIDIS -lunpolDISXsec	\
+		-lunpolSIDISXsec -lpolSIDIS -lXsec $(LIB_PDF_FF) $(LIB_EXPDATA)
+
+LIB_INTEGXSEC = -lIntegFragXsec -lIntegPolDIS -lIntegPolDrellYan -lIntegPolSIDIS \
+		-lIntegPolVBoson -lIntegSPolVBoson -lIntegUnpolDIS \
+		-lIntegUnpolDrellYan -lIntegUnpolSIDIS -lIntegUnpolVBoson \
+		-lIntegXsec
+
+LIB_FIT       = -lFitting
+LIB_ERR       = -lErrorCalc
+
+LDLIBS += $(LIB_XSEC)
+
+# ---------------------------------------------------------------------- #
+#  ROOT setting
+# ---------------------------------------------------------------------- #
+CPPFLAGS += `@ROOTCONF@ --cflags`
+LDLIBS   += `@ROOTCONF@ --libs`
+# LDLIBS   += `@ROOTCONF@ --glibs`
+# LDLIBS   += -lMinuit
+
+all: $(TARGET)
+
+clean:
+	-@/bin/rm -f *.o *.*~
+
+

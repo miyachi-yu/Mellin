@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  $Id: FF_disfavored.xml,v 1.2 2008/07/03 00:36:23 miyachi Exp $
+  
+  This is an example of initial distributions for fragmentation function.
+  It should be read by 
+  Fragmentation::ConfigFF, Fragmentation::ConfigFFK and
+  polFrag::ConfigFF class objects.
+  
+  Not it is implemented to copy contents of the existing pdf to another
+  pdf, with attribute src.
+  
+  Author:  $Author: miyachi $
+  Date:    $Date: 2008/07/03 00:36:23 $
+  Version: $Revision: 1.2 $
+  
+  *****************  caution  *****************
+  ** Lower limit for parameter a ( power of z ).
+  Usually, for hadron production crossection 
+  the offset on the real axis for Mellin inversion is set to 2.0.
+  In that case, a must be grater than -2.0.
+  
+  -->
+<!DOCTYPE set [
+	  <!ELEMENT set (pdf*)>
+	  <!ATTLIST set   scale CDATA #REQUIRED
+		    name  CDATA #REQUIRED >
+	  
+	  <!ELEMENT pdf (parameter*) >
+	  <!ATTLIST pdf  
+		    name  CDATA  #REQUIRED
+		    pid   ID     #IMPLIED
+		    src   IDREF  #IMPLIED
+		    dfav  IDREF  #IMPLIED
+		    >
+	  
+	  <!ELEMENT parameter EMPTY >
+	  <!ATTLIST parameter 
+		    index  CDATA        #REQUIRED
+		    name   CDATA        #IMPLIED
+		    value  CDATA        #REQUIRED
+		    error  CDATA        #IMPLIED
+		    state  (fixed|free) #REQUIRED
+		    upper  CDATA        #IMPLIED
+		    lower  CDATA        #IMPLIED
+		    >
+	  
+	  ]>		      
+
+<set scale="1.0" name="Fragmentation">
+  
+  <pdf name="gluon">
+    <parameter index="0" name="eta" value="0.220709" error="0.0380913" state="free" upper="1" lower="0" />
+    <parameter index="1" name="a" value="6.40856" error="1.88175" state="free" lower="-2" />
+    <parameter index="2" name="b" value="20.9302" error="5.71442" state="free" />
+    <parameter index="3" name="c" value="0" error="0" state="free" />
+  </pdf>
+
+  <pdf name="u" pid="FAVOR">
+    <parameter index="0" name="eta" value="0.272185" error="0.0478488" state="free" upper="1" lower="0" />
+    <parameter index="1" name="a" value="-0.874772" error="0.252159" state="free" lower="-2" />
+    <parameter index="2" name="b" value="1.35703" error="0.158485" state="free" />
+    <parameter index="3" name="c" value="0" error="0.0" state="free" />
+  </pdf>
+
+
+  <pdf name="d-bar" src="FAVOR" ></pdf>
+  
+  <pdf name="d"     pid="DISFAVOR" dfav="FAVOR" ></pdf>
+  <pdf name="u-bar" src="DISFAVOR" ></pdf>
+
+  <pdf name="s"     src="DISFAVOR" ></pdf>
+  <pdf name="s-bar" src="DISFAVOR" ></pdf>
+  
+  <pdf name="c" pid="CHARM" >
+    <parameter index="0" name="eta" value="0.1126" error="0.0" state="fixed" upper="1.0" lower="0.0" />
+    <parameter index="1" name="a"   value="1.2669" error="0.0" state="fixed" lower="-2.0" />
+    <parameter index="2" name="b"   value="7.9490" error="0.0" state="fixed" />
+    <parameter index="3" name="c"   value="0.0"    error="0.0" state="fixed" />
+  </pdf>
+  
+  <pdf name="b" pid="BOTTOM" >
+    <parameter index="0" name="eta" value="0.2208"  error="0.0" state="fixed" upper="1.0" lower="0.0" />
+    <parameter index="1" name="a"   value="-1.2740" error="0.0" state="fixed" lower="-2.0" />
+    <parameter index="2" name="b"   value="5.2024"  error="0.0" state="fixed" />
+    <parameter index="3" name="c"   value="0.0"     error="0.0" state="fixed" />
+  </pdf>
+  
+  <pdf name="c-bar" src="CHARM"    ></pdf>
+  <pdf name="b-bar" src="BOTTOM"   ></pdf>
+  
+</set>

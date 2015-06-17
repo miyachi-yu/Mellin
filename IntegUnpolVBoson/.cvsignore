@@ -1,0 +1,17 @@
+Makefile.in
+Makefile
+testUVB
+*.d
+*~
+*.o
+*.dat*
+*.o*
+*.e*
+cache
+plot
+*.lo
+*.la
+.deps
+.libs
+MRST_calc
+tmpplot

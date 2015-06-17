@@ -1,0 +1,48 @@
+# $Id: Makefile.in,v 1.1 2007/05/14 10:22:20 miyachi Exp $ 
+# @configure_input@ # # Version: $Revision: 1.1 $ 
+# Date: $Date: 2007/05/14 10:22:20 $ # Author: $Author: miyachi $ 
+# 
+
+########################################################################### 
+# Library setting 
+###########################################################################
+#--- Name of this library 
+LIBRARY       = polDIS
+#--- object files should be added in lib$(LIBRARY).so 
+LIB_OBJS      = P.o
+#--- Abstract class which should be installed to include directory
+INTERFACE     =
+#--- install class headers into sub directory
+USE_SUBINCDIR = yes
+
+########################################################################### 
+# Executables 
+###########################################################################
+#--- Name of executables to be build
+TARGET        = main
+#--- common objects required to build the above executables
+OBJS          =
+
+########################################################################### 
+# Other libraries used in the libraries and also in the executables 
+# in order to activate, just un-commented. 
+########################################################################### 
+# USE_QCD       = yes
+# USE_EVOLUTION = yes
+# USE_UTILITY   = yes
+# USE_TRANFORM  = yes
+# USE_POLDIS    = yes
+
+########################################################################### 
+# External libraries used in the library and execytables 
+########################################################################### 
+#--- required option for the compilers 
+# EXTRA_INC += 
+#--- requried libraries to be linked 
+# EXTRA_LIB += 
+
+########################################################################### 
+# include common rules 
+###########################################################################
+
+include @abs_top_srcdir@/Rules.mk

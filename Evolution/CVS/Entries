@@ -1,0 +1,27 @@
+/.cvsignore/1.4/Fri Sep 26 02:14:24 2008//
+/AnomalousDimension.cc/1.25/Tue Dec  2 08:13:15 2008//
+/AnomalousDimension.hh/1.26/Tue Dec  2 08:13:15 2008//
+/DGLAPMatrix.cc/1.17/Thu Nov 20 09:50:50 2008//
+/DGLAPMatrix.hh/1.10/Thu Jul 10 04:01:31 2008//
+/DGLAPpdf.cc/1.13/Thu Feb 12 07:59:34 2009//
+/DGLAPpdf.hh/1.9/Tue Oct 28 09:12:26 2008//
+/Evolution.dia/1.2/Mon May 19 09:43:58 2008//
+/Kernel.cc/1.54/Fri Apr  5 09:02:12 2013//
+/Kernel.hh/1.30/Thu Feb 12 07:59:35 2009//
+/KernelBase.cc/1.6/Tue Dec  2 08:13:15 2008//
+/KernelBase.hh/1.8/Tue Dec  2 08:13:15 2008//
+/KernelDiff.cc/1.1/Fri Feb 13 12:23:40 2009//
+/KernelDiff.hh/1.1/Fri Feb 13 12:23:40 2009//
+/KernelPdfLib.cc/1.5/Tue Dec  2 08:13:15 2008//
+/KernelPdfLib.hh/1.6/Fri Apr  5 09:02:12 2013//
+/KernelSum.cc/1.9/Tue Nov 11 05:49:33 2008//
+/KernelSum.hh/1.8/Tue Feb 17 04:50:14 2009//
+/Makefile.am/1.4/Fri Feb 13 12:23:40 2009//
+/PDF.cc/1.13/Thu Feb 19 04:26:51 2009//
+/PDF.hh/1.16/Thu Feb 19 04:26:51 2009//
+/PDFx.cc/1.18/Wed Aug 27 18:30:34 2008//
+/PDFx.hh/1.13/Wed Aug 27 18:30:34 2008//
+/WilsonCoefficient.cc/1.1/Sat Dec  1 14:43:46 2007//
+/WilsonCoefficient.hh/1.1/Sat Dec  1 14:43:46 2007//
+/main.cc/1.3/Sat Mar  8 07:39:08 2008//
+D

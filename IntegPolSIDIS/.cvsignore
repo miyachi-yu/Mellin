@@ -1,0 +1,16 @@
+Makefile.in
+Makefile
+main
+testG1h
+testG1h_xz
+checkPartialInteg
+*.d
+*~
+*.o
+*.dat*
+*.o*
+*.e*
+*.lo
+*.la
+.deps
+.libs

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE set [
+	  <!ELEMENT set (pdf*)>
+	  <!ATTLIST set  scale CDATA #REQUIRED
+		    name  CDATA #REQUIRED >
+	  
+	  <!ELEMENT pdf (parameter*) >
+	  <!ATTLIST pdf  
+		    name  CDATA #REQUIRED
+		    pid   ID    #IMPLIED
+		    src   IDREF #IMPLIED >
+	  
+	  <!ELEMENT parameter EMPTY >
+	  <!ATTLIST parameter 
+		    index  CDATA #REQUIRED
+		    name   CDATA #IMPLIED
+		    value  CDATA #REQUIRED
+		    error  CDATA #IMPLIED
+		    state  (fixed|free) #REQUIRED
+		    upper  CDATA #IMPLIED
+		    lower  CDATA #IMPLIED
+		    >
+	  ]>		      
+
+<!--
+    original numbers can be found in 
+    http://ribf.riken.jp/~marco/DSSV/fortran/dssv.html
+
+    N values are comverted to the corresponding first moment.
+    The 0-th values for U, D, S are simply ignored in calculation 
+    with PdfDSSV class.
+
+    Using the first moment, the value of a0, a3, a8 are computed.
+
+-->
+<set scale="1.0" name="polDIS SU(3)">
+  
+  <!-- *********************** gluon *****************************
+       eta =         -131.7 *    0.000891991 =      -0.117475
+    -->
+  <pdf name="gluon" pid="gluon" >
+    <parameter index="0" name="N" value="-0.117475215" error="0.0" state="free" />
+    <parameter index="1" name="a" value="2.412"  error="0.0" lower="-2.0" state="free" />
+    <parameter index="2" name="b" value="10.0"   error="0.0" state="free" />
+    <parameter index="3" name="c" value="0.00"   error="0.0" state="free" />
+    <parameter index="4" name="d" value="-4.07"  error="0.0" state="free" />
+  </pdf>
+  
+  <!-- *************** axial matrix elements *****************
+      a0 = 0.81750 + ( -0.4424 ) + ( -0.108883 ) = 0.284617
+    -->
+  <pdf name="a0" >
+    <parameter index="0" name="N" value="0.284617" error="0.0" state="free" />
+  </pdf>
+  
+  <!--
+      a3 = 0.81750 - ( -0.4424 ) = 1.2599
+      -->
+  <pdf name="a3" >
+    <parameter index="0" name="N" value="1.2599" error="0.0" state="free" />
+  </pdf>
+  
+  <!--
+      a8 = 0.81750 + ( -0.4424 ) - 2* ( -0.108883 ) = 0.592866
+    -->
+  <pdf name="a8" >
+    <parameter index="0" name="N" value="0.592866" error="0.0" state="free" />
+  </pdf>
+  
+  <!--
+      eta =          0.677 *        1.20753 =       0.817501
+    -->
+  <pdf name="U" pid="U" >
+<!--    <parameter index="0" name="N" value="0.81750" error="0.0" state="fixed" /> -->
+    <parameter index="1" name="a" value="0.692" error="0.0" lower="-2.0" state="free" />
+    <parameter index="2" name="b" value="3.34"  error="0.0" state="free" />
+    <parameter index="3" name="c" value="-2.18" error="0.0" state="free" />
+    <parameter index="4" name="d" value="15.87" error="0.0" state="free" />
+  </pdf>
+  
+  <!--
+      eta =          0.295 *       0.126333 =      0.0372681
+      -->
+  <pdf name="u-bar" pid="u-bar" src="gluon" >
+    <parameter index="0" name="N" value="0.0372681" error="0.0" state="free" />
+    <parameter index="1" name="a" value="0.692" error="0.0" lower="-2.0" state="free"  />
+    <parameter index="4" name="d" value="-8.42" error="0.0" state="free" />
+  </pdf>
+  
+  <!--
+      eta =         -0.012 *        9.43364 =      -0.113204
+    -->
+  <pdf name="d-bar" pid="d-bar" src="gluon" >
+    <parameter index="0" name="N" value="-0.113204" error="0.0" state="free" />
+    <parameter index="1" name="a" value="0.164" error="0.0" lower="-2.0" state="free"  />
+    <parameter index="4" name="d" value="98.94" error="0.0" state="free" />
+  </pdf>
+  
+  <!--
+      eta =         -0.015 *        29.4934 =        -0.4424
+    -->
+  <pdf name="D" pid="D" src="d-bar" >
+<!--    <parameter index="0" name="N" value="-0.442" error="0.0" state="fixed" /> -->
+    <parameter index="2" name="b" value="3.89"  error="0.0" state="free" />
+    <parameter index="3" name="c" value="22.40" error="0.0" state="free" />
+  </pdf>
+  <!--
+      eta =          -0.05 *        2.17765 =      -0.108883
+      -->
+  <pdf name="S" pid="S" src="d-bar" >
+<!--    <parameter index="0" name="N" value="-0.108883"  error="0.0"  state="fixed" /> -->
+    <parameter index="4" name="d" value="-29.52" error="0.0" state="free" />
+  </pdf>
+  
+</set>

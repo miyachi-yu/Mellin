@@ -1,0 +1,17 @@
+Makefile.in
+Makefile
+main
+testXsec
+*.d
+*~
+*.o
+*.dat*
+*.o*
+*.e*
+*.so
+cache
+*.lo
+*.la
+.deps
+.libs
+*.txt

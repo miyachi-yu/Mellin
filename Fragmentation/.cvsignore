@@ -1,0 +1,16 @@
+Makefile.in
+Makefile
+main
+testFFSimple
+hadron
+*.so
+*.d
+*.o
+*~
+cache
+*.xml
+*.lo
+*.la
+.deps
+.libs
+diff

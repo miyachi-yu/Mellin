@@ -1,0 +1,79 @@
+<html>
+<head>
+<link href="mellin.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="navigator"><a href="index.html">HOME</a></div>
+<h1>プログラムのコンパイル方法</h1>
+
+<h2>必要なプログラムおよびライブラリ</h2>
+
+<ul>
+ <li> <tt>libtool</tt> : 必須 </li>
+ <li> <tt>aclocal</tt> : 必須 </li>
+ <li> <tt>autoheader</tt> : 必須 </li>
+ <li> <tt>automake</tt> : 必須 </li>
+ <li> <tt>autoconf</tt> : 必須 </li>
+ <li> <tt>make</tt> : 必須 </li>
+ <li> <tt>g++</tt> : 必須 </li>
+ <li> <tt>g77 or gfortran</tt> : </li>
+ <li> <tt>cfortran</tt> : </li>
+ <li> <tt>libxml++</tt> : 必須 </li>
+ <li> <tt>doxygen</tt> : 
+      できれば<tt>graphviz</tt>も。
+      </li>
+ <li> <tt>Berkeley DB v4</tt> : 必須 
+      <br>
+      例えば Debian では
+      <tt>libdb4.4</tt>, <tt>libdb4.4++</tt>, <tt>libdb4.4++</tt>, 
+      <tt>lindb4.4++-dev</tt>, <tt>db4.4-util</tt>といったパッケージ
+      になっています。
+      </li>
+</ul>
+
+上記ライブラリ等があれば、一般的なLinuxディストリビューションで
+ライブラリをビルド可能だとおもいます。
+
+<h2> <tt>configure</tt>スクリプトを作る　</h2>
+この一連の作業はCVSからパッケージをcheckoutした直後、
+また<tt>configure.ac</tt>ファイルを編集した後に行う必要があります。
+<h3>準備</h3>
+
+<pre id="command">
+$ aclocal
+$ libtoolize --force --copy                     <span style="color:red;">libtoolの準備</span>
+$ autoheader                                    <span style="color:red;">config.h.in 作成</span>
+$ automake --add-missing --copy --force-missing <span style="color:red;">Makefile.in 作成</span>
+$ autoconf                                      <span style="color:red;">configure 作成</span>
+</pre>
+
+<h2> <tt>configure</tt>スクリプトを実行する </h2>
+開発する環境（システムバージョン、OSタイプ、ホスト等）が変わったとき、
+</tt>configure</tt>スクリプト自身が更新された時に必要です。
+<pre id="command">
+$ ./configure
+</pre>
+これで、<tt>*.in</tt>というファイルから、
+<tt>.in</tt>のとれたファイルが生成されます
+（例：<tt>Makefile.in</tt>→<tt>Makefile</tt>）。
+<p>
+<tt>*.in</tt>ファイルが更新された場合、
+<tt>*</tt>ファイルの生成には
+<tt>configure</tt>スクリプトではなく、<tt>config.status</tt>を使います。
+<pre id="command">
+$ ./config.status
+</pre>
+
+<h2><tt>make</tt>を実行する</h2>
+<pre id="command">
+$ make
+</pre>
+
+<h2>クラスリファレンスの作成</h2>
+<pre id="command">
+$ make doc
+</pre>
+
+
+</body>
+</html>

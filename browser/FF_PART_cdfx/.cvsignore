@@ -1,0 +1,13 @@
+*.tex
+*.txt
+*.d
+*.o
+*.png
+*.dat*
+*.e*
+*.o*
+*cache*
+*tmp*
+*.lo
+*.la
+*.sh

@@ -1,0 +1,47 @@
+<html>
+<head>
+<link href="mellin.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="navigator"><a href="index.html">HOME</a></div>
+<h1>実験データの扱い</h1>
+
+実験データは <a href="http://durpdg.dur.ac.uk/">HepData</a>から直接
+ダウンロード出きるようにするのが目標です。
+が、今のところはテキストファイル保存して読み込む方針ですすめていきます。
+
+<p>
+現状ではHERMES 2006のデーターのみ実装しています。取扱い手順は
+<ol>
+ <li> HepDataの出力をテキストファイルに保存：
+      <tt>@abs_top_srcdir@/Data</tt>
+      </li>
+ <li> 読み込みプログラムを使ってDataSetオブジェクトを作成し、
+      xmlファイルにコンバート。
+      複数の実験データーがあれば、
+      一つのプログラムで複数のデーターセット（DataSetオブジェクト）
+      を作り、それらから一つのxmlファイルを作成する。
+      </li>
+ <li> 解析プログラムからは、
+      ConfigExpDataクラスでコンバートされたxmlファイルを読み込む。</li>
+
+</ol>
+事にします。
+
+<p>
+現在の手順としては
+<pre>
+&#36; cd @abs_top_srcdir@/ExpData
+&#36; ./test              <span style="color:blue;">これで<tt>expdata.xml</tt>ができる。
+&#36; ./main --expdata=expdata.xml <span style="color:blue;">読み込みテスト</tt>
+</pre>
+となっています。こうしてできた実験データーファイルは、例えば
+<pre>
+&#36; cd @abs_top_srcdir@/browser
+&#36; ./browser <span style="color:red">--expdata=../ExpData/expdata.xml</span> --pdf=../polDIS/pdf.xml --view=g1 --order=LO
+</pre>
+で表示できます。
+
+
+
+</body>

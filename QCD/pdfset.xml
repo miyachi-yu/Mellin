@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE set [
+  <!ELEMENT set (pdf*)>
+  <!ATTLIST set  scale CDATA #REQUIRED
+		 name  CDATA #REQUIRED >
+			     
+  <!ELEMENT pdf (parameter*) >
+  <!ATTLIST pdf  name  CDATA #REQUIRED >
+
+  <!ELEMENT parameter EMPTY >
+  <!ATTLIST parameter index  CDATA #REQUIRED
+                      name   CDATA #IMPLIED
+                      value  CDATA #REQUIRED
+		      error  CDATA #IMPLIED
+                      state  (fixed|free) #REQUIRED >
+
+]>
+
+<set scale="1.0" name="polDIS SU(3)">
+  
+  <pdf name="gluon">
+    <parameter index="0" name="eta" value="1.0" error="0.0" state="free"  />
+    <parameter index="1" name="a"   value="1.0" error="0.0" state="free"  />
+    <parameter index="2" name="b"   value="0.2" error="0.0" state="fixed" />
+    <parameter index="3" name="c"   value="0.0" error="0.0" state="fixed" />
+  </pdf>
+    
+  <pdf name="a0" >
+    <parameter index="0" name="eta" value="0.2" error="0.0" state="free"  />
+    <parameter index="1" name="a"   value="1.0" error="0.0" state="free"  />
+    <parameter index="2" name="b"   value="0.2" error="0.0" state="fixed" />
+    <parameter index="3" name="c"   value="0.0" error="0.0" state="fixed" />
+  </pdf>
+        
+</set>

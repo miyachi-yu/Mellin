@@ -1,0 +1,67 @@
+<html>
+<head>
+<link href="mellin.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="navigator"><a href="index.html">HOME</a></div>
+
+<h1>逆Mellin変換</h1>
+
+逆Mellin変換は
+<div id="equation" >
+g( x ) = 1/2&pi;i &int;<sub>C</sub> x<sup>-z</sup> f( z ) dz
+</div>
+このライブラリでとりあつかうPDF、FF、断面積、構造関数等は
+実軸対称なので、積分経路を上半面のみで考える事で、
+<div id="equation" >
+g( x ) = 1/&pi; &int;<sub>C'</sub> Im( x<sup>-z</sup> f( z ) dz )
+</div>
+とする事ができます。
+積分経路は任意であるので、数値計算の精度・計算速度の両面から
+最適化を試みます。
+
+<dl>
+ <dt><a name="straight">直線積分経路</a></dt>
+ <dd>
+      <img src="straightline_contour.png"
+      style="margin-left: 20px; float: right; width: 20%;">
+      積分経路として、
+      <i>( c<sub>0</sub>, 0.0 )</i>を開始点にとり、
+      右図にあるように、実軸からの角度<i>&phi;</i>の方向に
+      長さ<i>l</i>の直線をとります。
+      <p>
+      開始点は逆Mellin変換する関数のもつ特異点よりも右側にとります。
+      右側に移動すればするほど、より長い積分経路が必要です。
+      <p>
+      実際のプログラムでは、
+      開始点<i>c<sub>0</sub></i>と、角度<i>&phi;</i>、
+      経路長<i>l</i>を設定します。
+      <tt>InverseMellin::setParameter</tt>メソッドで
+      <i>c<sub>0</sub></i>と、角度<i>&phi;</i>、
+      <tt>InverseMellin::upper</tt>メソッドで経路長を設定します。
+      それぞれのメソッドの引数については、
+      クラスリファレンスマニュアルを参照してください。
+      
+      <br clear="right">
+
+      </dd>
+
+ <dt> 最降下曲線積分経路 </dt>
+ <dd> 
+      <div id="equation">
+      z(t) = c<sub>0</sub> + c<sub>1</sub> t<sup>2</sup>  + i t
+      </div>
+      
+      最降下曲線( Steepest Descent )に沿って積分を行う事で、
+      より効率的に積分値を得る事ができます。
+      この場合は、被積分関数をさらに式変形し、
+      ラゲール積分を行います。
+
+
+      </dd>
+
+
+</dl>
+      
+</body>
+</html>

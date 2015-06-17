@@ -1,0 +1,36 @@
+ error 1000 return
+ ABE 98   PR D59,052001
+ Measured differential cross section for proton/antiproton production per Z0deca
+ y into light, charm and bottom quarks separately. The errors given are the sum 
+ in quadrature of the statistical errors and those systematic errors arising fro
+ m the unfolding procedure. Systematic errors common to the three flavours areno
+ t included.
+ RE(Q=UDS)   E+ E- --&gt; (UQ + DQ + SQ) &lt; P X &gt; X + CC
+ RE(Q=C)   E+ E- --&gt; CQ &lt; P X &gt; X + CC
+ RE(Q=B)   E+ E- --&gt; BQ &lt; P X &gt; X + CC
+ SQRT(S) IN GEV   91.2
+ x = X(DEF=2*P(P=P)/SQRT(S))
+ y = (1/N(C=HAD)*D(N(Q=B))/DX
+ x1  TO x2     y    +- dy             
+
+1 52
+0.016  0.022   6.3    1.8    
+0.022  0.027   9.0    1.3    
+0.027  0.033  14.9    1.3    
+0.033  0.038  10.6    1.1    
+0.038  0.044   8.7    1.1    
+0.044  0.049   7.9    1.02   
+0.049  0.055   5.48   0.92   
+0.055  0.066   5.97   0.75   
+0.066  0.077   4.60   0.74   
+0.077  0.088   4.37   0.76   
+0.088  0.099   3.49   0.80   
+0.099  0.110   2.99   0.88   
+0.110  0.132   1.77   0.68   
+0.132  0.164   2.93   0.86   
+0.230  0.274   0.506  0.098  
+0.274  0.318   0.241  0.065  
+0.318  0.384   0.093  0.034  
+0.384  0.471   0.012  0.016  
+0.471  0.603  -0.002  0.006  
+0.603  0.768   0.001  0.003 

@@ -1,0 +1,23 @@
+<html>
+<head>
+<link href="mellin.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Lookup Tableについて</h1>
+
+計算結果をキャッシュしておくためのLookup Tableが実装されています。
+<tt>template < class Key, class Data > LookupTable< Key, Data ></tt>
+テンプレートクラスを利用します。コンストラクタは
+<pre>
+template < class Key, class Data > 
+LookupTable< Key, Data >( Key& key, Data& data, const string& <span style="color:red;font-weight:bold;">name</span> );
+</pre>
+です。データベースファイルは
+<tt>${HOME}/.mellin/cache/<span
+style="color:red;font-weight:bold;">name</span></tt>として作られます。
+詳しい利用方法はリファレンスマニュアル、<tt>CPolyGamma.{hh,cc}</tt>等の
+特殊関数のソースを参照してください。
+
+
+</body>
+</html>

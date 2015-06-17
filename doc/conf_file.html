@@ -1,0 +1,80 @@
+<html>
+<head>
+<link href="mellin.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="navigator"><a href="index.html">HOME</a></div>
+<h1>設定ファイルについて</h1>
+
+設定ファイルはXML (eXtensive Markup Language) にしたがって作成する
+ようにします。XMLでは含まれる情報の形式を「文書型定義 DTD 
+(Document Type Definition)」指定する必要があります。
+DTDはXMLファイル内に埋め込むことも、外部ファイルとして取扱う事も可能です。
+当座はXMLで書かれた各設定ファイル毎にDTDをふくめるものとします。
+
+<h2>設定ファイル例</h2>
+<pre id="file">
+&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;!DOCTYPE set [
+  &lt;!ELEMENT set (pdf*)&gt;
+  &lt;!ATTLIST set  scale CDATA #REQUIRED
+		 name  CDATA #REQUIRED &gt;
+			     
+  &lt;!ELEMENT pdf (parameter*) &gt;
+  &lt;!ATTLIST pdf  name  CDATA #REQUIRED &gt;
+
+  &lt;!ELEMENT parameter EMPTY &gt;
+  &lt;!ATTLIST parameter index  CDATA #REQUIRED
+                      name   CDATA #IMPLIED
+                      value  CDATA #REQUIRED
+		      error  CDATA #IMPLIED
+                      state  (fixed|free) #REQUIRED &gt;
+
+]&gt;
+
+&lt;set scale="1.0" name="polDIS SU(3)"&gt;
+  
+  &lt;pdf name="gluon"&gt;
+    &lt;parameter index="0" name="eta" value="1.0" error="0.0" state="free"  /&gt;
+    &lt;parameter index="1" name="a"   value="1.0" error="0.0" state="free"  /&gt;
+    &lt;parameter index="2" name="b"   value="0.2" error="0.0" state="fixed" /&gt;
+    &lt;parameter index="3" name="c"   value="0.0" error="0.0" state="fixed" /&gt;
+  &lt;/pdf&gt;
+    
+  &lt;pdf name="a0" &gt;
+    &lt;parameter index="0" name="eta" value="0.2" error="0.0" state="free"  /&gt;
+    &lt;parameter index="1" name="a"   value="1.0" error="0.0" state="free"  /&gt;
+    &lt;parameter index="2" name="b"   value="0.2" error="0.0" state="fixed" /&gt;
+    &lt;parameter index="3" name="c"   value="0.0" error="0.0" state="fixed" /&gt;
+  &lt;/pdf&gt;
+        
+&lt;/set&gt;
+</pre>
+
+<h2>設定ファイルを読む</h2>
+
+XMLで書かれた設定ファイルを読むために<tt>libxml++</tt>を使います。
+基本クラスを<tt>Utility/Config.hh</tt>として用意しました。
+いろいろな種類の設定ファイルができると思いますが、
+それぞれに応じた読み込み用クラスを<tt>Config</tt>の派生クラスと
+して作るのがメンテナンスしやすいかと思います。
+（例：<tt>QCD/ConfigPdf.hh</tt>）
+<p>
+コマンドラインオプションの解析用クラス（<tt>Utility/Aurgument.hh</tt>）
+を使って、コマンドラインで指定された設定ファイルを読み出す事ができます。
+プログラム例としては
+<pre id="file">
+<span id="cpp">#include "Arguments.hh"</span>
+<span id="cpp">#include "ConfigPdf.hh"</span>
+int main( int argc, char* argv[] ){
+  Argument args( argc, argv );
+  ConfigPdf  conf_pdf( args, "pdf" );
+  return 0;
+};
+</pre>
+プログラムを実行するときにオプションとして
+<tt>--pdf=[設定ファイルのPATH]</tt>を付けておくと、
+指定された設定ファイルから<tt>ConfigPdf</tt>オブジェクトが生成されます。
+
+</body>
+</html>

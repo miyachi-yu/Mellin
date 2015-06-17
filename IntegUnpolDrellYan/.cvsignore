@@ -1,0 +1,15 @@
+Makefile.in
+Makefile
+testUDY
+*.d
+*~
+*.o
+*.dat*
+*.o*
+*.e*
+cache
+plot
+*.lo
+*.la
+.deps
+.libs

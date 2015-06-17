@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE set [
+	  <!ELEMENT set (pdf*)>
+	  <!ATTLIST set   scale CDATA #REQUIRED
+		    name  CDATA #REQUIRED >
+	  
+	  <!ELEMENT pdf (parameter*) >
+	  <!ATTLIST pdf  
+		    name  CDATA  #REQUIRED
+		    pid   ID     #IMPLIED
+		    src   IDREF  #IMPLIED
+		    dfav  IDREF  #IMPLIED
+		    fav   IDREF  #IMPLIED
+		    >
+	  
+	  <!ELEMENT parameter EMPTY >
+	  <!ATTLIST parameter 
+		    index  CDATA        #REQUIRED
+		    name   CDATA        #IMPLIED
+		    value  CDATA        #REQUIRED
+		    error  CDATA        #IMPLIED
+		    state  (fixed|free) #REQUIRED
+		    upper  CDATA        #IMPLIED
+		    lower  CDATA        #IMPLIED
+		    >
+	  
+	  ]>		      
+
+<set scale="0.26" name="Fragmentation">
+  
+  <pdf name="gluon" dfav="FAVOR" fav="DISFAVOR" >
+    <parameter index="0" name="eta" value="0.311" error="0" state="fixed" />
+    <parameter index="1" name="a"   value="5.271" error="0.1" state="free" lower="-2" />
+    <parameter index="2" name="b"   value="8.235" error="0.1" state="free" />
+    <parameter index="3" name="c"   value="0"     error="0" state="fixed" />
+  </pdf>
+
+  <pdf name="u" pid="FAVOR">
+    <parameter index="0" name="eta" value="0.377"  error="0.1" state="free" upper="1" lower="0" />
+    <parameter index="1" name="a"   value="-0.923" error="0.1" state="free" lower="-2" />
+    <parameter index="2" name="b"   value="0.976"  error="0.1" state="free" />
+    <parameter index="3" name="c"   value="0"      error="0" state="fixed" />
+  </pdf>
+
+  <pdf name="d-bar" src="FAVOR" ></pdf>
+  
+  <pdf name="d"     pid="DISFAVOR" dfav="FAVOR" ></pdf>
+  <pdf name="u-bar" src="DISFAVOR" ></pdf>
+
+  <pdf name="s"     src="DISFAVOR" ></pdf>
+  <pdf name="s-bar" src="DISFAVOR" ></pdf>
+  
+  <pdf name="c" pid="CHARM" >
+    <parameter index="0" name="eta" value="0.241"  error="0.1" state="free" upper="1.0" lower="0.0" />
+    <parameter index="1" name="a"   value="-0.818" error="0.1" state="free" lower="-2.0" />
+    <parameter index="2" name="b"   value="3.461"  error="0.1" state="free" />
+    <parameter index="3" name="c"   value="0.0"    error="0.0" state="fixed" />
+  </pdf>
+  
+  <pdf name="b" pid="BOTTOM" >
+    <parameter index="0" name="eta" value="0.264"  error="0.1" state="free" upper="1.0" lower="0.0" />
+    <parameter index="1" name="a"   value="-1.072" error="0.1" state="free" lower="-2.0" />
+    <parameter index="2" name="b"   value="6.695"  error="0.1" state="free" />
+    <parameter index="3" name="c"   value="0.0"    error="0.0" state="fixed" />
+  </pdf>
+  
+  <pdf name="c-bar" src="CHARM"    ></pdf>
+  <pdf name="b-bar" src="BOTTOM"   ></pdf>
+  
+</set>

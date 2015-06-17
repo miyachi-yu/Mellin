@@ -1,0 +1,395 @@
+<html>
+<link href="mellin.css" rel="stylesheet" type="text/css">
+<style>
+<!--
+#LIB{
+  font-weight: bold;
+  color:       blue;
+}
+-->
+</style>
+<body>
+
+<div id="navigator"><a href="index.html">HOME</a></div>
+
+<h1>新規ライブラリの作り方</h1>
+<h2>ディレクトリの作成</h2>
+
+適当な名前でディレクトリを作成してください。
+一応作られるライブラリと同じ名前にするようにしています。
+ここでは<tt id="LIB">TestLib</tt>という名前にしておきます。
+<pre id="command">
+$ mkdir -p @abs_top_srcdir@/<tt id="LIB">TestLib</tt>
+</pre>
+
+<h2><tt>Makefile.am</tt>の作成</h2>
+
+<tt>automake</tt>で<tt>Makefile</tt>を自動的に作成するために、
+<tt>Makefile.am</tt>ファイルを作ります。
+
+<h3>新規ライブラリの作成ルール</h3>
+作成したいライブラリを<tt>lib_LTLIBRARIES</tt>に設定します。
+複数列記する事も可能です。
+ライブラリ毎の作成ルールを以下の変数を使い記述します。
+<ul>
+ <li> <tt><span style="color:red;">ライブラリ</span>_SOURCES</tt>:
+      ライブラリに作成必要なソースファイル
+      </li>
+ <li> <tt><span style="color:red;">ライブラリ</span>_CPPFLAGS</tt>:
+      上記ファイルコンパイルに必要なオプション
+      </li>
+</ul>
+
+<h3>実行ファイルの作成ルール</h3>
+
+テスト用プログラムの場合は
+<tt>noinst_PROGRAMS</tt>に、
+公開用ディレクトリにインストールするプログラムの場合は
+<tt>bin_PROGRAMS</tt>にプログラム名を列記します。
+プログラム毎の作成ルールを以下の変数を使い記述します。
+<ul>
+ <li> <tt><span style="color:red;">プログラム</span>_SOURCES</tt>:
+      ライブラリに作成必要なソースファイル
+      </li>
+ <li> <tt><span style="color:red;">プログラム</span>_CPPFLAGS</tt>:
+      上記ファイルコンパイルに必要なオプション
+      </li>
+ <li> <tt><span style="color:red;">プログラム</span>_LDFLAGS</tt>:
+      実行ファイルリンク時に必要なリンカオプション。
+      <tt>`root-config --libs`</tt>はこちらに加えておく。
+      </li>
+ <li> <tt><span style="color:red;">プログラム</span>_LDADD</tt>:
+      実行ファイルリンクに必要なライブラリ等
+      </li>
+</ul>
+
+<h3>共通のコンパイルオプション</h3>
+
+ライブラリ、実行ファイルのコンパイルに共通なオプションは
+<tt>AM_CPPFLAGS</tt>変数に列記します。
+
+<h3>Makefile.amサンプル</h3>
+
+例えば
+<tt>libTestLib.so</tt>というライブラリを
+<tt>LibObjA.cc</tt>、<tt>LibObjB.cc</tt>からつくる事にします。
+ライブラリのテストに<tt>testlib.cc</tt>から<tt>testlib</tt>という
+実行ファイルを作ります。
+公開用には<tt>lib_pub.cc</tt>から<tt>lib_pub</tt>を作ります。
+
+
+ソースファイルのコンパイルにはROOTを利用する事にします。
+<tt>`root-config --cflags`</tt>をコンパイルオプションに
+指定します。
+
+
+また既に作成した<tt>../Utility/libUtility.la</tt>ライブラリも
+実行ファイルリンクに利用する事にします。
+
+
+<pre id="file">
+
+AM_CPPFLAGS = `root-conf --cflags` <span style="color:red;">ROOTライブラリ用</span>
+
+lib_LTLIBRARIES = <span style="color:red;">libTestLib.la</span>
+<span style="color:red;">libTestLib_la</span>_SOURCES = LibObjA.cc LibObjB.cc
+
+noinst_PROGRAMS = testlib <span style="color:red;">テスト用プログラム</span>
+bin_PROGRAMS    = lib_pub <span style="color:red;">公開用プログラム</span>
+
+testlib_SOURCES = testlib.cc
+testlib_LDFLAGS = `root-config --libs`
+testlib_LDADD   = <span style="color:red;">libTestLib.la</span> ../Utility/libUtility.la
+
+lib_pub_SOURCES = lib_pub.cc
+lib_pub_LDFLAGS = `root-config --libs`
+lib_pub_LDADD   = <span style="color:red;">libTestLib.la</span> ../Utility/libUtility.la
+
+</pre>
+
+<h3>その他</h3>
+
+Makefileをつくる流れは
+<tt>Makefile.am</tt>→<tt>Makefile.in</tt>→<tt>Makefile</tt>
+となっています。
+<tt>Malefile.am</tt>の<tt>make</tt>ルールを直接書く事もできます。
+例えばROOTのオブジェクトディクショナリを作るためには、
+専用のC++コードを<tt>rootcint</tt>で作成する必要があります。
+<tt>browser/Makefile.am</tt>にあるように、そのルールを記述しておけば
+<tt>Makefile</tt>の中にそのまま残されます。
+<pre id="file">
+<span style="color:red;"># ----------------------------------------------------------------------- #
+#                   ROOT Object Dictionary Management                     #
+# ----------------------------------------------------------------------- #</span>
+ROOTOBJ_CC  = Browser.cc PdfPanel.cc VerView.cc
+ROOTOBJ_HH  = Browser.hh PdfPanel.hh VerView.hh
+ROOTLINKDEF = brRootLinkDef.hh
+ROOTDICT_CC = brRootObjDict.cc
+<span style="color:red;"># ----------------------------------------------------------------------- #
+#                   ROOT Object Dictionary Management                     #
+# ----------------------------------------------------------------------- #</span>
+$(ROOTDICT_CC) : $(ROOTOBJ_HH) $(ROOTLINKDEF)
+	@ROOTCINT@ -f $@ -c $(ROOTOBJ_HH) $(ROOTLINKDEF)
+</pre>
+
+
+<p>
+その半面、<tt>gnu make</tt>の機能である<tt>$(patsubst ...)</tt>
+等を<tt>Makefile.am</tt>中にいれておくと<tt>automake</tt>時に警告
+が出ます。無視してもよいかもしれませんが。。。。
+
+
+<!--
+<h2><tt>Makefile.in</tt>の作成</h2>
+
+<tt>Makefile.in</tt>を作ります。他のライブラリを参考にするのが
+よいですが、一応ここにテンプレートを載せておきます。
+<pre id="file">
+<div id="comment"># $Id: howto_library.html,v 1.5 2008/09/24 05:45:29 miyachi Exp $
+# @configure_input@
+# 
+# Version:     $Revision: 1.5 $
+# Date:        $Date: 2008/09/24 05:45:29 $
+# Author:      $Author: miyachi $
+#
+###########################################################################
+#                            Library setting
+###########################################################################</div>
+<span id="comment">#--- Name of this library </span>
+LIBRARY   = <tt id="LIB">TestLib</tt>
+<span id="comment">#--- object files should be added in lib$(LIBRARY).so </span>
+LIB_OBJS  = 
+<span id="comment">#--- Abstract class which should be installed to include directory</span>
+INTERFACE  =
+<span id="comment">#--- install class headers into sub directory</span>
+<span id="comment">#USE_SUBINCDIR = yes</span>
+<div id="comment">###########################################################################
+#                              Executables
+###########################################################################</div>
+<span id="comment">#--- Name of executables to be build</span>
+TARGET        = <tt>main</tt>
+<span id="comment">#--- common objects required to build the above executables</span>
+OBJS          =
+<div id="comment">
+###########################################################################
+#    Other libraries used in the libraries and also in the executables
+#    in order to activate, just un-commented.
+###########################################################################
+# USE_QCD       =
+# USE_EVOLUTION =
+# USE_UTILITY   =
+# USE_TRANFORM  =
+###########################################################################
+#          External libraries used in the library and execytables
+###########################################################################
+#--- required option for the compilers
+# EXTRA_INC    +=
+#--- requried libraries to be linked 
+# EXTRA_LIB    +=
+###########################################################################
+#                             include common rules
+###########################################################################</div>
+include @abs_top_srcdir@/Rules.mk
+</pre>
+とりあえず<tt><a href="Makefile.in">Makefile.in</a></tt>にコピーしてください。
+中の変数を適宜設定していきます。
+<ul>
+ <li> <tt>LIBRARY</tt>: 
+      ライブラリの名前。
+      <tt>lib$(LIBRARY).so</tt>というライブラリファイルが
+      最終的に作られます。
+      </li>
+ <li> <tt>LIB_OBJS</tt>:
+      ライブラリに追加するべきオブジェクトファイルの一覧
+      </li>
+ <li> <tt>INTERFACE</tt>:
+      ヘッダファイルのみのクラス。
+      ライブラリ利用のために必要であればここに列記すると、
+      <tt>@abs_top_srcdir@/include</tt>にインストールされる。
+      </li>
+ <li> <tt>USE_SUBINCDIR</tt>: ヘッダファイルをサブディレクトリ
+      <tt>$(INC_DIR)/$(LIBRARY)</tt>の下にインストールします。
+      </li>
+ <li> <tt>TARGET</tt>:
+      生成する実行ファイル一覧。
+      クラスのテストプログラム等を列記する。
+      </li>
+ <li> <tt>OBJS</tt>:
+      ライブラリには含めないが、<tt>$(TARGET)</tt>生成に必要となる
+      共通オブジェクトを列記する。
+      実行ファイル毎に異なる依存性がある場合は、
+      <tt>Makefile.in</tt>の最後の<tt>include</tt>の下に
+      依存性を追記する。
+      </li>
+ <li> <tt>USE_*</tt>: 
+      <tt>QCD/Mellin</tt>に含まれる、他のライブラリを使用する場合は
+      <tt>USE_[ライブラリ名]=yes</tt>と変数を設定する。
+      </li>
+ <li> <tt>EXTRA_INC</tt>:
+      外部ライブラリを利用する場合、
+      コンパイラオプションにインクルードディレクトリを追加する必要があれ
+      ば変数<tt>EXTRA_INC</tt>を設定する。
+      この内容は<tt>CPPFLAGS</tt>に追記される。
+      </li>
+ <li> <tt>EXTRA_LIB</tt>:
+      外部ライブラリを必要とする場合、この変数にリンカに渡すオプションを
+      設定しておく。
+      </li>
+
+</ul>
+-->
+<h2><tt>@abs_top_srcdir@/configure.ac</tt>の編集</h2>
+<tt>./configure</tt>時に<tt>Makefile</tt>が生成されるように
+<tt>configure.ac</tt>ファイルを編集します。
+<pre id="file">
+AC_CONFIG_FILES([Makefile
+                 Rules.mk
+                 Libs.mk
+                 setup.sh
+                 Doxyfile
+                 Tranform/Makefile
+                 Evolution/Makefile
+                 QCD/Makefile
+		 <tt id="LIB">TestLib</tt>/Makefile  <span style="color:blue;">←　追加します。</span>
+                 doc/header.html
+                 doc/mellin.css
+                 Utility/Makefile
+                 example/Makefile])
+</pre>
+追加後、<tt>Makefile</tt>が生成されるか試してみましょう。
+<pre id="command">
+$ cd @abs_top_srcdir@
+$ automake
+$ autoconf
+$ ./configure
+</pre>
+
+<h2>ソースファイルの準備</h2>
+
+<p>
+<tt>LibObjA.hh</tt>
+<pre id="file">
+<span id="comment">// $Id: howto_library.html,v 1.5 2008/09/24 05:45:29 miyachi Exp $
+/*!
+  \file   <tt>LibObjA</tt>.hh
+  \version $Version:$
+  \author  $Author: miyachi $
+  \brief   簡単な説明をここに書く
+
+　詳しい説明はここに書く
+
+*/</span>
+<span id="cpp">#ifndef _TestLib_LibObjA_hh_</span>
+<span id="cpp">#define _TestLib_LibObjA_hh_</span>
+
+namepsace TestLib { <span id="comment">// ライブラリ中のファイルはTestLib namespaceにすべて入れる事にする。</span>
+  <span id="comment">
+  /*!
+    \class  <tt>LibObjA</tt>  <tt>LibObjA</tt>.hh   "<tt>LibObjA</tt>.hh"
+    \brief   簡単な説明をここに書く
+  
+  　詳しい説明はここに書く
+  
+  */</span>
+  class <tt>LibObjA</tt> {
+  public:
+    LibObjA();           <span id="comment">//!&lt; a default constructor</span>
+    virtual ~LibObjA();  <span id="comment">//!&lt; a destructor</span>
+  private:
+  };
+}
+<span id="cpp">#endif </span>
+</pre>
+</p>
+
+
+<p>
+<tt>LibObjA.cc</tt>
+<pre id="file">
+<span id="comment">// $Id: howto_library.html,v 1.5 2008/09/24 05:45:29 miyachi Exp $
+/*!
+  \file   <tt>LibObjA</tt>.cc
+  \version $Version:$
+  \author  $Author: miyachi $
+  \brief   簡単な説明をここに書く
+
+　詳しい説明はここに書く
+
+*/</span>
+<span id="cpp">#include "<tt>LibObjA</tt>.hh"</span>
+
+using namespace TestLib; <span id="comment">// namespace 宣言</span>
+
+LibObjA::LibObjA() {
+}
+
+LibObjA::~LibObjA() {
+}
+</pre>
+</p>
+
+
+<p>
+<tt>testlib.cc</tt>
+<pre id="file">
+<span id="comment">/*!
+  \file    testLib.cc
+  \version $Version:$
+  \author  $Author: miyachi $
+  \brief   簡単な説明をここに書く
+
+　詳しい説明はここに書く
+
+*/</span>
+<span id="cpp">#include &lt;Utility/Arguments.hh&gt;</span>
+<span id="cpp">#include "LibObjA.hh"</span>
+int main( int argc, char* argv[] ){
+  <span id="comment">// Argument object 初期化</span>
+  Utility::Arguments& args = Utility::Arguments::ref( argc, argv );
+  <span id="comment">// LibObjA object 作成</span>
+  TestLib::LibObjA obj();
+};
+</pre>
+</p>
+<!--
+<h3><tt>Makefile.in</tt>の編集</h3>
+<tt>TARGET</tt>変数にはすでに<tt>main</tt>が設定されているので、
+あとは<tt>LibObjA</tt>をライブラリにふくめるように設定します。
+<tt>Makefile.in</tt>を
+<pre id="file">
+LIB_OBJS = <tt>LibObjA</tt>.o
+</pre>
+と編集します。<tt>Makefile.in</tt>が編集されると
+自動的に<tt>Makefile</tt>も更新されるので、
+<pre id="command">
+$ make
+</pre>
+してください。オブジェクトファイル<tt>LibObjA.o</tt>がコンパイルされ、
+ライブラリ<tt>lib<tt id="LIB">TestLib</tt>.so</tt>が作られます。
+ライブラリとヘッダファイルは
+<tt>@abs_top_srcdir@/lib</tt>と<tt>@abs_top_srcdir@/include</tt>
+にそれぞれインストールされます。
+その後<tt>main</tt>が作成されます。
+
+<h2>他から<tt>lib<tt id="LIB">TestLib</tt>.so</tt>を使えるように設定する</h2>
+
+<tt>Makefile.in</tt>の中にあった<tt>USE_ライブラリ名</tt>変数を
+定義すると、他からもこのライブラリを使えるように設定します。
+<tt>@abs_top_srcdir@/Libs.mk.in</tt>を編集します。
+もし他のライブラリを使用しているのであれば、
+<tt>@abs_top_srcdir@/Libs.mk.in</tt>の該当するライブラリよりも
+前に設定を追加します。
+<pre id="file">
+ifneq "$(strip $(USE_TESTLIB))" ""
+<span id="comment">#USE_UTILITY    = yes</span>
+<span id="comment">#USE_TRANFORM   = yes</span>
+LIB_DEPEND    += <tt id="LIB">TestLib</tt> <span style="color:blue;">←ここに追加する</span>
+endif
+</pre>
+例えば<tt>USE_UTILITY</tt>を<tt>Makefile.in</tt>で有効化している
+場合は、<tt>Libs.mk.in</tt>の中でも有効にします。有効化する場合、
+上記は<tt>USE_UTILITY</tt>の部分よりも前に書いてください。
+-->
+
+</body>
+</html>

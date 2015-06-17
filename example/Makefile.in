@@ -1,0 +1,53 @@
+# $Id: Makefile.in,v 1.14 2008/07/17 03:41:10 miyachi Exp $
+#
+#  Example routines for Mellin package
+#
+CFORTRAN   = @CFORTRAN@
+ROOTCONF   = @ROOTCONF@
+
+TARGET_F77 = mcgama
+
+TARGET      = mellin MellinInverse polygamma testPdfBase 
+TARGET     += testPolDis testdb 
+
+USE_QCD           = yes
+USE_EVOLUTION     = yes
+USE_UTILITY       = yes
+USE_TRANFORM      = yes
+USE_POLDIS        = yes
+USE_UNPOLDIS      = yes
+USE_FRAGMENTATION = yes
+USE_FRAGXSEC_T    = yes
+
+########################################################################
+#                if there cfortran is installed ........
+########################################################################
+ifneq "$(strip $(CFORTRAN))" ""
+TARGET    += testCGamma
+EXTRA_INC += -I$(CFORTRAN) -Df2cFortran
+endif
+
+ifneq "$(strip $(ROOTCONF))" ""
+TARGET    += browser integPath
+EXTRA_INC += `@ROOTCONF@ --cflags`
+endif
+
+include @abs_top_srcdir@/Rules.mk
+
+mellin: Fa.o
+
+ifneq "$(strip $(CFORTRAN))" ""
+testCGamma : cgamma.o cgama.o
+endif
+
+ifneq "$(strip $(ROOTCONF))" ""
+browser : browser.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS)  `@ROOTCONF@ --glibs` $(LDLIBS) browser.cc -o browser
+
+integPath : integPath.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS)  `@ROOTCONF@ --glibs` $(LDLIBS) integPath.cc -o integPath
+
+endif
+
+
+

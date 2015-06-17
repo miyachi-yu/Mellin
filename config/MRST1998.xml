@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE set [
+	  <!ELEMENT set (pdf*)>
+	  <!ATTLIST set
+		    scale CDATA #REQUIRED
+		    name  CDATA #REQUIRED >
+	  <!ELEMENT pdf (parameter*) >
+	  <!ATTLIST pdf
+		    name CDATA #REQUIRED
+		    pid  ID    #IMPLIED
+		    src  IDREF #IMPLIED
+		    dfav IDREF #IMPLIED
+		    >
+	  <!ELEMENT parameter (ems*) >
+	  <!ATTLIST parameter
+		    index  CDATA #REQUIRED
+		    name   CDATA #IMPLIED
+		    value  CDATA #REQUIRED
+		    error  CDATA #IMPLIED
+		    state  (fixed|free) #REQUIRED
+		    upper  CDATA #IMPLIED
+		    lower  CDATA #IMPLIED
+		    emid   CDATA #IMPLIED
+		    >
+	  <!ELEMENT ems EMPTY >
+	  <!ATTLIST ems
+		    emid   CDATA  #REQUIRED
+		    value  CDATA  #REQUIRED
+		    >
+	  ]>
+
+<!--
+    MRST98 parameterization:  hep-ph/9803445v2
+-->
+<set scale="1" name="MRST1998">
+  
+  <pdf name="gluon">
+    <parameter index="0" name="Ag"  value="64.57"  error="0.0" state="fixed"></parameter>
+    <parameter index="1" name="mlg" value="0.9171" error="0.0" state="fixed"></parameter>
+    <parameter index="2" name="etg" value="6.587"  error="0.0" state="fixed"></parameter>
+    <parameter index="3" name="eg"  value="-3.168" error="0.0" state="fixed"></parameter>
+    <parameter index="4" name="gg"  value="3.251"  error="0.0" state="fixed"></parameter>
+  </pdf>
+  
+  <pdf name="uv">
+    <parameter index="0" name="Au"  value="0.6051" error="0.0" state="fixed"></parameter>
+    <parameter index="1" name="et1" value="0.4089" error="0.0" state="fixed"></parameter>
+    <parameter index="2" name="et2" value="3.395"  error="0.0" state="fixed"></parameter>
+    <parameter index="3" name="eu"  value="2.078"  error="0.0" state="fixed"></parameter>
+    <parameter index="4" name="gu"  value="14.56"  error="0.0" state="fixed"></parameter>
+  </pdf>
+  
+  <pdf name="dv">
+    <parameter index="0" name="Ad"  value="0.05811" error="0.0" state="fixed"></parameter>
+    <parameter index="1" name="et3" value="0.2882"  error="0.0" state="fixed"></parameter>
+    <parameter index="2" name="et4" value="3.874"   error="0.0" state="fixed"></parameter>
+    <parameter index="3" name="ed"  value="34.69"   error="0.0" state="fixed"></parameter>
+    <parameter index="4" name="gd"  value="28.96"   error="0.0" state="fixed"></parameter>
+  </pdf>
+  
+  <pdf name="SEA" pid="SEA" >
+    <parameter index="0" name="As"  value="0.2004"  error="0.0" state="fixed"></parameter>
+    <parameter index="1" name="mls" value="-0.2712" error="0.0" state="fixed"></parameter>
+    <parameter index="2" name="ets" value="7.808"   error="0.0" state="fixed"></parameter>
+    <parameter index="3" name="es"  value="2.283"   error="0.0" state="fixed"></parameter>
+    <parameter index="4" name="gs"  value="20.69"   error="0.0" state="fixed"></parameter>
+  </pdf>
+  
+  <pdf name="DELTA" src="SEA" >
+    <parameter index="0" name="AD"  value="1.290"  error="0.0" state="fixed"></parameter>
+    <parameter index="1" name="etD" value="1.183"  error="0.0" state="fixed"></parameter>
+    <parameter index="3" name="gD"  value="9.987"  error="0.0" state="fixed"></parameter>
+    <parameter index="4" name="dD"  value="-33.34" error="0.0" state="fixed"></parameter>
+  </pdf>
+
+</set>

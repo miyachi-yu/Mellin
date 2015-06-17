@@ -1,0 +1,15 @@
+Makefile.in
+Makefile
+main
+testF1
+*.d
+*~
+*.o
+*.dat*
+*.o*
+*.e*
+*.lo
+*.la
+.deps
+.libs
+*.txt

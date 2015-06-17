@@ -1,0 +1,197 @@
+<html>
+<head>
+<link href="mellin.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="navigator"><a href="index.html">HOME</a></div>
+
+<h1> FF、PDFパラメータ設定ファイル </h1>
+
+Fragmentation Function (FF) や 
+Parton Distribution Function (PDF)
+の初期パラメーターは設定ファイルで管理します。
+プログラムへの入力に使われると同時に、
+フィットの結果も同じフォーマットで出力されるように
+なっています。
+
+<h2>現在出来る事</h2>
+
+<ul>
+ <li> 一般的に使われる関数型：<br>
+      PDF用には
+      
+      <div id="equation">
+      x f(x) = &eta; x<sup>&alpha;</sup> ( 1 - x )<sup>&beta;</sup> 
+      ( 1.0 - c x + d x<sup>1/2</sup>) 
+      /
+      &int;<sub>0</sub><sup>1</sup> dx' f(x')
+      </div>
+      <tt id="formula">&eta;</tt>が１次モーメントになります。
+      <br>
+      FF用には
+      <div id="equation">
+      D(z) = &eta; z<sup>&alpha;</sup> ( 1 - z )<sup>&beta;</sup> 
+      ( 1.0 - c z + d z<sup>1/2</sup>) 
+      / 
+      &int;<sub>0</sub><sup>1</sup> dz' z' D(z')
+      </div>
+      <tt id="formula">&eta;</tt>が２次モーメントになります。
+      
+      </li>
+      
+ <li> クォークフレーバー毎、又は SU(3)コンビネーション毎の設定：<br>
+      クォークフレーバー( u, d, s, c, b とその反クォーク）、
+      もしくは
+      <div id="equation">
+      a<sub>0</sub> = u + d + s <br>
+      a<sub>3</sub> = u - d <br>
+      a<sub>8</sub> = u + d -2 s <br>
+      </div>
+      での組み合わせ（anti-quarkも含まれる）、のどちらかで
+      パラメータを設定できます。
+      </li>
+      
+ <li> いつのパラメータ設定を複数のフレーバーで共有：<br>
+      例：
+      seq quark用の設定を u-bar, d-bar, s, s-barで共有する
+      事ができます。
+      </li>
+      
+ <li> 参照元のパラメーターを、新たに設定するパラメータで
+      上書きできます。<br>
+      例：
+      seq quark用のパラメーターを設定し、u-bar、d-barで
+      共有したが、d-barのu-barの１stモーメントのみを
+      新たに設定することができます。
+      </li>
+
+ <li> 参照元のパラメーターに新たに設定するパラメータを加えること
+      ができます。<br>
+      例：
+      sea quarkを <span id="equation">x<sup>a=1.0</sup></span>と
+      設定しているとき、u-barは<span id="equation">a = a<sub>sea</sub> +
+      1.0 </span>のように、seaで設定されている値を任意に加減する
+      ことができます。
+      </li>
+
+ <li> favored、dis-favored fragmentation function の相互関係：
+      <div id="equation">
+      D<sub>dis</sub> = ( 1 - z ) D<sub>fav</sub>
+      </div>
+      の関係を利用できます。
+      </li>
+
+</ul>
+
+<h2> 出来ない事・出きるようにしたいこと　</h2>
+<ul>
+
+ <li> パラメータ間の関係・制限：</br>
+      例えば 
+      <div id="equation"> 
+      &eta;<sub>u</sub> - &eta;<sub>d</sub> = 1.206
+      </div>
+      というような制限を与える事ができません。
+      パラメーターをフィットによって決定するような場合、
+      それぞれのパラメーターは独自に動いてしまいます。
+      </li>
+      
+</ul>
+
+<h2>タグ一覧 </h2>
+
+<dl>
+ <dt><tt id="tag">set</tt></dt>
+ <dd>
+      ATTLIBUTEリスト
+      <ul>
+       <li> <tt id="tag" style="color:red;">scale</tt>: 
+	    </li>
+       <li> <tt id="tag" style="color:red;">name</tt>:
+	    </li>
+      </ul>
+      
+      含むことのできるタグ一覧： <tt id="tag">pdf</tt>*
+      
+      </dd>
+      
+ <dt><tt id="tag">pdf</tt></dt>
+ <dd>
+      ATTLIBUTEリスト
+      <ul>
+       <li> <tt id="tag" style="color:red;">name</tt>: 
+	    </li>
+       <li> <tt id="tag">pid</tt>:
+	    </li>
+       <li> <tt id="tag">src</tt>:
+	    </li>
+       <li> <tt id="tag">dfav</tt>:
+	    </li>
+      </ul>
+      
+      含むことのできるタグ一覧： <tt id="tag">parameter</tt>*
+
+      </dd>
+
+ <dt><tt id="tag">parameter</tt></dt>
+ <dd>
+      ATTLIBUTEリスト
+      <ul>
+       <li> <tt id="tag" style="color:red;">index</tt>: 
+	    </li>
+       <li> <tt id="tag" style="color:red;">name</tt>:
+	    </li>
+       <li> <tt id="tag" style="color:red;">value</tt>:
+	    </li>
+       <li> <tt id="tag">error</tt>:
+	    </li>
+       <li> <tt id="tag" style="color:red;">state</tt>:
+	    </li>
+       <li> <tt id="tag">upper</tt>:
+	    </li>
+       <li> <tt id="tag">lower</tt>:
+	    </li>
+       <li> <tt id="tag">emid</tt>:
+	    エラー行列の対応するインデックスの値
+	    </li>
+      </ul>
+      
+      含むことのできるタグ一覧： <tt id="tag">ems</tt>*
+      
+      </dd>
+      
+ <dt> <tt id="tag">ems</tt> </dt>
+ <dd> 
+      エラー行列要素用<br>
+      ATTLIBUTEリスト
+      <ul>
+       <li> <tt id="tag" style="color:red;">emid</tt>:
+	    エラー行列のインデックス
+	    </li>
+       <li> <tt id="tag" style="color:red;">value</tt>
+	    対応するエラー行列要素の値
+	    </li>
+      </ul>
+      </dd>
+
+</dl>
+
+<h2>PDF・FF設定例</h2>
+
+<dl>
+ <dt> Fragmentation Function 設定例</dt>
+ <dd>
+      </dd>
+
+ <dt> polarized PDF 設定例 </dt>
+ <dd>
+      </dd>
+</dl>
+
+
+
+
+
+</body>
+</html>

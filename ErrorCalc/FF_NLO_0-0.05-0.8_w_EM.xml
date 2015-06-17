@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE set [
+<!ELEMENT set (pdf*)>
+<!ATTLIST set
+  scale CDATA #REQUIRED
+  name  CDATA #REQUIRED >
+<!ELEMENT pdf (parameter*) >
+<!ATTLIST pdf
+  name CDATA #REQUIRED
+  pid  ID    #IMPLIED
+  src  IDREF #IMPLIED
+  dfav IDREF #IMPLIED
+>
+<!ELEMENT parameter (ems*) >
+<!ATTLIST parameter
+  index  CDATA #REQUIRED
+  name   CDATA #IMPLIED
+  value  CDATA #REQUIRED
+  error  CDATA #IMPLIED
+  state  (fixed|free) #REQUIRED
+  upper  CDATA #IMPLIED
+  lower  CDATA #IMPLIED
+  emid   CDATA #IMPLIED
+>
+<!ELEMENT ems EMPTY >
+<!ATTLIST ems
+  emid   CDATA  #REQUIRED
+  value  CDATA  #REQUIRED
+>
+]>
+
+<set scale="1" name="Fragmentation">
+<pdf name="gluon">
+<parameter emid="0" index="0" name="eta" value="0.282502" error="0.0068309" state="free" upper="1" lower="0">
+<ems emid="0" value ="4.66648e-05"/>
+<ems emid="1" value ="-0.00063669"/>
+<ems emid="2" value ="-0.00616607"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="-0.000112523"/>
+<ems emid="5" value ="0.00112341"/>
+<ems emid="6" value ="0.000620315"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="-1.34192e-05"/>
+<ems emid="9" value ="0.00136152"/>
+<ems emid="10" value ="0.00196018"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+<parameter emid="1" index="1" name="a" value="11.3217" error="3.71235" state="free" upper="100" lower="-2">
+<ems emid="0" value ="-0.00063669"/>
+<ems emid="1" value ="13.8355"/>
+<ems emid="2" value ="42.6478"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="0.0416404"/>
+<ems emid="5" value ="-0.283795"/>
+<ems emid="6" value ="-0.21056"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="-0.0161139"/>
+<ems emid="9" value ="3.52154"/>
+<ems emid="10" value ="6.97857"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+<parameter emid="2" index="2" name="b" value="37.4019" error="11.5379" state="free" upper="100" lower="-100">
+<ems emid="0" value ="-0.00616607"/>
+<ems emid="1" value ="42.6478"/>
+<ems emid="2" value ="133.815"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="0.116254"/>
+<ems emid="5" value ="-0.630704"/>
+<ems emid="6" value ="-0.470963"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="-0.0346039"/>
+<ems emid="9" value ="10.5945"/>
+<ems emid="10" value ="22.0159"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+<parameter emid="3" index="3" name="c" value="0" error="0" state="fixed" upper="100" lower="-100">
+<ems emid="0" value ="0"/>
+<ems emid="1" value ="0"/>
+<ems emid="2" value ="0"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="0"/>
+<ems emid="5" value ="0"/>
+<ems emid="6" value ="0"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="0"/>
+<ems emid="9" value ="0"/>
+<ems emid="10" value ="0"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+</pdf>
+<pdf name="u" pid="P001">
+<parameter emid="4" index="0" name="eta" value="0.279005" error="0.0365318" state="free" upper="1" lower="0">
+<ems emid="0" value ="-0.000112523"/>
+<ems emid="1" value ="0.0416404"/>
+<ems emid="2" value ="0.116254"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="0.00133754"/>
+<ems emid="5" value ="-0.00774809"/>
+<ems emid="6" value ="-0.00215681"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="-0.00049416"/>
+<ems emid="9" value ="0.0208798"/>
+<ems emid="10" value ="0.0389578"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+<parameter emid="5" index="1" name="a" value="-0.266555" error="0.338873" state="free" upper="100" lower="-2">
+<ems emid="0" value ="0.00112341"/>
+<ems emid="1" value ="-0.283795"/>
+<ems emid="2" value ="-0.630704"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="-0.00774809"/>
+<ems emid="5" value ="0.114861"/>
+<ems emid="6" value ="0.0829733"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="0.0023986"/>
+<ems emid="9" value ="-0.0897856"/>
+<ems emid="10" value ="0.00388547"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+<parameter emid="6" index="2" name="b" value="1.52848" error="0.278626" state="free" upper="100" lower="-100">
+<ems emid="0" value ="0.000620315"/>
+<ems emid="1" value ="-0.21056"/>
+<ems emid="2" value ="-0.470963"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="-0.00215681"/>
+<ems emid="5" value ="0.0829733"/>
+<ems emid="6" value ="0.0776324"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="0.000294392"/>
+<ems emid="9" value ="-0.0334015"/>
+<ems emid="10" value ="0.0957735"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+<parameter emid="7" index="3" name="c" value="0" error="0" state="fixed" upper="100" lower="-100">
+<ems emid="0" value ="0"/>
+<ems emid="1" value ="0"/>
+<ems emid="2" value ="0"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="0"/>
+<ems emid="5" value ="0"/>
+<ems emid="6" value ="0"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="0"/>
+<ems emid="9" value ="0"/>
+<ems emid="10" value ="0"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+</pdf>
+<pdf name="d" pid="P002">
+<parameter emid="8" index="0" name="eta" value="0.0921456" error="0.016523" state="free" upper="1" lower="0">
+<ems emid="0" value ="-1.34192e-05"/>
+<ems emid="1" value ="-0.0161139"/>
+<ems emid="2" value ="-0.0346039"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="-0.00049416"/>
+<ems emid="5" value ="0.0023986"/>
+<ems emid="6" value ="0.000294392"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="0.000273307"/>
+<ems emid="9" value ="-0.0111043"/>
+<ems emid="10" value ="-0.0184898"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+<parameter emid="9" index="1" name="a" value="2.52261" error="1.11962" state="free" upper="100" lower="-2">
+<ems emid="0" value ="0.00136152"/>
+<ems emid="1" value ="3.52154"/>
+<ems emid="2" value ="10.5945"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="0.0208798"/>
+<ems emid="5" value ="-0.0897856"/>
+<ems emid="6" value ="-0.0334015"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="-0.0111043"/>
+<ems emid="9" value ="1.25474"/>
+<ems emid="10" value ="2.50567"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+<parameter emid="10" index="2" name="b" value="9.54479" error="2.37532" state="free" upper="100" lower="-100">
+<ems emid="0" value ="0.00196018"/>
+<ems emid="1" value ="6.97857"/>
+<ems emid="2" value ="22.0159"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="0.0389578"/>
+<ems emid="5" value ="0.00388547"/>
+<ems emid="6" value ="0.0957735"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="-0.0184898"/>
+<ems emid="9" value ="2.50567"/>
+<ems emid="10" value ="5.64322"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+<parameter emid="11" index="3" name="c" value="0" error="0" state="fixed" upper="100" lower="-100">
+<ems emid="0" value ="0"/>
+<ems emid="1" value ="0"/>
+<ems emid="2" value ="0"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="0"/>
+<ems emid="5" value ="0"/>
+<ems emid="6" value ="0"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="0"/>
+<ems emid="9" value ="0"/>
+<ems emid="10" value ="0"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+</pdf>
+<pdf name="s" src="P002"></pdf>
+<pdf name="c" pid="P003">
+<parameter emid="12" index="0" name="eta" value="0.1126" error="0" state="fixed" upper="1" lower="0">
+<ems emid="0" value ="0"/>
+<ems emid="1" value ="0"/>
+<ems emid="2" value ="0"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="0"/>
+<ems emid="5" value ="0"/>
+<ems emid="6" value ="0"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="0"/>
+<ems emid="9" value ="0"/>
+<ems emid="10" value ="0"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+<parameter emid="13" index="1" name="a" value="1.2669" error="0" state="fixed" upper="100" lower="-2">
+<ems emid="0" value ="0"/>
+<ems emid="1" value ="0"/>
+<ems emid="2" value ="0"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="0"/>
+<ems emid="5" value ="0"/>
+<ems emid="6" value ="0"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="0"/>
+<ems emid="9" value ="0"/>
+<ems emid="10" value ="0"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+<parameter emid="14" index="2" name="b" value="7.949" error="0" state="fixed" upper="100" lower="-100">
+<ems emid="0" value ="0"/>
+<ems emid="1" value ="0"/>
+<ems emid="2" value ="0"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="0"/>
+<ems emid="5" value ="0"/>
+<ems emid="6" value ="0"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="0"/>
+<ems emid="9" value ="0"/>
+<ems emid="10" value ="0"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+<parameter emid="15" index="3" name="c" value="0" error="0" state="fixed" upper="100" lower="-100">
+<ems emid="0" value ="0"/>
+<ems emid="1" value ="0"/>
+<ems emid="2" value ="0"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="0"/>
+<ems emid="5" value ="0"/>
+<ems emid="6" value ="0"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="0"/>
+<ems emid="9" value ="0"/>
+<ems emid="10" value ="0"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+</pdf>
+<pdf name="b" pid="P004">
+<parameter emid="16" index="0" name="eta" value="0.2208" error="0" state="fixed" upper="1" lower="0">
+<ems emid="0" value ="0"/>
+<ems emid="1" value ="0"/>
+<ems emid="2" value ="0"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="0"/>
+<ems emid="5" value ="0"/>
+<ems emid="6" value ="0"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="0"/>
+<ems emid="9" value ="0"/>
+<ems emid="10" value ="0"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+<parameter emid="17" index="1" name="a" value="-1.274" error="0" state="fixed" upper="100" lower="-2">
+<ems emid="0" value ="0"/>
+<ems emid="1" value ="0"/>
+<ems emid="2" value ="0"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="0"/>
+<ems emid="5" value ="0"/>
+<ems emid="6" value ="0"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="0"/>
+<ems emid="9" value ="0"/>
+<ems emid="10" value ="0"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+<parameter emid="18" index="2" name="b" value="5.2024" error="0" state="fixed" upper="100" lower="-100">
+<ems emid="0" value ="0"/>
+<ems emid="1" value ="0"/>
+<ems emid="2" value ="0"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="0"/>
+<ems emid="5" value ="0"/>
+<ems emid="6" value ="0"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="0"/>
+<ems emid="9" value ="0"/>
+<ems emid="10" value ="0"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+<parameter emid="19" index="3" name="c" value="0" error="0" state="fixed" upper="100" lower="-100">
+<ems emid="0" value ="0"/>
+<ems emid="1" value ="0"/>
+<ems emid="2" value ="0"/>
+<ems emid="3" value ="0"/>
+<ems emid="4" value ="0"/>
+<ems emid="5" value ="0"/>
+<ems emid="6" value ="0"/>
+<ems emid="7" value ="0"/>
+<ems emid="8" value ="0"/>
+<ems emid="9" value ="0"/>
+<ems emid="10" value ="0"/>
+<ems emid="11" value ="0"/>
+<ems emid="12" value ="0"/>
+<ems emid="13" value ="0"/>
+<ems emid="14" value ="0"/>
+<ems emid="15" value ="0"/>
+<ems emid="16" value ="0"/>
+<ems emid="17" value ="0"/>
+<ems emid="18" value ="0"/>
+<ems emid="19" value ="0"/>
+</parameter>
+</pdf>
+<pdf name="u-bar" src="P002"></pdf>
+<pdf name="d-bar" src="P001"></pdf>
+<pdf name="s-bar" src="P002"></pdf>
+<pdf name="c-bar" src="P003"></pdf>
+<pdf name="b-bar" src="P004"></pdf>
+</set>
+<!--    Fitting status [Fri Aug 15 15:09:03 2008]
+   original configuration file  [FF_NLO_0-0.05-0.8.xml]
+
+   elapsed time                 0: 0:18
+   number of iteration              142
+   total chi2                   176.662
+   number of data point             141
+   number of free param               9
+   d.o.f                            131
+   reduced chi2                 1.34856
+
+Mellin Inversion Integration Path:
+   starting point                     3
+   angle                           0.55
+   length                             8
+
+*******************  Fitting condition *********************
+  z minimum:      0.05
+  z maximum:       0.8
+
+********************  Data listing  ***********************
+      zmin      zmax        Q2       sigma      dsigma         fit id        chi2            Info
+    0.0059    0.0063   8317.44     559.532           7           0  0           0        ALEPH_PI
+    0.0063    0.0067   8317.44     524.499       5.537           0  0           0        ALEPH_PI
+    0.0067    0.0072   8317.44     553.239       5.203           0  0           0        ALEPH_PI
+    0.0072    0.0076   8317.44     561.649       4.913           0  0           0        ALEPH_PI
+    0.0076    0.0081   8317.44     551.389       4.624           0  0           0        ALEPH_PI
+    0.0081    0.0086   8317.44     579.251       4.792           0  0           0        ALEPH_PI
+    0.0086     0.009   8317.44     516.667        4.21           0  0           0        ALEPH_PI
+     0.009    0.0095   8317.44     529.589       4.199           0  0           0        ALEPH_PI
+    0.0095      0.01   8317.44     521.149       4.054           0  0           0        ALEPH_PI
+      0.01    0.0105   8317.44     496.853       3.811           0  0           0        ALEPH_PI
+    0.0105    0.0114   8317.44     480.238       2.656           0  0           0        ALEPH_PI
+    0.0114    0.0124   8317.44     440.532       2.436           0  0           0        ALEPH_PI
+    0.0124    0.0134   8317.44     433.222       2.404           0  0           0        ALEPH_PI
+    0.0134    0.0143   8317.44     390.228       2.293           0  0           0        ALEPH_PI
+    0.0143    0.0163   8317.44     368.312       1.649           0  0           0        ALEPH_PI
+    0.0163    0.0183   8317.44     329.259       2.317           0  0           0        ALEPH_PI
+    0.0451    0.0501   8317.44     104.178       2.182           0  0           0        ALEPH_PI
+    0.0501    0.0551   8317.44      90.104       1.151     90.8041  0    0.369971        ALEPH_PI
+    0.0551    0.0601   8317.44      79.073       1.031     78.8711  0   0.0383562        ALEPH_PI
+    0.0601    0.0651   8317.44      69.444       0.802     69.1437  0    0.140236        ALEPH_PI
+    0.0651    0.0701   8317.44      61.414       0.685      61.105  0    0.203498        ALEPH_PI
+    0.0701    0.0751   8317.44       55.32       0.586     54.3837  0     2.55275        ALEPH_PI
+    0.0751    0.0801   8317.44      49.949       0.533     48.7054  0     5.44352        ALEPH_PI
+    0.0801    0.0851   8317.44      44.361       0.478     43.8621  0     1.08945        ALEPH_PI
+    0.0851    0.0901   8317.44      40.265       0.434     39.6934  0     1.73464        ALEPH_PI
+    0.0901       0.1   8317.44      35.399        0.35     34.5218  0     6.28194        ALEPH_PI
+       0.1      0.11   8317.44      29.523       0.302     28.9276  0     3.88654        ALEPH_PI
+      0.11      0.12   8317.44      24.919       0.272     24.4743  0     2.67261        ALEPH_PI
+      0.12      0.13   8317.44      21.066       0.228     20.8732  0    0.714881        ALEPH_PI
+      0.13      0.14   8317.44      18.165       0.206     17.9134  0      1.4919        ALEPH_PI
+      0.14      0.15   8317.44      15.463       0.192     15.4515  0  0.00361393        ALEPH_PI
+      0.15      0.16   8317.44      13.643       0.177     13.3859  0     2.10936        ALEPH_PI
+      0.16      0.18   8317.44      11.002        0.13      10.902  0    0.591556        ALEPH_PI
+      0.18       0.2   8317.44       8.485       0.115     8.36246  0     1.13549        ALEPH_PI
+       0.2      0.25   8317.44       5.622       0.079     5.50773  0      2.0924        ALEPH_PI
+      0.25       0.3   8317.44       3.181       0.054     3.14766  0    0.381102        ALEPH_PI
+       0.3       0.4   8317.44       1.563       0.031      1.5474  0    0.253109        ALEPH_PI
+       0.4       0.6   8317.44        0.45       0.011    0.447128  0   0.0681897        ALEPH_PI
+       0.6       0.8   8317.44       0.077       0.003   0.0772112  0  0.00495614        ALEPH_PI
+    0.0157    0.0202   8317.44     319.786       11.21           0  0           0       DELPHI_PI
+    0.0202    0.0252   8317.44     252.922       4.877           0  0           0       DELPHI_PI
+    0.0252    0.0302   8317.44     205.843       4.571           0  0           0       DELPHI_PI
+    0.0302    0.0352   8317.44     168.924       2.806           0  0           0       DELPHI_PI
+    0.0352      0.04   8317.44     141.286       2.599           0  0           0       DELPHI_PI
+      0.04    0.0501   8317.44     110.887       2.258           0  0           0       DELPHI_PI
+    0.0501    0.0602   8317.44      83.989       2.096     84.7262  0    0.123692       DELPHI_PI
+    0.0602    0.0701   8317.44      65.875       1.314     65.0388  0    0.404979       DELPHI_PI
+    0.0701    0.0801   8317.44      52.562       1.232     51.5446  0    0.681986       DELPHI_PI
+    0.0801      0.09   8317.44      42.728       1.039     41.8175  0    0.767877       DELPHI_PI
+      0.09       0.1   8317.44      35.194       0.885     34.5549  0    0.521458       DELPHI_PI
+       0.1      0.12   8317.44      27.193       0.742      26.701  0    0.439702       DELPHI_PI
+      0.12    0.1399   8317.44      19.641       0.588     19.4072  0    0.158053       DELPHI_PI
+    0.1399    0.1599   8317.44      14.645       0.484     14.4394  0    0.180398       DELPHI_PI
+    0.1599      0.18   8317.44      11.238       0.398     10.9098  0    0.679855       DELPHI_PI
+      0.18       0.2   8317.44        8.56       0.337     8.36246  0    0.343609       DELPHI_PI
+       0.2     0.261   8317.44       5.445       0.212     5.20505  0     1.28105       DELPHI_PI
+     0.261    0.3004   8317.44       3.156       0.133     2.94977  0     2.40445       DELPHI_PI
+    0.3004    0.3991   8317.44       1.669       0.076     1.54942  0     2.47558       DELPHI_PI
+    0.3991       0.5   8317.44       0.679       0.037    0.631901  0     1.62037       DELPHI_PI
+       0.5    0.6009   8317.44       0.307       0.022    0.264313  0     3.76484       DELPHI_PI
+    0.6009    0.8004   8317.44       0.098       0.014           0  0           0       DELPHI_PI
+    0.8004         1   8317.44       0.014       0.005           0  0           0       DELPHI_PI
+    0.0059     0.006   8317.44     526.416      15.879           0  0           0         OPAL_PI
+     0.006    0.0063   8317.44     524.737      15.686           0  0           0         OPAL_PI
+    0.0063    0.0066   8317.44      538.21      16.494           0  0           0         OPAL_PI
+    0.0066    0.0068   8317.44     532.654      16.308           0  0           0         OPAL_PI
+    0.0068    0.0071   8317.44     529.409      16.147           0  0           0         OPAL_PI
+    0.0071    0.0074   8317.44     523.773      16.006           0  0           0         OPAL_PI
+    0.0074    0.0076   8317.44     526.209      15.779           0  0           0         OPAL_PI
+    0.0076     0.008   8317.44     528.471      15.653           0  0           0         OPAL_PI
+     0.008    0.0083   8317.44     518.363      15.544           0  0           0         OPAL_PI
+    0.0083    0.0087   8317.44     516.641      15.448           0  0           0         OPAL_PI
+    0.0087    0.0091   8317.44      508.22      15.341           0  0           0         OPAL_PI
+    0.0091    0.0095   8317.44     494.076      14.776           0  0           0         OPAL_PI
+    0.0095      0.01   8317.44     494.411        14.7           0  0           0         OPAL_PI
+      0.01    0.0104   8317.44     479.261      14.075           0  0           0         OPAL_PI
+    0.0104    0.0108   8317.44     468.316       14.02           0  0           0         OPAL_PI
+    0.0108    0.0114   8317.44     456.385      13.494           0  0           0         OPAL_PI
+    0.0114    0.0119   8317.44     447.158      13.444           0  0           0         OPAL_PI
+    0.0119    0.0125   8317.44     434.909      12.938           0  0           0         OPAL_PI
+    0.0125    0.0131   8317.44     425.148      12.438           0  0           0         OPAL_PI
+    0.0131    0.0137   8317.44     408.027       11.86           0  0           0         OPAL_PI
+    0.0137    0.0144   8317.44     392.478      11.829           0  0           0         OPAL_PI
+    0.0144    0.0151   8317.44     378.542      11.343           0  0           0         OPAL_PI
+    0.0151    0.0158   8317.44     366.171      10.862           0  0           0         OPAL_PI
+    0.0158    0.0166   8317.44     348.321      10.385           0  0           0         OPAL_PI
+    0.0166    0.0174   8317.44     336.607       9.835           0  0           0         OPAL_PI
+    0.0174    0.0183   8317.44     321.736       9.362           0  0           0         OPAL_PI
+    0.0183    0.0191   8317.44     303.252       9.429           0  0           0         OPAL_PI
+    0.0444    0.0466   8317.44     108.501       9.656           0  0           0         OPAL_PI
+    0.0466     0.049   8317.44     103.452       3.658           0  0           0         OPAL_PI
+     0.049    0.0514   8317.44      96.077       1.839           0  0           0         OPAL_PI
+    0.0514     0.054   8317.44      88.797       1.315     90.4513  0     1.58264         OPAL_PI
+    0.0569    0.0597   8317.44      76.349        1.17     77.3303  0    0.703462         OPAL_PI
+    0.0597    0.0628   8317.44      70.769       1.246     71.5391  0    0.382037         OPAL_PI
+    0.0628    0.0661   8317.44      64.826       1.069      65.959  0     1.12338         OPAL_PI
+    0.0661    0.0694   8317.44      60.619       0.941     60.8552  0   0.0630213         OPAL_PI
+    0.0694    0.0729   8317.44       55.73       0.857     56.1913  0    0.289746         OPAL_PI
+    0.0729    0.0766   8317.44      50.887       0.755     51.8099  0     1.49437         OPAL_PI
+    0.0766    0.0806   8317.44      47.232       0.755     47.6637  0    0.327013         OPAL_PI
+    0.0806    0.0847   8317.44      43.578       0.695     43.8081  0    0.109657         OPAL_PI
+    0.0847    0.0891   8317.44      40.107       0.612     40.2361  0   0.0444869         OPAL_PI
+    0.0891    0.1086   8317.44      32.164       0.432     32.3906  0    0.275251         OPAL_PI
+    0.1086    0.1327   8317.44      21.804       0.332     22.4946  0     4.32648         OPAL_PI
+    0.1327    0.1621   8317.44      14.549       0.233     15.0426  0     4.48805         OPAL_PI
+    0.1621    0.1978   8317.44       9.358       0.156     9.61125  0     2.63552         OPAL_PI
+    0.1978    0.2417   8317.44       5.683       0.115     5.84046  0     1.87478         OPAL_PI
+    0.2417    0.2952   8317.44        3.27       0.078     3.38175  0     2.05269         OPAL_PI
+    0.2952    0.3605   8317.44        1.76        0.06     1.86527  0     3.07836         OPAL_PI
+    0.3605    0.4404   8317.44       0.939       0.062    0.961719  0    0.134275         OPAL_PI
+    0.4404    0.6568   8317.44       0.264       0.019    0.299417  0     3.47472         OPAL_PI
+    0.6568         1   8317.44       0.027        0.01           0  0           0         OPAL_PI
+    0.0086    0.0105   8317.44     509.887       7.991           0  0           0          SLD_PI
+    0.0105    0.0124   8317.44     455.906       4.524           0  0           0          SLD_PI
+    0.0124    0.0143   8317.44     411.579       3.965           0  0           0          SLD_PI
+    0.0143    0.0163   8317.44     363.514       3.625           0  0           0          SLD_PI
+    0.0163    0.0222   8317.44     296.692       2.635           0  0           0          SLD_PI
+    0.0222    0.0272   8317.44     230.306       2.164           0  0           0          SLD_PI
+    0.0272    0.0331   8317.44     177.532       1.673           0  0           0          SLD_PI
+    0.0331    0.0381   8317.44     144.942       1.448           0  0           0          SLD_PI
+    0.0381    0.0441   8317.44     122.043       1.794           0  0           0          SLD_PI
+    0.0441    0.0491   8317.44     102.724       2.107           0  0           0          SLD_PI
+    0.0491    0.0551   8317.44      89.356       2.381           0  0           0          SLD_PI
+    0.0551    0.0601   8317.44      75.407       2.916     78.8711  0     1.41124          SLD_PI
+    0.0601    0.0661   8317.44      66.079       1.567     68.3008  0     2.01039          SLD_PI
+    0.0661    0.0711   8317.44      57.868       1.009     59.6653  0     3.17285          SLD_PI
+    0.0711    0.0771   8317.44      51.674       0.821      52.599  0     1.26953          SLD_PI
+    0.0771    0.0821   8317.44      45.984        0.75     46.6778  0    0.855672          SLD_PI
+    0.0821    0.0881   8317.44      41.377       0.693      41.713  0    0.235106          SLD_PI
+    0.0881     0.099   8317.44      35.259       0.528     35.5088  0    0.223919          SLD_PI
+     0.099      0.11   8317.44      28.132       0.455     29.1881  0     5.38751          SLD_PI
+      0.11     0.121   8317.44      23.578       0.404     24.2834  0     3.04869          SLD_PI
+     0.121     0.143   8317.44      18.325       0.294     18.8288  0     2.93675          SLD_PI
+     0.143     0.164   8317.44      13.223       0.236     13.7206  0     4.44587          SLD_PI
+     0.164     0.186   8317.44       9.842       0.186     10.1971  0     3.64473          SLD_PI
+     0.186     0.208   8317.44       7.471       0.142     7.65078  0     1.60293          SLD_PI
+     0.208      0.23   8317.44       5.712       0.115     5.83207  0     1.09011          SLD_PI
+      0.23     0.252   8317.44       4.414       0.097     4.51171  0     1.01466          SLD_PI
+     0.252     0.274   8317.44       3.612       0.099     3.53704  0    0.573338          SLD_PI
+     0.274     0.296   8317.44       2.886       0.086     2.80534  0    0.879628          SLD_PI
+     0.296     0.318   8317.44       2.206       0.073     2.24702  0    0.315762          SLD_PI
+     0.318     0.351   8317.44       1.739       0.059     1.72639  0   0.0456552          SLD_PI
+     0.351     0.384   8317.44        1.35       0.054     1.26996  0      2.1972          SLD_PI
+     0.384     0.417   8317.44       0.874       0.045     0.94346  0     2.38257          SLD_PI
+     0.417      0.45   8317.44        0.67       0.041    0.705536  0    0.751206          SLD_PI
+      0.45     0.482   8317.44        0.52       0.036    0.531955  0    0.110282          SLD_PI
+     0.482     0.526   8317.44       0.355       0.029    0.384518  0     1.03602          SLD_PI
+     0.526      0.57   8317.44       0.248       0.024    0.263311  0    0.406991          SLD_PI
+      0.57     0.658   8317.44       0.146       0.017    0.151028  0   0.0874594          SLD_PI
+     0.658     0.768   8317.44       0.071       0.011   0.0627148  0    0.567311          SLD_PI
+    0.0086    0.0105   8317.44     521.199      39.116           0  1           0          SLD_PI
+    0.0105    0.0124   8317.44     428.904      35.309           0  1           0          SLD_PI
+    0.0124    0.0143   8317.44     414.148       30.83           0  1           0          SLD_PI
+    0.0143    0.0163   8317.44     382.807      27.562           0  1           0          SLD_PI
+    0.0163    0.0222   8317.44     305.001      19.253           0  1           0          SLD_PI
+    0.0222    0.0272   8317.44     231.817      15.119           0  1           0          SLD_PI
+    0.0272    0.0331   8317.44     178.939      13.069           0  1           0          SLD_PI
+    0.0331    0.0381   8317.44     141.529      11.041           0  1           0          SLD_PI
+    0.0381    0.0441   8317.44     111.312      10.028           0  1           0          SLD_PI
+    0.0441    0.0491   8317.44       96.21      10.022           0  1           0          SLD_PI
+    0.0491    0.0551   8317.44       86.15      10.017           0  1           0          SLD_PI
+    0.0551    0.0661   8317.44      65.885       5.908     62.0006  1    0.432289          SLD_PI
+    0.0661    0.0771   8317.44      48.845       4.804      47.985  1   0.0320458          SLD_PI
+    0.0771    0.0881   8317.44       43.43       4.003     38.3683  1      1.5989          SLD_PI
+    0.0881     0.099   8317.44      32.317       3.502     31.4759  1   0.0576851          SLD_PI
+     0.099      0.11   8317.44       23.61       3.101     26.2887  1    0.746167          SLD_PI
+      0.11     0.132   8317.44      21.307       2.101     20.5686  1    0.123517          SLD_PI
+     0.132     0.164   8317.44      12.403         1.4     14.1732  1      1.5987          SLD_PI
+     0.164     0.186   8317.44       8.801         1.1      9.9061  1      1.0093          SLD_PI
+     0.186     0.208   8317.44       6.661         0.9     7.52625  1    0.924268          SLD_PI
+     0.208      0.23   8317.44       6.031        0.77     5.77465  1    0.110836          SLD_PI
+      0.23     0.274   8317.44        3.77        0.48     3.96516  1    0.165309          SLD_PI
+     0.274     0.318   8317.44        2.62        0.36     2.39685  1    0.384213          SLD_PI
+     0.318     0.384   8317.44        1.69        0.23     1.28035  1      3.1722          SLD_PI
+     0.384     0.471   8317.44        0.42        0.14    0.502835  1     0.35008          SLD_PI
+     0.471     0.603   8317.44       0.146       0.084    0.110766  1    0.175943          SLD_PI
+     0.603     0.768   8317.44       0.027       0.054  0.00474047  1     0.16992          SLD_PI
+    0.0086    0.0105   8317.44     537.163      11.206           0  2           0          SLD_PI
+    0.0105    0.0124   8317.44     499.731      10.074           0  2           0          SLD_PI
+    0.0124    0.0143   8317.44     453.507       8.838           0  2           0          SLD_PI
+    0.0143    0.0163   8317.44     396.486       8.064           0  2           0          SLD_PI
+    0.0163    0.0222   8317.44     338.034       4.864           0  2           0          SLD_PI
+    0.0222    0.0272   8317.44     266.489       4.132           0  2           0          SLD_PI
+    0.0272    0.0331   8317.44     206.484       3.619           0  2           0          SLD_PI
+    0.0331    0.0381   8317.44     167.526       3.312           0  2           0          SLD_PI
+    0.0381    0.0441   8317.44     141.798       3.209           0  2           0          SLD_PI
+    0.0441    0.0491   8317.44     118.859       3.307           0  2           0          SLD_PI
+    0.0491    0.0551   8317.44     106.486       3.506           0  2           0          SLD_PI
+    0.0551    0.0661   8317.44      84.309       2.003     85.8229  2    0.571266          SLD_PI
+    0.0661    0.0771   8317.44      64.059       1.601     63.1829  2     0.29944          SLD_PI
+    0.0771    0.0881   8317.44      49.234       1.401     47.9862  2     0.79324          SLD_PI
+    0.0881     0.099   8317.44      40.622       1.201     37.3389  2     7.47288          SLD_PI
+     0.099      0.11   8317.44      30.113         1.1     29.5698  2    0.243865          SLD_PI
+      0.11     0.132   8317.44      22.727        0.76     21.4619  2     2.77101          SLD_PI
+     0.132     0.164   8317.44      13.543        0.51     13.2131  2    0.418397          SLD_PI
+     0.164     0.186   8317.44       8.261        0.42     8.31586  2   0.0170593          SLD_PI
+     0.186     0.208   8317.44       5.571        0.34     5.86398  2    0.742513          SLD_PI
+     0.208      0.23   8317.44        3.93        0.29     4.20308  2    0.886737          SLD_PI
+      0.23     0.274   8317.44        2.52        0.18     2.65189  2    0.536857          SLD_PI
+     0.274     0.318   8317.44        1.39        0.13     1.46042  2    0.293417          SLD_PI
+     0.318     0.384   8317.44       0.695       0.084    0.729837  2    0.171999          SLD_PI
+     0.384     0.471   8317.44        0.38       0.053    0.281089  2     3.48286          SLD_PI
+     0.471     0.603   8317.44       0.108       0.031   0.0693257  2      1.5564          SLD_PI
+     0.603     0.768   8317.44       0.006       0.015  0.00684916  2  0.00320479          SLD_PI
+     0.019    0.0243      1156     175.428       3.249           0  0           0     TASSO_34_PI
+    0.0243    0.0298      1156     158.617       3.151           0  0           0     TASSO_34_PI
+    0.0298    0.0353      1156     133.382       3.102           0  0           0     TASSO_34_PI
+    0.0353    0.0408      1156     118.832       3.073           0  0           0     TASSO_34_PI
+    0.0408    0.0464      1156     100.718       2.546           0  0           0     TASSO_34_PI
+    0.0464    0.0577      1156       80.83       1.621           0  0           0     TASSO_34_PI
+    0.0577    0.0691      1156      59.609       4.236     61.6628  0    0.235063     TASSO_34_PI
+    0.0691    0.0918      1156      43.332       2.815     43.9351  0   0.0458964     TASSO_34_PI
+    0.0918    0.1143      1156      30.398       1.706     30.0025  0   0.0537428     TASSO_34_PI
+    0.1143    0.1462      1156      19.339       1.102     20.4158  0    0.954726     TASSO_34_PI
+    0.1712    0.1942      1156       9.109       1.001      10.466  0     1.83774     TASSO_34_PI
+    0.1942    0.2172      1156       7.706       0.701     8.01071  0    0.188945     TASSO_34_PI
+    0.2172    0.2631      1156       5.003         0.4     5.54819  0     1.85769     TASSO_34_PI
+    0.2631    0.3431      1156       2.851        0.19      3.0271  0    0.858996     TASSO_34_PI
+    0.3431    0.5711      1156        0.91       0.052    0.908176  0  0.00123101     TASSO_34_PI
+    0.5711     0.971      1156        0.11        0.02           0  0           0     TASSO_34_PI
+     0.015    0.0193      1936     217.853       4.314           0  0           0     TASSO_44_PI
+    0.0193    0.0236      1936     196.989       8.383           0  0           0     TASSO_44_PI
+    0.0236     0.028      1936     171.335       4.129           0  0           0     TASSO_44_PI
+     0.028    0.0324      1936     146.296       6.138           0  0           0     TASSO_44_PI
+     0.037    0.0549      1936      97.782      11.516           0  0           0     TASSO_44_PI
+    0.0549     0.073      1936      56.788       6.232     62.6958  0    0.898657     TASSO_44_PI
+     0.073    0.0911      1936      34.004       5.116     42.9923  0     3.08666     TASSO_44_PI
+    0.0911    0.1182      1936      25.548       4.008     29.4083  0    0.927674     TASSO_44_PI
+    0.1361    0.1731      1936      12.911       2.002     14.6248  0    0.732847     TASSO_44_PI
+    0.1731    0.2731      1936       6.403         0.5     6.76431  0    0.522183     TASSO_44_PI
+    0.2731     0.455      1936         2.1         0.2     1.82521  0     1.88776     TASSO_44_PI
+     0.455         1      1936         0.2        0.04           0  0           0     TASSO_44_PI
+    0.1005    0.1104       841      30.026       1.506     28.7206  0    0.751328          TPC_PI
+    0.1603    0.1803       841        12.5       0.511     12.3053  0     0.14517          TPC_PI
+    0.1803    0.2002       841      10.784       0.451     9.72114  0     5.55388          TPC_PI
+    0.2002    0.2202       841       7.958        0.36     7.75456  0     0.31935          TPC_PI
+    0.2202    0.2502       841       6.135        0.26      5.9358  0    0.587008          TPC_PI
+    0.2502    0.3002       841       4.093        0.14      3.9906  0    0.535023          TPC_PI
+    0.3002    0.3501       841       2.611         0.1     2.50026  0     1.22624          TPC_PI
+    0.3501    0.4001       841       1.582       0.071     1.61466  0    0.211539          TPC_PI
+    0.4001    0.5001       841       0.874       0.038    0.882826  0   0.0539407          TPC_PI
+    0.5001    0.6001       841        0.37       0.022    0.390174  0    0.840856          TPC_PI
+    0.6001    0.7001       841        0.19       0.015    0.170078  0     1.76396          TPC_PI
+    0.7001    0.9001       841       0.047       0.007           0  0           0          TPC_PI
+
+-->

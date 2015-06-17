@@ -1,0 +1,76 @@
+#include "DInverseMellinIntegInteg.hh"
+#include <iostream>
+using namespace std;
+
+DInverseMellinIntegInteg::DInverseMellinIntegInteg( ComplexFunction *g ) : 
+  g_( g ), 
+  c_( 2, 1.8 ), zc_( 2, ( std::complex< double > )( 0.0, 0.0 ) ),
+  czc_( 2, ( std::complex< double > )( 0.0, 0.0 ) ),
+  e_( 2, ( std::complex< double> )( cos( 0.65 * M_PI ), sin( 0.65 * M_PI ) )), 
+  ce_( 2,( std::complex< double> )(cos(0.65 * M_PI), sin(-0.65 * M_PI) ) ), 
+  temp_( 2, ( std::complex< double > )( 0.0, 0.0 ) ),
+  mom_( 2, 0.0 ), x_( 1, 0.0 ), z_( 2, 0.0 )
+{ 
+}
+
+DInverseMellinIntegInteg::~DInverseMellinIntegInteg(){
+ }
+
+void DInverseMellinIntegInteg::SetParameter
+( const std::vector< double >& c, const std::vector< double >&  phi ){
+     if ( c.size() != 2 || phi.size() != 2 ) throw( 1 );
+     for( int i = 0; i < c.size(); i++ ) c_[ i ] = c[ i ];
+     for( int i = 0; i < c.size(); i++ ){
+	  e_[ i ] = std::complex< double >( cos( phi[ i ] ), sin( phi[ i ] ) );
+	  ce_[ i ] = conj( e_[ i ] );
+     }
+}
+
+DInverseMellinIntegInteg& DInverseMellinIntegInteg::set( ComplexFunction *g ) {
+  g_ = g;
+  return *this;
+}
+
+DInverseMellinIntegInteg& DInverseMellinIntegInteg::set
+( const std::vector< double >& x, const std::vector< double >& z ){
+     if ( x.size() > 2 || z.size() > 2 ) throw( 1 );
+     x_ = x;
+     z_ = z;
+     if( mom_[ 1 ] == 0.0 ) mom_[ 1 ] = 1.0;
+//     if( mom_[ 1 ] == 0.0 ) mom_[ 1 ] = 0.0;
+//     if( mom_[ 1 ] == 0.0 ) mom_[ 1 ] = 2.0;
+
+     return *this;
+}
+
+DInverseMellinIntegInteg& DInverseMellinIntegInteg::setR( const double& r ) {
+     zc_[ 1 ] = c_[ 1 ] + r  * e_[ 1 ];
+     czc_[ 1 ] = c_[ 1 ] + r  * ce_[ 1 ];
+
+     temp_[ 0 ] =  pow( z_[ 0 ], - zc_[ 1 ] ) * e_[ 1 ] ;
+     temp_[ 1 ] =  pow( z_[ 0 ], - czc_[ 1 ] ) * ce_[ 1 ] ;
+
+/*
+     temp_[ 0 ] = ( pow( z_[ 0 ], mom_[ 1 ] - zc_[ 1 ] ) 
+		    -  pow( z_[ 1 ], mom_[ 1 ] - zc_[1 ] ) )
+	  / ( mom_[ 1 ] - zc_[ 1 ] ) / ( z_[ 0 ] - z_[ 1 ] ) * e_[ 1 ];
+//	  / ( mom_[ 1 ] - zc_[ 1 ] ) * e_[ 1 ];
+     temp_[ 1 ] = ( pow( z_[ 0 ], mom_[ 1 ] - czc_[ 1 ] ) 
+		    -  pow( z_[ 1 ], mom_[ 1 ] - czc_[1 ] ) )
+	  / ( mom_[ 1 ] - czc_[ 1 ] ) / ( z_[ 0 ] - z_[ 1 ] ) * ce_[ 1 ];
+//	  / ( mom_[ 1 ] - czc_[ 1 ] ) * ce_[ 1 ];
+*/
+
+     return *this;
+}
+
+double DInverseMellinIntegInteg::operator() ( const double& r ){
+     zc_[ 0 ] = c_[ 0 ] + r * e_[ 0 ];
+
+     return - 0.5 / M_PI / M_PI * real(
+	  pow( x_[ 0 ], - zc_[ 0 ] ) * e_[ 0 ] *
+	  ( temp_[ 0 ] * (*g_)( zc_[ 0 ], zc_[ 1 ] )  
+	    - temp_[ 1 ] * (*g_)( zc_[ 0 ], czc_[ 1 ] ) )
+	  );
+}
+

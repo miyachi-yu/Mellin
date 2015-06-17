@@ -1,0 +1,16 @@
+example の中身
+
+MellinInverse: 
+
+
+testCGamma:
+	複素数型ガンマ関数のテストプログラム。
+	参考にしたフォートランルーチン　CGAMA と、cgamma.cpp
+	との比較を行う。
+
+	実行するとガンマ関数に入力する複素数の実部、虚部を聞いてくるので
+	適当な値を入力する。
+
+mellin:
+	Mellin変換のテストプログラム。クラスFaをRealFunctionを継承して
+	作成して使っている。

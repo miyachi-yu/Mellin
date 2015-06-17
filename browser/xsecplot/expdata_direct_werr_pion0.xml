@@ -1,0 +1,1550 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE expdata [
+<!ELEMENT expdata (dataset*)>
+<!ATTLIST expdata
+           version CDATA #IMPLIED >
+<!ELEMENT dataset (ems*, point*)>
+<!ATTLIST dataset
+            info  CDATA #REQUIRED
+            ref   CDATA #IMPLIED
+            cite  CDATA #IMPLIED
+            norm  CDATA #IMPLIED
+            ncoef CDATA #IMPLIED
+            ncerr CDATA #IMPLIED
+            nstat CDATA #IMPLIED
+            emid  CDATA #IMPLIED            stat  (enable|disable) #IMPLIED
+ >
+<!ELEMENT ems EMPTY >
+<!ATTLIST ems
+          emid   CDATA  #REQUIRED
+          value  CDATA  #REQUIRED >
+<!ELEMENT point (data*)>
+<!ATTLIST point stat (fitted) #IMPLIED >
+<!ELEMENT data EMPTY>
+<!ATTLIST data value CDATA #REQUIRED 
+               type (data|stat|syst|kine|theo|terr|scale1|scale2) #REQUIRED 
+               info CDATA #REQUIRED 
+               unit CDATA #IMPLIED >
+]>
+<expdata version="1.0" >
+<dataset info="L3_91.2_1994_PI0" ref="Phys.Lett.B328(1994)223" norm="0.05" ncoef="-0.0239073" ncerr="0.513624" nstat="free" emid="176072-25" cite="{Acciarri:1994gza" stat="enable">
+<ems emid="0" value="-5.18805e-05" />
+<ems emid="1" value="-0.000186029" />
+<ems emid="2" value="0.00045024" />
+<ems emid="3" value="-1.18882e-05" />
+<ems emid="4" value="-7.13243e-06" />
+<ems emid="5" value="-0.000102034" />
+<ems emid="6" value="2.4473e-05" />
+<ems emid="7" value="0.000131926" />
+<ems emid="8" value="4.66999e-06" />
+<ems emid="9" value="0.000178659" />
+<ems emid="10" value="-0.00131938" />
+<ems emid="11" value="-5.54099e-07" />
+<ems emid="12" value="-1.49562e-05" />
+<ems emid="13" value="-0.000121556" />
+<ems emid="14" value="0.00207778" />
+<ems emid="15" value="0.00473057" />
+<ems emid="16" value="-3.32032e-05" />
+<ems emid="17" value="0.000126953" />
+<ems emid="18" value="0.000130505" />
+<ems emid="19" value="0.00242806" />
+<ems emid="20" value="0.00155023" />
+<ems emid="21" value="0.00575286" />
+<ems emid="22" value="0.00371321" />
+<ems emid="23" value="0.000505178" />
+<ems emid="24" value="0.00110997" />
+<ems emid="25" value="0.26381" />
+<ems emid="26" value="0.00162331" />
+<ems emid="27" value="0.00209215" />
+<ems emid="28" value="0.00239254" />
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.005" info="zmax" unit="" />
+<data type="kine" value="0.0025" info="zmid" unit="" />
+<data type="kine" value="0" info="zmin" unit="" />
+<data type="data" value="119.66" info="e+e-_P0" unit="" />
+<data type="stat" value="11.97" info="stat" unit="" />
+<data type="syst" value="51.31" info="syst" unit="" />
+<data type="theo" value="0" info="e+e-_P0" unit="" />
+<data type="terr" value="0" info="e+e-_P0" unit="" />
+<data type="scale1" value="0" info="e+e-_P0" unit="" />
+<data type="scale2" value="0" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.01" info="zmax" unit="" />
+<data type="kine" value="0.0075" info="zmid" unit="" />
+<data type="kine" value="0.005" info="zmin" unit="" />
+<data type="data" value="280.23" info="e+e-_P0" unit="" />
+<data type="stat" value="5.85" info="stat" unit="" />
+<data type="syst" value="46.87" info="syst" unit="" />
+<data type="theo" value="488.024" info="e+e-_P0" unit="" />
+<data type="terr" value="22.4037" info="e+e-_P0" unit="" />
+<data type="scale1" value="500.253" info="e+e-_P0" unit="" />
+<data type="scale2" value="480.31" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.015" info="zmax" unit="" />
+<data type="kine" value="0.0125" info="zmid" unit="" />
+<data type="kine" value="0.01" info="zmin" unit="" />
+<data type="data" value="242.86" info="e+e-_P0" unit="" />
+<data type="stat" value="2.24" info="stat" unit="" />
+<data type="syst" value="13.92" info="syst" unit="" />
+<data type="theo" value="295.166" info="e+e-_P0" unit="" />
+<data type="terr" value="9.63564" info="e+e-_P0" unit="" />
+<data type="scale1" value="301.192" info="e+e-_P0" unit="" />
+<data type="scale2" value="291.368" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.02" info="zmax" unit="" />
+<data type="kine" value="0.0175" info="zmid" unit="" />
+<data type="kine" value="0.015" info="zmin" unit="" />
+<data type="data" value="185.33" info="e+e-_P0" unit="" />
+<data type="stat" value="1.29" info="stat" unit="" />
+<data type="syst" value="9.41" info="syst" unit="" />
+<data type="theo" value="200.173" info="e+e-_P0" unit="" />
+<data type="terr" value="5.8096" info="e+e-_P0" unit="" />
+<data type="scale1" value="203.687" info="e+e-_P0" unit="" />
+<data type="scale2" value="197.959" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.025" info="zmax" unit="" />
+<data type="kine" value="0.0225" info="zmid" unit="" />
+<data type="kine" value="0.02" info="zmin" unit="" />
+<data type="data" value="143.7" info="e+e-_P0" unit="" />
+<data type="stat" value="0.96" info="stat" unit="" />
+<data type="syst" value="6.03" info="syst" unit="" />
+<data type="theo" value="146.997" info="e+e-_P0" unit="" />
+<data type="terr" value="4.0401" info="e+e-_P0" unit="" />
+<data type="scale1" value="149.236" info="e+e-_P0" unit="" />
+<data type="scale2" value="145.587" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.03" info="zmax" unit="" />
+<data type="kine" value="0.0275" info="zmid" unit="" />
+<data type="kine" value="0.025" info="zmin" unit="" />
+<data type="data" value="118.2" info="e+e-_P0" unit="" />
+<data type="stat" value="0.79" info="stat" unit="" />
+<data type="syst" value="5.09" info="syst" unit="" />
+<data type="theo" value="112.749" info="e+e-_P0" unit="" />
+<data type="terr" value="3.0096" info="e+e-_P0" unit="" />
+<data type="scale1" value="114.298" info="e+e-_P0" unit="" />
+<data type="scale2" value="111.775" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.035" info="zmax" unit="" />
+<data type="kine" value="0.0325" info="zmid" unit="" />
+<data type="kine" value="0.03" info="zmin" unit="" />
+<data type="data" value="100.91" info="e+e-_P0" unit="" />
+<data type="stat" value="0.68" info="stat" unit="" />
+<data type="syst" value="4.16" info="syst" unit="" />
+<data type="theo" value="89.8834" info="e+e-_P0" unit="" />
+<data type="terr" value="2.35898" info="e+e-_P0" unit="" />
+<data type="scale1" value="90.994" info="e+e-_P0" unit="" />
+<data type="scale2" value="89.1843" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.04" info="zmax" unit="" />
+<data type="kine" value="0.0375" info="zmid" unit="" />
+<data type="kine" value="0.035" info="zmin" unit="" />
+<data type="data" value="81.32" info="e+e-_P0" unit="" />
+<data type="stat" value="0.59" info="stat" unit="" />
+<data type="syst" value="3.6" info="syst" unit="" />
+<data type="theo" value="73.6311" info="e+e-_P0" unit="" />
+<data type="terr" value="1.91328" info="e+e-_P0" unit="" />
+<data type="scale1" value="74.4512" info="e+e-_P0" unit="" />
+<data type="scale2" value="73.1151" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.045" info="zmax" unit="" />
+<data type="kine" value="0.0425" info="zmid" unit="" />
+<data type="kine" value="0.04" info="zmin" unit="" />
+<data type="data" value="68.71" info="e+e-_P0" unit="" />
+<data type="stat" value="0.52" info="stat" unit="" />
+<data type="syst" value="3.23" info="syst" unit="" />
+<data type="theo" value="61.551" info="e+e-_P0" unit="" />
+<data type="terr" value="1.5897" info="e+e-_P0" unit="" />
+<data type="scale1" value="62.1694" info="e+e-_P0" unit="" />
+<data type="scale2" value="61.162" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.05" info="zmax" unit="" />
+<data type="kine" value="0.0475" info="zmid" unit="" />
+<data type="kine" value="0.045" info="zmin" unit="" />
+<data type="data" value="56.66" info="e+e-_P0" unit="" />
+<data type="stat" value="0.5" info="stat" unit="" />
+<data type="syst" value="2.86" info="syst" unit="" />
+<data type="theo" value="52.2699" info="e+e-_P0" unit="" />
+<data type="terr" value="1.34496" info="e+e-_P0" unit="" />
+<data type="scale1" value="52.7442" info="e+e-_P0" unit="" />
+<data type="scale2" value="51.9718" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.055" info="zmax" unit="" />
+<data type="kine" value="0.0525" info="zmid" unit="" />
+<data type="kine" value="0.05" info="zmin" unit="" />
+<data type="data" value="47.67" info="e+e-_P0" unit="" />
+<data type="stat" value="0.53" info="stat" unit="" />
+<data type="syst" value="3.21" info="syst" unit="" />
+<data type="theo" value="44.9601" info="e+e-_P0" unit="" />
+<data type="terr" value="1.15427" info="e+e-_P0" unit="" />
+<data type="scale1" value="45.3288" info="e+e-_P0" unit="" />
+<data type="scale2" value="44.7285" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.06" info="zmax" unit="" />
+<data type="kine" value="0.0575" info="zmid" unit="" />
+<data type="kine" value="0.055" info="zmin" unit="" />
+<data type="data" value="41.61" info="e+e-_P0" unit="" />
+<data type="stat" value="0.61" info="stat" unit="" />
+<data type="syst" value="2.4" info="syst" unit="" />
+<data type="theo" value="39.0892" info="e+e-_P0" unit="" />
+<data type="terr" value="1.00228" info="e+e-_P0" unit="" />
+<data type="scale1" value="39.3786" info="e+e-_P0" unit="" />
+<data type="scale2" value="38.9076" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.065" info="zmax" unit="" />
+<data type="kine" value="0.0625" info="zmid" unit="" />
+<data type="kine" value="0.06" info="zmin" unit="" />
+<data type="data" value="34.1" info="e+e-_P0" unit="" />
+<data type="stat" value="0.66" info="stat" unit="" />
+<data type="syst" value="1.87" info="syst" unit="" />
+<data type="theo" value="34.2969" info="e+e-_P0" unit="" />
+<data type="terr" value="0.878897" info="e+e-_P0" unit="" />
+<data type="scale1" value="34.5255" info="e+e-_P0" unit="" />
+<data type="scale2" value="34.1534" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.07" info="zmax" unit="" />
+<data type="kine" value="0.0675" info="zmid" unit="" />
+<data type="kine" value="0.065" info="zmin" unit="" />
+<data type="data" value="28.06" info="e+e-_P0" unit="" />
+<data type="stat" value="0.79" info="stat" unit="" />
+<data type="syst" value="2.01" info="syst" unit="" />
+<data type="theo" value="30.3293" info="e+e-_P0" unit="" />
+<data type="terr" value="0.777137" info="e+e-_P0" unit="" />
+<data type="scale1" value="30.5105" info="e+e-_P0" unit="" />
+<data type="scale2" value="30.2156" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.075" info="zmax" unit="" />
+<data type="kine" value="0.0725" info="zmid" unit="" />
+<data type="kine" value="0.07" info="zmin" unit="" />
+<data type="data" value="27.25" info="e+e-_P0" unit="" />
+<data type="stat" value="1.06" info="stat" unit="" />
+<data type="syst" value="3.72" info="syst" unit="" />
+<data type="theo" value="27.0031" info="e+e-_P0" unit="" />
+<data type="terr" value="0.692044" info="e+e-_P0" unit="" />
+<data type="scale1" value="27.1467" info="e+e-_P0" unit="" />
+<data type="scale2" value="26.9131" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.08" info="zmax" unit="" />
+<data type="kine" value="0.0775" info="zmid" unit="" />
+<data type="kine" value="0.075" info="zmin" unit="" />
+<data type="data" value="21.91" info="e+e-_P0" unit="" />
+<data type="stat" value="1.31" info="stat" unit="" />
+<data type="syst" value="2.01" info="syst" unit="" />
+<data type="theo" value="24.1831" info="e+e-_P0" unit="" />
+<data type="terr" value="0.620016" info="e+e-_P0" unit="" />
+<data type="scale1" value="24.2966" info="e+e-_P0" unit="" />
+<data type="scale2" value="24.1121" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.085" info="zmax" unit="" />
+<data type="kine" value="0.0825" info="zmid" unit="" />
+<data type="kine" value="0.08" info="zmin" unit="" />
+<data type="data" value="16.32" info="e+e-_P0" unit="" />
+<data type="stat" value="1.43" info="stat" unit="" />
+<data type="syst" value="7.45" info="syst" unit="" />
+<data type="theo" value="21.7684" info="e+e-_P0" unit="" />
+<data type="terr" value="0.558389" info="e+e-_P0" unit="" />
+<data type="scale1" value="21.8575" info="e+e-_P0" unit="" />
+<data type="scale2" value="21.7127" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.09" info="zmax" unit="" />
+<data type="kine" value="0.0875" info="zmid" unit="" />
+<data type="kine" value="0.085" info="zmin" unit="" />
+<data type="data" value="17.12" info="e+e-_P0" unit="" />
+<data type="stat" value="2.03" info="stat" unit="" />
+<data type="syst" value="5.18" info="syst" unit="" />
+<data type="theo" value="19.6823" info="e+e-_P0" unit="" />
+<data type="terr" value="0.505167" info="e+e-_P0" unit="" />
+<data type="scale1" value="19.7514" info="e+e-_P0" unit="" />
+<data type="scale2" value="19.6391" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.015" info="dz" unit="" />
+<data type="kine" value="0.105" info="zmax" unit="" />
+<data type="kine" value="0.0975" info="zmid" unit="" />
+<data type="kine" value="0.09" info="zmin" unit="" />
+<data type="data" value="15.11" info="e+e-_P0" unit="" />
+<data type="stat" value="3.02" info="stat" unit="" />
+<data type="syst" value="3.61" info="syst" unit="" />
+<data type="theo" value="16.3367" info="e+e-_P0" unit="" />
+<data type="terr" value="0.41979" info="e+e-_P0" unit="" />
+<data type="scale1" value="16.3768" info="e+e-_P0" unit="" />
+<data type="scale2" value="16.3117" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.015" info="dz" unit="" />
+<data type="kine" value="0.12" info="zmax" unit="" />
+<data type="kine" value="0.1125" info="zmid" unit="" />
+<data type="kine" value="0.105" info="zmin" unit="" />
+<data type="data" value="14.01" info="e+e-_P0" unit="" />
+<data type="stat" value="4.2" info="stat" unit="" />
+<data type="syst" value="4.86" info="syst" unit="" />
+<data type="theo" value="12.556" info="e+e-_P0" unit="" />
+<data type="terr" value="0.323269" info="e+e-_P0" unit="" />
+<data type="scale1" value="12.5677" info="e+e-_P0" unit="" />
+<data type="scale2" value="12.5487" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.015" info="dz" unit="" />
+<data type="kine" value="0.135" info="zmax" unit="" />
+<data type="kine" value="0.1275" info="zmid" unit="" />
+<data type="kine" value="0.12" info="zmin" unit="" />
+<data type="data" value="11.16" info="e+e-_P0" unit="" />
+<data type="stat" value="4.46" info="stat" unit="" />
+<data type="syst" value="5.25" info="syst" unit="" />
+<data type="theo" value="9.85937" info="e+e-_P0" unit="" />
+<data type="terr" value="0.254344" info="e+e-_P0" unit="" />
+<data type="scale1" value="9.85492" info="e+e-_P0" unit="" />
+<data type="scale2" value="9.86223" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.015" info="dz" unit="" />
+<data type="kine" value="0.15" info="zmax" unit="" />
+<data type="kine" value="0.1425" info="zmid" unit="" />
+<data type="kine" value="0.135" info="zmin" unit="" />
+<data type="data" value="8.46" info="e+e-_P0" unit="" />
+<data type="stat" value="4.23" info="stat" unit="" />
+<data type="syst" value="5.1" info="syst" unit="" />
+<data type="theo" value="7.87243" info="e+e-_P0" unit="" />
+<data type="terr" value="0.203481" info="e+e-_P0" unit="" />
+<data type="scale1" value="7.85866" info="e+e-_P0" unit="" />
+<data type="scale2" value="7.88113" info="e+e-_P0" unit="" />
+</point>
+</dataset>
+<dataset info="TASSO" ref="Z. Phys.C42(1989)189" norm="0.05" ncoef="-0.322454" ncerr="0.921966" nstat="free" emid="176072-23" cite="Braunschweig:1988hv" stat="enable">
+<ems emid="0" value="3.40155e-05" />
+<ems emid="1" value="0.000687047" />
+<ems emid="2" value="5.02348e-06" />
+<ems emid="3" value="-1.57377e-05" />
+<ems emid="4" value="1.93622e-05" />
+<ems emid="5" value="-0.000207166" />
+<ems emid="6" value="-6.09873e-06" />
+<ems emid="7" value="3.63396e-07" />
+<ems emid="8" value="-2.61988e-06" />
+<ems emid="9" value="-8.27502e-05" />
+<ems emid="10" value="0.000157708" />
+<ems emid="11" value="-9.14227e-08" />
+<ems emid="12" value="2.07119e-06" />
+<ems emid="13" value="-0.000129054" />
+<ems emid="14" value="-0.000517712" />
+<ems emid="15" value="-0.00216709" />
+<ems emid="16" value="2.60508e-06" />
+<ems emid="17" value="-5.98848e-05" />
+<ems emid="18" value="-0.000333075" />
+<ems emid="19" value="0.00174818" />
+<ems emid="20" value="0.00130657" />
+<ems emid="21" value="0.00219871" />
+<ems emid="22" value="0.00132487" />
+<ems emid="23" value="0.850021" />
+<ems emid="24" value="0.00134707" />
+<ems emid="25" value="0.000505178" />
+<ems emid="26" value="0.000551204" />
+<ems emid="27" value="0.000704046" />
+<ems emid="28" value="0.000242039" />
+<point >
+<data type="kine" value="1936" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.0227" info="dz" unit="" />
+<data type="kine" value="0.0682" info="zmax" unit="" />
+<data type="kine" value="0.05685" info="zmid" unit="" />
+<data type="kine" value="0.0455" info="zmin" unit="" />
+<data type="data" value="39.2" info="e+e-_P0" unit="" />
+<data type="stat" value="8.1" info="stat" unit="" />
+<data type="syst" value="8.1" info="syst" unit="" />
+<data type="theo" value="37.3625" info="e+e-_P0" unit="" />
+<data type="terr" value="1.79434" info="e+e-_P0" unit="" />
+<data type="scale1" value="37.8554" info="e+e-_P0" unit="" />
+<data type="scale2" value="37.0605" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="1936" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.0227" info="dz" unit="" />
+<data type="kine" value="0.0909" info="zmax" unit="" />
+<data type="kine" value="0.07955" info="zmid" unit="" />
+<data type="kine" value="0.0682" info="zmin" unit="" />
+<data type="data" value="18" info="e+e-_P0" unit="" />
+<data type="stat" value="5.5" info="stat" unit="" />
+<data type="syst" value="3.5" info="syst" unit="" />
+<data type="theo" value="22.4718" info="e+e-_P0" unit="" />
+<data type="terr" value="1.06621" info="e+e-_P0" unit="" />
+<data type="scale1" value="22.6686" info="e+e-_P0" unit="" />
+<data type="scale2" value="22.3486" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="1936" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.0451" info="dz" unit="" />
+<data type="kine" value="0.136" info="zmax" unit="" />
+<data type="kine" value="0.11345" info="zmid" unit="" />
+<data type="kine" value="0.0909" info="zmin" unit="" />
+<data type="data" value="11.1" info="e+e-_P0" unit="" />
+<data type="stat" value="2.1" info="stat" unit="" />
+<data type="syst" value="2.1" info="syst" unit="" />
+<data type="theo" value="12.7241" info="e+e-_P0" unit="" />
+<data type="terr" value="0.601021" info="e+e-_P0" unit="" />
+<data type="scale1" value="12.776" info="e+e-_P0" unit="" />
+<data type="scale2" value="12.6894" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="1936" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.046" info="dz" unit="" />
+<data type="kine" value="0.182" info="zmax" unit="" />
+<data type="kine" value="0.159" info="zmid" unit="" />
+<data type="kine" value="0.136" info="zmin" unit="" />
+<data type="data" value="7.2" info="e+e-_P0" unit="" />
+<data type="stat" value="1.3" info="stat" unit="" />
+<data type="syst" value="1.3" info="syst" unit="" />
+<data type="theo" value="6.68306" info="e+e-_P0" unit="" />
+<data type="terr" value="0.316103" info="e+e-_P0" unit="" />
+<data type="scale1" value="6.67461" info="e+e-_P0" unit="" />
+<data type="scale2" value="6.68595" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="1936" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.091" info="dz" unit="" />
+<data type="kine" value="0.273" info="zmax" unit="" />
+<data type="kine" value="0.2275" info="zmid" unit="" />
+<data type="kine" value="0.182" info="zmin" unit="" />
+<data type="data" value="2.64" info="e+e-_P0" unit="" />
+<data type="stat" value="0.57" info="stat" unit="" />
+<data type="syst" value="0.68" info="syst" unit="" />
+<data type="theo" value="3.0966" info="e+e-_P0" unit="" />
+<data type="terr" value="0.14689" info="e+e-_P0" unit="" />
+<data type="scale1" value="3.07339" info="e+e-_P0" unit="" />
+<data type="scale2" value="3.10946" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="1936" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.272" info="dz" unit="" />
+<data type="kine" value="0.545" info="zmax" unit="" />
+<data type="kine" value="0.409" info="zmid" unit="" />
+<data type="kine" value="0.273" info="zmin" unit="" />
+<data type="data" value="0.57" info="e+e-_P0" unit="" />
+<data type="stat" value="0.11" info="stat" unit="" />
+<data type="syst" value="0.13" info="syst" unit="" />
+<data type="theo" value="0.66241" info="e+e-_P0" unit="" />
+<data type="terr" value="0.0320454" info="e+e-_P0" unit="" />
+<data type="scale1" value="0.650832" info="e+e-_P0" unit="" />
+<data type="scale2" value="0.669236" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="1936" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.455" info="dz" unit="" />
+<data type="kine" value="1" info="zmax" unit="" />
+<data type="kine" value="0.7725" info="zmid" unit="" />
+<data type="kine" value="0.545" info="zmin" unit="" />
+<data type="data" value="0.04" info="e+e-_P0" unit="" />
+<data type="stat" value="0.015" info="stat" unit="" />
+<data type="syst" value="0.011" info="syst" unit="" />
+<data type="theo" value="0.0436551" info="e+e-_P0" unit="" />
+<data type="terr" value="0.00231625" info="e+e-_P0" unit="" />
+<data type="scale1" value="0.042195" info="e+e-_P0" unit="" />
+<data type="scale2" value="0.0445442" info="e+e-_P0" unit="" />
+</point>
+</dataset>
+<dataset info="TPC" ref="Z.Phys.C27(1985)187" norm="0.05" ncoef="-0.60105" ncerr="0.723227" nstat="free" emid="176072-24" cite="Aihara:1984mi" stat="enable">
+<ems emid="0" value="0.000127508" />
+<ems emid="1" value="-0.0030993" />
+<ems emid="2" value="-0.0129751" />
+<ems emid="3" value="-1.96909e-05" />
+<ems emid="4" value="-0.00011814" />
+<ems emid="5" value="-0.000876329" />
+<ems emid="6" value="-3.46328e-05" />
+<ems emid="7" value="-6.50757e-05" />
+<ems emid="8" value="1.28058e-07" />
+<ems emid="9" value="-0.000484148" />
+<ems emid="10" value="0.000678491" />
+<ems emid="11" value="5.5916e-06" />
+<ems emid="12" value="2.94277e-05" />
+<ems emid="13" value="-0.000379222" />
+<ems emid="14" value="-0.00395435" />
+<ems emid="15" value="-0.0118879" />
+<ems emid="16" value="-7.70159e-05" />
+<ems emid="17" value="0.000113952" />
+<ems emid="18" value="0.000806854" />
+<ems emid="19" value="0.00609987" />
+<ems emid="20" value="0.00459164" />
+<ems emid="21" value="0.00717332" />
+<ems emid="22" value="0.00419021" />
+<ems emid="23" value="0.00134707" />
+<ems emid="24" value="0.523057" />
+<ems emid="25" value="0.00110997" />
+<ems emid="26" value="0.00161676" />
+<ems emid="27" value="0.00211769" />
+<ems emid="28" value="0.000438888" />
+<point stat="fitted" >
+<data type="kine" value="841" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0" info="dz" unit="" />
+<data type="kine" value="0.079" info="zmax" unit="" />
+<data type="kine" value="0.079" info="zmid" unit="" />
+<data type="kine" value="0.079" info="zmin" unit="" />
+<data type="data" value="29.6" info="e+e-_P0" unit="" />
+<data type="stat" value="5.8" info="stat" unit="" />
+<data type="theo" value="22.1112" info="e+e-_P0" unit="" />
+<data type="terr" value="0.841093" info="e+e-_P0" unit="" />
+<data type="scale1" value="22.3725" info="e+e-_P0" unit="" />
+<data type="scale2" value="21.9535" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="841" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0" info="dz" unit="" />
+<data type="kine" value="0.1" info="zmax" unit="" />
+<data type="kine" value="0.1" info="zmid" unit="" />
+<data type="kine" value="0.1" info="zmin" unit="" />
+<data type="data" value="19.5" info="e+e-_P0" unit="" />
+<data type="stat" value="2.7" info="stat" unit="" />
+<data type="theo" value="15.3168" info="e+e-_P0" unit="" />
+<data type="terr" value="0.575396" info="e+e-_P0" unit="" />
+<data type="scale1" value="15.4383" info="e+e-_P0" unit="" />
+<data type="scale2" value="15.2392" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="841" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0" info="dz" unit="" />
+<data type="kine" value="0.123" info="zmax" unit="" />
+<data type="kine" value="0.123" info="zmid" unit="" />
+<data type="kine" value="0.123" info="zmin" unit="" />
+<data type="data" value="10.9" info="e+e-_P0" unit="" />
+<data type="stat" value="1.8" info="stat" unit="" />
+<data type="theo" value="10.7994" info="e+e-_P0" unit="" />
+<data type="terr" value="0.403536" info="e+e-_P0" unit="" />
+<data type="scale1" value="10.8465" info="e+e-_P0" unit="" />
+<data type="scale2" value="10.7653" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="841" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0" info="dz" unit="" />
+<data type="kine" value="0.151" info="zmax" unit="" />
+<data type="kine" value="0.151" info="zmid" unit="" />
+<data type="kine" value="0.151" info="zmin" unit="" />
+<data type="data" value="7.42" info="e+e-_P0" unit="" />
+<data type="stat" value="1.2" info="stat" unit="" />
+<data type="theo" value="7.41213" info="e+e-_P0" unit="" />
+<data type="terr" value="0.276675" info="e+e-_P0" unit="" />
+<data type="scale1" value="7.41635" info="e+e-_P0" unit="" />
+<data type="scale2" value="7.40382" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="841" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0" info="dz" unit="" />
+<data type="kine" value="0.181" info="zmax" unit="" />
+<data type="kine" value="0.181" info="zmid" unit="" />
+<data type="kine" value="0.181" info="zmin" unit="" />
+<data type="data" value="3.62" info="e+e-_P0" unit="" />
+<data type="stat" value="0.62" info="stat" unit="" />
+<data type="theo" value="5.15489" info="e+e-_P0" unit="" />
+<data type="terr" value="0.192671" info="e+e-_P0" unit="" />
+<data type="scale1" value="5.13854" info="e+e-_P0" unit="" />
+<data type="scale2" value="5.15961" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="841" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0" info="dz" unit="" />
+<data type="kine" value="0.216" info="zmax" unit="" />
+<data type="kine" value="0.216" info="zmid" unit="" />
+<data type="kine" value="0.216" info="zmin" unit="" />
+<data type="data" value="3.04" info="e+e-_P0" unit="" />
+<data type="stat" value="0.46" info="stat" unit="" />
+<data type="theo" value="3.48699" info="e+e-_P0" unit="" />
+<data type="terr" value="0.130555" info="e+e-_P0" unit="" />
+<data type="scale1" value="3.46166" info="e+e-_P0" unit="" />
+<data type="scale2" value="3.49806" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="841" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0" info="dz" unit="" />
+<data type="kine" value="0.253" info="zmax" unit="" />
+<data type="kine" value="0.253" info="zmid" unit="" />
+<data type="kine" value="0.253" info="zmin" unit="" />
+<data type="data" value="1.94" info="e+e-_P0" unit="" />
+<data type="stat" value="0.29" info="stat" unit="" />
+<data type="theo" value="2.36356" info="e+e-_P0" unit="" />
+<data type="terr" value="0.0887497" info="e+e-_P0" unit="" />
+<data type="scale1" value="2.33707" info="e+e-_P0" unit="" />
+<data type="scale2" value="2.37632" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="841" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0" info="dz" unit="" />
+<data type="kine" value="0.297" info="zmax" unit="" />
+<data type="kine" value="0.297" info="zmid" unit="" />
+<data type="kine" value="0.297" info="zmin" unit="" />
+<data type="data" value="1.57" info="e+e-_P0" unit="" />
+<data type="stat" value="0.25" info="stat" unit="" />
+<data type="theo" value="1.52496" info="e+e-_P0" unit="" />
+<data type="terr" value="0.0577568" info="e+e-_P0" unit="" />
+<data type="scale1" value="1.50159" info="e+e-_P0" unit="" />
+<data type="scale2" value="1.5368" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="841" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0" info="dz" unit="" />
+<data type="kine" value="0.345" info="zmax" unit="" />
+<data type="kine" value="0.345" info="zmid" unit="" />
+<data type="kine" value="0.345" info="zmin" unit="" />
+<data type="data" value="1.12" info="e+e-_P0" unit="" />
+<data type="stat" value="0.25" info="stat" unit="" />
+<data type="theo" value="0.97151" info="e+e-_P0" unit="" />
+<data type="terr" value="0.0374962" info="e+e-_P0" unit="" />
+<data type="scale1" value="0.952891" info="e+e-_P0" unit="" />
+<data type="scale2" value="0.981236" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="841" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0" info="dz" unit="" />
+<data type="kine" value="0.401" info="zmax" unit="" />
+<data type="kine" value="0.401" info="zmid" unit="" />
+<data type="kine" value="0.401" info="zmin" unit="" />
+<data type="data" value="0.51" info="e+e-_P0" unit="" />
+<data type="stat" value="0.24" info="stat" unit="" />
+<data type="theo" value="0.593613" info="e+e-_P0" unit="" />
+<data type="terr" value="0.0237177" info="e+e-_P0" unit="" />
+<data type="scale1" value="0.579955" info="e+e-_P0" unit="" />
+<data type="scale2" value="0.600909" info="e+e-_P0" unit="" />
+</point>
+</dataset>
+<dataset info="OPAL" ref="Eur.Phys.J.C5(1998)411" norm="0.05" ncoef="1.01854" ncerr="0.560443" nstat="free" emid="176072-26" cite="Ackerstaff:1998ap" stat="enable">
+<ems emid="0" value="-9.84154e-05" />
+<ems emid="1" value="-0.0025188" />
+<ems emid="2" value="-0.00560006" />
+<ems emid="3" value="1.43675e-06" />
+<ems emid="4" value="-5.00565e-05" />
+<ems emid="5" value="0.000164168" />
+<ems emid="6" value="2.483e-05" />
+<ems emid="7" value="9.06812e-05" />
+<ems emid="8" value="6.56955e-05" />
+<ems emid="9" value="-0.00036141" />
+<ems emid="10" value="-0.00150423" />
+<ems emid="11" value="3.97918e-06" />
+<ems emid="12" value="3.33067e-06" />
+<ems emid="13" value="-3.64941e-05" />
+<ems emid="14" value="0.000483742" />
+<ems emid="15" value="0.00220204" />
+<ems emid="16" value="-7.69517e-06" />
+<ems emid="17" value="0.000108143" />
+<ems emid="18" value="0.000605768" />
+<ems emid="19" value="0.00242373" />
+<ems emid="20" value="0.00168105" />
+<ems emid="21" value="0.00685458" />
+<ems emid="22" value="0.00418451" />
+<ems emid="23" value="0.000551204" />
+<ems emid="24" value="0.00161676" />
+<ems emid="25" value="0.00162331" />
+<ems emid="26" value="0.314097" />
+<ems emid="27" value="0.0023702" />
+<ems emid="28" value="0.00222937" />
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.002" info="dz" unit="" />
+<data type="kine" value="0.009" info="zmax" unit="" />
+<data type="kine" value="0.008" info="zmid" unit="" />
+<data type="kine" value="0.007" info="zmin" unit="" />
+<data type="data" value="254" info="e+e-_P0" unit="" />
+<data type="stat" value="18" info="stat" unit="" />
+<data type="syst" value="48" info="syst" unit="" />
+<data type="theo" value="455.195" info="e+e-_P0" unit="" />
+<data type="terr" value="19.3058" info="e+e-_P0" unit="" />
+<data type="scale1" value="466.15" info="e+e-_P0" unit="" />
+<data type="scale2" value="448.287" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.002" info="dz" unit="" />
+<data type="kine" value="0.011" info="zmax" unit="" />
+<data type="kine" value="0.01" info="zmid" unit="" />
+<data type="kine" value="0.009" info="zmin" unit="" />
+<data type="data" value="266" info="e+e-_P0" unit="" />
+<data type="stat" value="12" info="stat" unit="" />
+<data type="syst" value="38" info="syst" unit="" />
+<data type="theo" value="368.782" info="e+e-_P0" unit="" />
+<data type="terr" value="13.6574" info="e+e-_P0" unit="" />
+<data type="scale1" value="376.937" info="e+e-_P0" unit="" />
+<data type="scale2" value="363.641" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.002" info="dz" unit="" />
+<data type="kine" value="0.013" info="zmax" unit="" />
+<data type="kine" value="0.012" info="zmid" unit="" />
+<data type="kine" value="0.011" info="zmin" unit="" />
+<data type="data" value="248" info="e+e-_P0" unit="" />
+<data type="stat" value="6" info="stat" unit="" />
+<data type="syst" value="28" info="syst" unit="" />
+<data type="theo" value="305.163" info="e+e-_P0" unit="" />
+<data type="terr" value="10.3701" info="e+e-_P0" unit="" />
+<data type="scale1" value="311.451" info="e+e-_P0" unit="" />
+<data type="scale2" value="301.2" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.003" info="dz" unit="" />
+<data type="kine" value="0.016" info="zmax" unit="" />
+<data type="kine" value="0.0145" info="zmid" unit="" />
+<data type="kine" value="0.013" info="zmin" unit="" />
+<data type="data" value="211" info="e+e-_P0" unit="" />
+<data type="stat" value="3" info="stat" unit="" />
+<data type="syst" value="18" info="syst" unit="" />
+<data type="theo" value="248.062" info="e+e-_P0" unit="" />
+<data type="terr" value="7.87365" info="e+e-_P0" unit="" />
+<data type="scale1" value="252.794" info="e+e-_P0" unit="" />
+<data type="scale2" value="245.079" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.004" info="dz" unit="" />
+<data type="kine" value="0.02" info="zmax" unit="" />
+<data type="kine" value="0.018" info="zmid" unit="" />
+<data type="kine" value="0.016" info="zmin" unit="" />
+<data type="data" value="178" info="e+e-_P0" unit="" />
+<data type="stat" value="2" info="stat" unit="" />
+<data type="syst" value="14" info="syst" unit="" />
+<data type="theo" value="192.95" info="e+e-_P0" unit="" />
+<data type="terr" value="5.77343" info="e+e-_P0" unit="" />
+<data type="scale1" value="196.284" info="e+e-_P0" unit="" />
+<data type="scale2" value="190.849" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.025" info="zmax" unit="" />
+<data type="kine" value="0.0225" info="zmid" unit="" />
+<data type="kine" value="0.02" info="zmin" unit="" />
+<data type="data" value="139" info="e+e-_P0" unit="" />
+<data type="stat" value="2" info="stat" unit="" />
+<data type="syst" value="6" info="syst" unit="" />
+<data type="theo" value="146.997" info="e+e-_P0" unit="" />
+<data type="terr" value="4.20898" info="e+e-_P0" unit="" />
+<data type="scale1" value="149.236" info="e+e-_P0" unit="" />
+<data type="scale2" value="145.587" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.03" info="zmax" unit="" />
+<data type="kine" value="0.0275" info="zmid" unit="" />
+<data type="kine" value="0.025" info="zmin" unit="" />
+<data type="data" value="113" info="e+e-_P0" unit="" />
+<data type="stat" value="1" info="stat" unit="" />
+<data type="syst" value="5" info="syst" unit="" />
+<data type="theo" value="112.749" info="e+e-_P0" unit="" />
+<data type="terr" value="3.13835" info="e+e-_P0" unit="" />
+<data type="scale1" value="114.298" info="e+e-_P0" unit="" />
+<data type="scale2" value="111.775" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.035" info="zmax" unit="" />
+<data type="kine" value="0.0325" info="zmid" unit="" />
+<data type="kine" value="0.03" info="zmin" unit="" />
+<data type="data" value="94.1" info="e+e-_P0" unit="" />
+<data type="stat" value="0.9" info="stat" unit="" />
+<data type="syst" value="4" info="syst" unit="" />
+<data type="theo" value="89.8834" info="e+e-_P0" unit="" />
+<data type="terr" value="2.4602" info="e+e-_P0" unit="" />
+<data type="scale1" value="90.994" info="e+e-_P0" unit="" />
+<data type="scale2" value="89.1843" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.005" info="dz" unit="" />
+<data type="kine" value="0.04" info="zmax" unit="" />
+<data type="kine" value="0.0375" info="zmid" unit="" />
+<data type="kine" value="0.035" info="zmin" unit="" />
+<data type="data" value="77.7" info="e+e-_P0" unit="" />
+<data type="stat" value="0.8" info="stat" unit="" />
+<data type="syst" value="4.3" info="syst" unit="" />
+<data type="theo" value="73.6311" info="e+e-_P0" unit="" />
+<data type="terr" value="1.99496" info="e+e-_P0" unit="" />
+<data type="scale1" value="74.4512" info="e+e-_P0" unit="" />
+<data type="scale2" value="73.1151" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.01" info="dz" unit="" />
+<data type="kine" value="0.05" info="zmax" unit="" />
+<data type="kine" value="0.045" info="zmid" unit="" />
+<data type="kine" value="0.04" info="zmin" unit="" />
+<data type="data" value="62.5" info="e+e-_P0" unit="" />
+<data type="stat" value="0.4" info="stat" unit="" />
+<data type="syst" value="3.9" info="syst" unit="" />
+<data type="theo" value="56.9104" info="e+e-_P0" unit="" />
+<data type="terr" value="1.52885" info="e+e-_P0" unit="" />
+<data type="scale1" value="57.4568" info="e+e-_P0" unit="" />
+<data type="scale2" value="56.5669" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.01" info="dz" unit="" />
+<data type="kine" value="0.06" info="zmax" unit="" />
+<data type="kine" value="0.055" info="zmid" unit="" />
+<data type="kine" value="0.05" info="zmin" unit="" />
+<data type="data" value="45.7" info="e+e-_P0" unit="" />
+<data type="stat" value="0.4" info="stat" unit="" />
+<data type="syst" value="3" info="syst" unit="" />
+<data type="theo" value="42.0247" info="e+e-_P0" unit="" />
+<data type="terr" value="1.12239" info="e+e-_P0" unit="" />
+<data type="scale1" value="42.3537" info="e+e-_P0" unit="" />
+<data type="scale2" value="41.818" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.01" info="dz" unit="" />
+<data type="kine" value="0.07" info="zmax" unit="" />
+<data type="kine" value="0.065" info="zmid" unit="" />
+<data type="kine" value="0.06" info="zmin" unit="" />
+<data type="data" value="34.7" info="e+e-_P0" unit="" />
+<data type="stat" value="0.3" info="stat" unit="" />
+<data type="syst" value="3" info="syst" unit="" />
+<data type="theo" value="32.3131" info="e+e-_P0" unit="" />
+<data type="terr" value="0.860959" info="e+e-_P0" unit="" />
+<data type="scale1" value="32.518" info="e+e-_P0" unit="" />
+<data type="scale2" value="32.1845" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.015" info="dz" unit="" />
+<data type="kine" value="0.085" info="zmax" unit="" />
+<data type="kine" value="0.0775" info="zmid" unit="" />
+<data type="kine" value="0.07" info="zmin" unit="" />
+<data type="data" value="26.2" info="e+e-_P0" unit="" />
+<data type="stat" value="0.2" info="stat" unit="" />
+<data type="syst" value="1.8" info="syst" unit="" />
+<data type="theo" value="24.3182" info="e+e-_P0" unit="" />
+<data type="terr" value="0.64744" info="e+e-_P0" unit="" />
+<data type="scale1" value="24.4336" info="e+e-_P0" unit="" />
+<data type="scale2" value="24.2459" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.015" info="dz" unit="" />
+<data type="kine" value="0.1" info="zmax" unit="" />
+<data type="kine" value="0.0925" info="zmid" unit="" />
+<data type="kine" value="0.085" info="zmin" unit="" />
+<data type="data" value="19.4" info="e+e-_P0" unit="" />
+<data type="stat" value="0.2" info="stat" unit="" />
+<data type="syst" value="1.4" info="syst" unit="" />
+<data type="theo" value="17.9408" info="e+e-_P0" unit="" />
+<data type="terr" value="0.477802" info="e+e-_P0" unit="" />
+<data type="scale1" value="17.9945" info="e+e-_P0" unit="" />
+<data type="scale2" value="17.9072" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.025" info="dz" unit="" />
+<data type="kine" value="0.125" info="zmax" unit="" />
+<data type="kine" value="0.1125" info="zmid" unit="" />
+<data type="kine" value="0.1" info="zmin" unit="" />
+<data type="data" value="13.2" info="e+e-_P0" unit="" />
+<data type="stat" value="0.1" info="stat" unit="" />
+<data type="syst" value="2.9" info="syst" unit="" />
+<data type="theo" value="12.6347" info="e+e-_P0" unit="" />
+<data type="terr" value="0.336843" info="e+e-_P0" unit="" />
+<data type="scale1" value="12.6473" info="e+e-_P0" unit="" />
+<data type="scale2" value="12.6269" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.025" info="dz" unit="" />
+<data type="kine" value="0.15" info="zmax" unit="" />
+<data type="kine" value="0.1375" info="zmid" unit="" />
+<data type="kine" value="0.125" info="zmin" unit="" />
+<data type="data" value="9.05" info="e+e-_P0" unit="" />
+<data type="stat" value="0.13" info="stat" unit="" />
+<data type="syst" value="0.76" info="syst" unit="" />
+<data type="theo" value="8.51198" info="e+e-_P0" unit="" />
+<data type="terr" value="0.227358" info="e+e-_P0" unit="" />
+<data type="scale1" value="8.50111" info="e+e-_P0" unit="" />
+<data type="scale2" value="8.51887" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.05" info="dz" unit="" />
+<data type="kine" value="0.2" info="zmax" unit="" />
+<data type="kine" value="0.175" info="zmid" unit="" />
+<data type="kine" value="0.15" info="zmin" unit="" />
+<data type="data" value="5.36" info="e+e-_P0" unit="" />
+<data type="stat" value="0.1" info="stat" unit="" />
+<data type="syst" value="0.69" info="syst" unit="" />
+<data type="theo" value="5.14155" info="e+e-_P0" unit="" />
+<data type="terr" value="0.137721" info="e+e-_P0" unit="" />
+<data type="scale1" value="5.12003" info="e+e-_P0" unit="" />
+<data type="scale2" value="5.15508" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.1" info="dz" unit="" />
+<data type="kine" value="0.3" info="zmax" unit="" />
+<data type="kine" value="0.25" info="zmid" unit="" />
+<data type="kine" value="0.2" info="zmin" unit="" />
+<data type="data" value="2.26" info="e+e-_P0" unit="" />
+<data type="stat" value="0.13" info="stat" unit="" />
+<data type="syst" value="0.38" info="syst" unit="" />
+<data type="theo" value="2.17141" info="e+e-_P0" unit="" />
+<data type="terr" value="0.0586009" info="e+e-_P0" unit="" />
+<data type="scale1" value="2.15159" info="e+e-_P0" unit="" />
+<data type="scale2" value="2.1839" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.1" info="dz" unit="" />
+<data type="kine" value="0.4" info="zmax" unit="" />
+<data type="kine" value="0.35" info="zmid" unit="" />
+<data type="kine" value="0.3" info="zmin" unit="" />
+<data type="data" value="0.764" info="e+e-_P0" unit="" />
+<data type="stat" value="0.085" info="stat" unit="" />
+<data type="syst" value="0.309" info="syst" unit="" />
+<data type="theo" value="0.750975" info="e+e-_P0" unit="" />
+<data type="terr" value="0.0206875" info="e+e-_P0" unit="" />
+<data type="scale1" value="0.739904" info="e+e-_P0" unit="" />
+<data type="scale2" value="0.757993" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.1" info="dz" unit="" />
+<data type="kine" value="0.5" info="zmax" unit="" />
+<data type="kine" value="0.45" info="zmid" unit="" />
+<data type="kine" value="0.4" info="zmin" unit="" />
+<data type="data" value="0.455" info="e+e-_P0" unit="" />
+<data type="stat" value="0.095" info="stat" unit="" />
+<data type="syst" value="0.244" info="syst" unit="" />
+<data type="theo" value="0.29846" info="e+e-_P0" unit="" />
+<data type="terr" value="0.00845527" info="e+e-_P0" unit="" />
+<data type="scale1" value="0.292851" info="e+e-_P0" unit="" />
+<data type="scale2" value="0.302034" info="e+e-_P0" unit="" />
+</point>
+</dataset>
+<dataset info="ALEPH" ref="Eur.Phys.J.C16(2000)613" norm="0.05" ncoef="-0.222548" ncerr="0.24487" nstat="free" emid="176072-27" cite="Barate:1999gb," stat="enable">
+<ems emid="0" value="-4.11417e-05" />
+<ems emid="1" value="0.00285497" />
+<ems emid="2" value="0.0153817" />
+<ems emid="3" value="-9.62549e-05" />
+<ems emid="4" value="0.000418021" />
+<ems emid="5" value="0.000615352" />
+<ems emid="6" value="7.25947e-05" />
+<ems emid="7" value="0.000339734" />
+<ems emid="8" value="1.76211e-05" />
+<ems emid="9" value="0.000189403" />
+<ems emid="10" value="-0.00301285" />
+<ems emid="11" value="-1.64904e-06" />
+<ems emid="12" value="-3.0399e-05" />
+<ems emid="13" value="-0.000213314" />
+<ems emid="14" value="0.00275624" />
+<ems emid="15" value="0.00530961" />
+<ems emid="16" value="6.50676e-05" />
+<ems emid="17" value="-0.000299184" />
+<ems emid="18" value="-0.00265221" />
+<ems emid="19" value="0.00322561" />
+<ems emid="20" value="0.00272454" />
+<ems emid="21" value="0.0110511" />
+<ems emid="22" value="0.00605664" />
+<ems emid="23" value="0.000704046" />
+<ems emid="24" value="0.00211769" />
+<ems emid="25" value="0.00209215" />
+<ems emid="26" value="0.0023702" />
+<ems emid="27" value="0.0599614" />
+<ems emid="28" value="0.00250106" />
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.02" info="dz" unit="" />
+<data type="kine" value="0.08" info="zmax" unit="" />
+<data type="kine" value="0.07" info="zmid" unit="" />
+<data type="kine" value="0.06" info="zmin" unit="" />
+<data type="data" value="30.82" info="e+e-_P0" unit="" />
+<data type="stat" value="0.25" info="stat" unit="" />
+<data type="syst" value="0.99" info="syst" unit="" />
+<data type="theo" value="28.9531" info="e+e-_P0" unit="" />
+<data type="terr" value="0.356932" info="e+e-_P0" unit="" />
+<data type="scale1" value="29.1198" info="e+e-_P0" unit="" />
+<data type="scale2" value="28.8485" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.02" info="dz" unit="" />
+<data type="kine" value="0.1" info="zmax" unit="" />
+<data type="kine" value="0.09" info="zmid" unit="" />
+<data type="kine" value="0.08" info="zmin" unit="" />
+<data type="data" value="20.02" info="e+e-_P0" unit="" />
+<data type="stat" value="0.13" info="stat" unit="" />
+<data type="syst" value="0.66" info="syst" unit="" />
+<data type="theo" value="18.8977" info="e+e-_P0" unit="" />
+<data type="terr" value="0.231957" info="e+e-_P0" unit="" />
+<data type="scale1" value="18.9602" info="e+e-_P0" unit="" />
+<data type="scale2" value="18.8586" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.04" info="dz" unit="" />
+<data type="kine" value="0.14" info="zmax" unit="" />
+<data type="kine" value="0.12" info="zmid" unit="" />
+<data type="kine" value="0.1" info="zmin" unit="" />
+<data type="data" value="11.65" info="e+e-_P0" unit="" />
+<data type="stat" value="0.05" info="stat" unit="" />
+<data type="syst" value="0.42" info="syst" unit="" />
+<data type="theo" value="11.321" info="e+e-_P0" unit="" />
+<data type="terr" value="0.138714" info="e+e-_P0" unit="" />
+<data type="scale1" value="11.3258" info="e+e-_P0" unit="" />
+<data type="scale2" value="11.3181" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.04" info="dz" unit="" />
+<data type="kine" value="0.18" info="zmax" unit="" />
+<data type="kine" value="0.16" info="zmid" unit="" />
+<data type="kine" value="0.14" info="zmin" unit="" />
+<data type="data" value="6.247" info="e+e-_P0" unit="" />
+<data type="stat" value="0.029" info="stat" unit="" />
+<data type="syst" value="0.256" info="syst" unit="" />
+<data type="theo" value="6.23794" info="e+e-_P0" unit="" />
+<data type="terr" value="0.0762522" info="e+e-_P0" unit="" />
+<data type="scale1" value="6.21885" info="e+e-_P0" unit="" />
+<data type="scale2" value="6.24995" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.04" info="dz" unit="" />
+<data type="kine" value="0.22" info="zmax" unit="" />
+<data type="kine" value="0.2" info="zmid" unit="" />
+<data type="kine" value="0.18" info="zmin" unit="" />
+<data type="data" value="3.613" info="e+e-_P0" unit="" />
+<data type="stat" value="0.018" info="stat" unit="" />
+<data type="syst" value="0.16" info="syst" unit="" />
+<data type="theo" value="3.71592" info="e+e-_P0" unit="" />
+<data type="terr" value="0.0450477" info="e+e-_P0" unit="" />
+<data type="scale1" value="3.69289" info="e+e-_P0" unit="" />
+<data type="scale2" value="3.73039" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.04" info="dz" unit="" />
+<data type="kine" value="0.26" info="zmax" unit="" />
+<data type="kine" value="0.24" info="zmid" unit="" />
+<data type="kine" value="0.22" info="zmin" unit="" />
+<data type="data" value="2.243" info="e+e-_P0" unit="" />
+<data type="stat" value="0.013" info="stat" unit="" />
+<data type="syst" value="0.085" info="syst" unit="" />
+<data type="theo" value="2.31361" info="e+e-_P0" unit="" />
+<data type="terr" value="0.0279565" info="e+e-_P0" unit="" />
+<data type="scale1" value="2.29268" info="e+e-_P0" unit="" />
+<data type="scale2" value="2.32679" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.04" info="dz" unit="" />
+<data type="kine" value="0.3" info="zmax" unit="" />
+<data type="kine" value="0.28" info="zmid" unit="" />
+<data type="kine" value="0.26" info="zmin" unit="" />
+<data type="data" value="1.395" info="e+e-_P0" unit="" />
+<data type="stat" value="0.013" info="stat" unit="" />
+<data type="syst" value="0.047" info="syst" unit="" />
+<data type="theo" value="1.48367" info="e+e-_P0" unit="" />
+<data type="terr" value="0.0181914" info="e+e-_P0" unit="" />
+<data type="scale1" value="1.46653" info="e+e-_P0" unit="" />
+<data type="scale2" value="1.49448" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.04" info="dz" unit="" />
+<data type="kine" value="0.34" info="zmax" unit="" />
+<data type="kine" value="0.32" info="zmid" unit="" />
+<data type="kine" value="0.3" info="zmin" unit="" />
+<data type="data" value="0.928" info="e+e-_P0" unit="" />
+<data type="stat" value="0.012" info="stat" unit="" />
+<data type="syst" value="0.027" info="syst" unit="" />
+<data type="theo" value="0.97525" info="e+e-_P0" unit="" />
+<data type="terr" value="0.0123042" info="e+e-_P0" unit="" />
+<data type="scale1" value="0.961896" info="e+e-_P0" unit="" />
+<data type="scale2" value="0.983701" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.04" info="dz" unit="" />
+<data type="kine" value="0.38" info="zmax" unit="" />
+<data type="kine" value="0.36" info="zmid" unit="" />
+<data type="kine" value="0.34" info="zmin" unit="" />
+<data type="data" value="0.62" info="e+e-_P0" unit="" />
+<data type="stat" value="0.011" info="stat" unit="" />
+<data type="syst" value="0.033" info="syst" unit="" />
+<data type="theo" value="0.656141" info="e+e-_P0" unit="" />
+<data type="terr" value="0.00859295" info="e+e-_P0" unit="" />
+<data type="scale1" value="0.645951" info="e+e-_P0" unit="" />
+<data type="scale2" value="0.662607" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.04" info="dz" unit="" />
+<data type="kine" value="0.42" info="zmax" unit="" />
+<data type="kine" value="0.4" info="zmid" unit="" />
+<data type="kine" value="0.38" info="zmin" unit="" />
+<data type="data" value="0.411" info="e+e-_P0" unit="" />
+<data type="stat" value="0.011" info="stat" unit="" />
+<data type="syst" value="0.03" info="syst" unit="" />
+<data type="theo" value="0.451151" info="e+e-_P0" unit="" />
+<data type="terr" value="0.00620876" info="e+e-_P0" unit="" />
+<data type="scale1" value="0.443414" info="e+e-_P0" unit="" />
+<data type="scale2" value="0.456072" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.04" info="dz" unit="" />
+<data type="kine" value="0.46" info="zmax" unit="" />
+<data type="kine" value="0.44" info="zmid" unit="" />
+<data type="kine" value="0.42" info="zmin" unit="" />
+<data type="data" value="0.281" info="e+e-_P0" unit="" />
+<data type="stat" value="0.013" info="stat" unit="" />
+<data type="syst" value="0.035" info="syst" unit="" />
+<data type="theo" value="0.316149" info="e+e-_P0" unit="" />
+<data type="terr" value="0.00464267" info="e+e-_P0" unit="" />
+<data type="scale1" value="0.310253" info="e+e-_P0" unit="" />
+<data type="scale2" value="0.319906" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.06" info="dz" unit="" />
+<data type="kine" value="0.52" info="zmax" unit="" />
+<data type="kine" value="0.49" info="zmid" unit="" />
+<data type="kine" value="0.46" info="zmin" unit="" />
+<data type="data" value="0.181" info="e+e-_P0" unit="" />
+<data type="stat" value="0.015" info="stat" unit="" />
+<data type="syst" value="0.027" info="syst" unit="" />
+<data type="theo" value="0.2082" info="e+e-_P0" unit="" />
+<data type="terr" value="0.00334586" info="e+e-_P0" unit="" />
+<data type="scale1" value="0.203948" info="e+e-_P0" unit="" />
+<data type="scale2" value="0.210915" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="0.1" info="dz" unit="" />
+<data type="kine" value="0.62" info="zmax" unit="" />
+<data type="kine" value="0.57" info="zmid" unit="" />
+<data type="kine" value="0.52" info="zmin" unit="" />
+<data type="data" value="0.082" info="e+e-_P0" unit="" />
+<data type="stat" value="0.015" info="stat" unit="" />
+<data type="syst" value="0.019" info="syst" unit="" />
+<data type="theo" value="0.110239" info="e+e-_P0" unit="" />
+<data type="terr" value="0.00202374" info="e+e-_P0" unit="" />
+<data type="scale1" value="0.107667" info="e+e-_P0" unit="" />
+<data type="scale2" value="0.111884" info="e+e-_P0" unit="" />
+</point>
+</dataset>
+<dataset info="DELPHI" ref="Z.Phys.C69(1996)561" norm="0.05" ncoef="0.839806" ncerr="0.521041" nstat="free" emid="176072-28" cite="Adam:1995rf" stat="enable">
+<ems emid="0" value="-0.000105797" />
+<ems emid="1" value="-0.00443296" />
+<ems emid="2" value="-0.00676831" />
+<ems emid="3" value="-6.4861e-06" />
+<ems emid="4" value="1.38955e-05" />
+<ems emid="5" value="0.00024332" />
+<ems emid="6" value="1.6981e-05" />
+<ems emid="7" value="5.49985e-05" />
+<ems emid="8" value="4.06857e-05" />
+<ems emid="9" value="-3.59855e-05" />
+<ems emid="10" value="-0.00039424" />
+<ems emid="11" value="4.15584e-06" />
+<ems emid="12" value="4.94694e-06" />
+<ems emid="13" value="-4.64577e-05" />
+<ems emid="14" value="0.000656627" />
+<ems emid="15" value="0.00646942" />
+<ems emid="16" value="-2.99676e-05" />
+<ems emid="17" value="0.000189397" />
+<ems emid="18" value="0.000961951" />
+<ems emid="19" value="0.001083" />
+<ems emid="20" value="0.000846249" />
+<ems emid="21" value="0.00821509" />
+<ems emid="22" value="0.00519943" />
+<ems emid="23" value="0.000242039" />
+<ems emid="24" value="0.000438888" />
+<ems emid="25" value="0.00239254" />
+<ems emid="26" value="0.00222937" />
+<ems emid="27" value="0.00250106" />
+<ems emid="28" value="0.271484" />
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.004" info="dz" unit="" />
+<data type="kine" value="0.015" info="zmax" unit="" />
+<data type="kine" value="0.013" info="zmid" unit="" />
+<data type="kine" value="0.011" info="zmin" unit="" />
+<data type="data" value="242" info="e+e-_P0" unit="" />
+<data type="stat" value="32" info="stat" unit="" />
+<data type="syst" value="26" info="syst" unit="" />
+<data type="theo" value="281.361" info="e+e-_P0" unit="" />
+<data type="terr" value="8.93044" info="e+e-_P0" unit="" />
+<data type="scale1" value="286.995" info="e+e-_P0" unit="" />
+<data type="scale2" value="277.809" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.005" info="dz" unit="" />
+<data type="kine" value="0.02" info="zmax" unit="" />
+<data type="kine" value="0.0175" info="zmid" unit="" />
+<data type="kine" value="0.015" info="zmin" unit="" />
+<data type="data" value="165" info="e+e-_P0" unit="" />
+<data type="stat" value="16" info="stat" unit="" />
+<data type="syst" value="18" info="syst" unit="" />
+<data type="theo" value="200.173" info="e+e-_P0" unit="" />
+<data type="terr" value="5.7472" info="e+e-_P0" unit="" />
+<data type="scale1" value="203.687" info="e+e-_P0" unit="" />
+<data type="scale2" value="197.959" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.005" info="dz" unit="" />
+<data type="kine" value="0.025" info="zmax" unit="" />
+<data type="kine" value="0.0225" info="zmid" unit="" />
+<data type="kine" value="0.02" info="zmin" unit="" />
+<data type="data" value="140" info="e+e-_P0" unit="" />
+<data type="stat" value="11" info="stat" unit="" />
+<data type="syst" value="15" info="syst" unit="" />
+<data type="theo" value="146.997" info="e+e-_P0" unit="" />
+<data type="terr" value="3.98466" info="e+e-_P0" unit="" />
+<data type="scale1" value="149.236" info="e+e-_P0" unit="" />
+<data type="scale2" value="145.587" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.005" info="dz" unit="" />
+<data type="kine" value="0.03" info="zmax" unit="" />
+<data type="kine" value="0.0275" info="zmid" unit="" />
+<data type="kine" value="0.025" info="zmin" unit="" />
+<data type="data" value="116" info="e+e-_P0" unit="" />
+<data type="stat" value="7" info="stat" unit="" />
+<data type="syst" value="12" info="syst" unit="" />
+<data type="theo" value="112.749" info="e+e-_P0" unit="" />
+<data type="terr" value="2.96273" info="e+e-_P0" unit="" />
+<data type="scale1" value="114.298" info="e+e-_P0" unit="" />
+<data type="scale2" value="111.775" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.005" info="dz" unit="" />
+<data type="kine" value="0.035" info="zmax" unit="" />
+<data type="kine" value="0.0325" info="zmid" unit="" />
+<data type="kine" value="0.03" info="zmin" unit="" />
+<data type="data" value="96.9" info="e+e-_P0" unit="" />
+<data type="stat" value="5.7" info="stat" unit="" />
+<data type="syst" value="10.3" info="syst" unit="" />
+<data type="theo" value="89.8834" info="e+e-_P0" unit="" />
+<data type="terr" value="2.31839" info="e+e-_P0" unit="" />
+<data type="scale1" value="90.994" info="e+e-_P0" unit="" />
+<data type="scale2" value="89.1843" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.01" info="dz" unit="" />
+<data type="kine" value="0.045" info="zmax" unit="" />
+<data type="kine" value="0.04" info="zmid" unit="" />
+<data type="kine" value="0.035" info="zmin" unit="" />
+<data type="data" value="68.7" info="e+e-_P0" unit="" />
+<data type="stat" value="2.9" info="stat" unit="" />
+<data type="syst" value="7.3" info="syst" unit="" />
+<data type="theo" value="67.591" info="e+e-_P0" unit="" />
+<data type="terr" value="1.7178" info="e+e-_P0" unit="" />
+<data type="scale1" value="68.3103" info="e+e-_P0" unit="" />
+<data type="scale2" value="67.1386" info="e+e-_P0" unit="" />
+</point>
+<point >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.015" info="dz" unit="" />
+<data type="kine" value="0.06" info="zmax" unit="" />
+<data type="kine" value="0.0525" info="zmid" unit="" />
+<data type="kine" value="0.045" info="zmin" unit="" />
+<data type="data" value="45.3" info="e+e-_P0" unit="" />
+<data type="stat" value="1.5" info="stat" unit="" />
+<data type="syst" value="4.8" info="syst" unit="" />
+<data type="theo" value="45.4397" info="e+e-_P0" unit="" />
+<data type="terr" value="1.14204" info="e+e-_P0" unit="" />
+<data type="scale1" value="45.8171" info="e+e-_P0" unit="" />
+<data type="scale2" value="45.2025" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.02" info="dz" unit="" />
+<data type="kine" value="0.08" info="zmax" unit="" />
+<data type="kine" value="0.07" info="zmid" unit="" />
+<data type="kine" value="0.06" info="zmin" unit="" />
+<data type="data" value="29.9" info="e+e-_P0" unit="" />
+<data type="stat" value="1.4" info="stat" unit="" />
+<data type="syst" value="3.2" info="syst" unit="" />
+<data type="theo" value="28.9531" info="e+e-_P0" unit="" />
+<data type="terr" value="0.724222" info="e+e-_P0" unit="" />
+<data type="scale1" value="29.1198" info="e+e-_P0" unit="" />
+<data type="scale2" value="28.8485" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.02" info="dz" unit="" />
+<data type="kine" value="0.1" info="zmax" unit="" />
+<data type="kine" value="0.09" info="zmid" unit="" />
+<data type="kine" value="0.08" info="zmin" unit="" />
+<data type="data" value="19.4" info="e+e-_P0" unit="" />
+<data type="stat" value="0.8" info="stat" unit="" />
+<data type="syst" value="2.1" info="syst" unit="" />
+<data type="theo" value="18.8977" info="e+e-_P0" unit="" />
+<data type="terr" value="0.47231" info="e+e-_P0" unit="" />
+<data type="scale1" value="18.9602" info="e+e-_P0" unit="" />
+<data type="scale2" value="18.8586" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.02" info="dz" unit="" />
+<data type="kine" value="0.12" info="zmax" unit="" />
+<data type="kine" value="0.11" info="zmid" unit="" />
+<data type="kine" value="0.1" info="zmin" unit="" />
+<data type="data" value="14.5" info="e+e-_P0" unit="" />
+<data type="stat" value="0.7" info="stat" unit="" />
+<data type="syst" value="1.5" info="syst" unit="" />
+<data type="theo" value="13.1345" info="e+e-_P0" unit="" />
+<data type="terr" value="0.328347" info="e+e-_P0" unit="" />
+<data type="scale1" value="13.1503" info="e+e-_P0" unit="" />
+<data type="scale2" value="13.1246" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.025" info="dz" unit="" />
+<data type="kine" value="0.145" info="zmax" unit="" />
+<data type="kine" value="0.1325" info="zmid" unit="" />
+<data type="kine" value="0.12" info="zmin" unit="" />
+<data type="data" value="8.9" info="e+e-_P0" unit="" />
+<data type="stat" value="0.41" info="stat" unit="" />
+<data type="syst" value="0.94" info="syst" unit="" />
+<data type="theo" value="9.17698" info="e+e-_P0" unit="" />
+<data type="terr" value="0.229536" info="e+e-_P0" unit="" />
+<data type="scale1" value="9.16925" info="e+e-_P0" unit="" />
+<data type="scale2" value="9.1819" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.015" info="dz" unit="" />
+<data type="kine" value="0.16" info="zmax" unit="" />
+<data type="kine" value="0.1525" info="zmid" unit="" />
+<data type="kine" value="0.145" info="zmin" unit="" />
+<data type="data" value="7.23" info="e+e-_P0" unit="" />
+<data type="stat" value="0.06" info="stat" unit="" />
+<data type="syst" value="0.85" info="syst" unit="" />
+<data type="theo" value="6.82706" info="e+e-_P0" unit="" />
+<data type="terr" value="0.170859" info="e+e-_P0" unit="" />
+<data type="scale1" value="6.80942" info="e+e-_P0" unit="" />
+<data type="scale2" value="6.83816" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.015" info="dz" unit="" />
+<data type="kine" value="0.175" info="zmax" unit="" />
+<data type="kine" value="0.1675" info="zmid" unit="" />
+<data type="kine" value="0.16" info="zmin" unit="" />
+<data type="data" value="5.92" info="e+e-_P0" unit="" />
+<data type="stat" value="0.06" info="stat" unit="" />
+<data type="syst" value="0.7" info="syst" unit="" />
+<data type="theo" value="5.56484" info="e+e-_P0" unit="" />
+<data type="terr" value="0.139316" info="e+e-_P0" unit="" />
+<data type="scale1" value="5.54371" info="e+e-_P0" unit="" />
+<data type="scale2" value="5.57813" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.025" info="dz" unit="" />
+<data type="kine" value="0.2" info="zmax" unit="" />
+<data type="kine" value="0.1875" info="zmid" unit="" />
+<data type="kine" value="0.175" info="zmin" unit="" />
+<data type="data" value="4.49" info="e+e-_P0" unit="" />
+<data type="stat" value="0.04" info="stat" unit="" />
+<data type="syst" value="0.53" info="syst" unit="" />
+<data type="theo" value="4.31006" info="e+e-_P0" unit="" />
+<data type="terr" value="0.107943" info="e+e-_P0" unit="" />
+<data type="scale1" value="4.28709" info="e+e-_P0" unit="" />
+<data type="scale2" value="4.32449" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.02" info="dz" unit="" />
+<data type="kine" value="0.22" info="zmax" unit="" />
+<data type="kine" value="0.21" info="zmid" unit="" />
+<data type="kine" value="0.2" info="zmin" unit="" />
+<data type="data" value="3.38" info="e+e-_P0" unit="" />
+<data type="stat" value="0.03" info="stat" unit="" />
+<data type="syst" value="0.4" info="syst" unit="" />
+<data type="theo" value="3.26251" info="e+e-_P0" unit="" />
+<data type="terr" value="0.081784" info="e+e-_P0" unit="" />
+<data type="scale1" value="3.23955" info="e+e-_P0" unit="" />
+<data type="scale2" value="3.27694" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.02" info="dz" unit="" />
+<data type="kine" value="0.24" info="zmax" unit="" />
+<data type="kine" value="0.23" info="zmid" unit="" />
+<data type="kine" value="0.22" info="zmin" unit="" />
+<data type="data" value="2.66" info="e+e-_P0" unit="" />
+<data type="stat" value="0.03" info="stat" unit="" />
+<data type="syst" value="0.31" info="syst" unit="" />
+<data type="theo" value="2.57666" info="e+e-_P0" unit="" />
+<data type="terr" value="0.064694" info="e+e-_P0" unit="" />
+<data type="scale1" value="2.55487" info="e+e-_P0" unit="" />
+<data type="scale2" value="2.59037" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.04" info="dz" unit="" />
+<data type="kine" value="0.28" info="zmax" unit="" />
+<data type="kine" value="0.26" info="zmid" unit="" />
+<data type="kine" value="0.24" info="zmin" unit="" />
+<data type="data" value="1.86" info="e+e-_P0" unit="" />
+<data type="stat" value="0.02" info="stat" unit="" />
+<data type="syst" value="0.22" info="syst" unit="" />
+<data type="theo" value="1.84672" info="e+e-_P0" unit="" />
+<data type="terr" value="0.0465377" info="e+e-_P0" unit="" />
+<data type="scale1" value="1.82762" info="e+e-_P0" unit="" />
+<data type="scale2" value="1.85876" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.05" info="dz" unit="" />
+<data type="kine" value="0.33" info="zmax" unit="" />
+<data type="kine" value="0.305" info="zmid" unit="" />
+<data type="kine" value="0.28" info="zmin" unit="" />
+<data type="data" value="1.18" info="e+e-_P0" unit="" />
+<data type="stat" value="0.01" info="stat" unit="" />
+<data type="syst" value="0.14" info="syst" unit="" />
+<data type="theo" value="1.1435" info="e+e-_P0" unit="" />
+<data type="terr" value="0.0290346" info="e+e-_P0" unit="" />
+<data type="scale1" value="1.12877" info="e+e-_P0" unit="" />
+<data type="scale2" value="1.15281" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.05" info="dz" unit="" />
+<data type="kine" value="0.38" info="zmax" unit="" />
+<data type="kine" value="0.355" info="zmid" unit="" />
+<data type="kine" value="0.33" info="zmin" unit="" />
+<data type="data" value="0.707" info="e+e-_P0" unit="" />
+<data type="stat" value="0.009" info="stat" unit="" />
+<data type="syst" value="0.083" info="syst" unit="" />
+<data type="theo" value="0.691395" info="e+e-_P0" unit="" />
+<data type="terr" value="0.0176996" info="e+e-_P0" unit="" />
+<data type="scale1" value="0.680832" info="e+e-_P0" unit="" />
+<data type="scale2" value="0.698095" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.06" info="dz" unit="" />
+<data type="kine" value="0.44" info="zmax" unit="" />
+<data type="kine" value="0.41" info="zmid" unit="" />
+<data type="kine" value="0.38" info="zmin" unit="" />
+<data type="data" value="0.444" info="e+e-_P0" unit="" />
+<data type="stat" value="0.007" info="stat" unit="" />
+<data type="syst" value="0.052" info="syst" unit="" />
+<data type="theo" value="0.415268" info="e+e-_P0" unit="" />
+<data type="terr" value="0.0107433" info="e+e-_P0" unit="" />
+<data type="scale1" value="0.408013" info="e+e-_P0" unit="" />
+<data type="scale2" value="0.419884" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.06" info="dz" unit="" />
+<data type="kine" value="0.5" info="zmax" unit="" />
+<data type="kine" value="0.47" info="zmid" unit="" />
+<data type="kine" value="0.44" info="zmin" unit="" />
+<data type="data" value="0.281" info="e+e-_P0" unit="" />
+<data type="stat" value="0.006" info="stat" unit="" />
+<data type="syst" value="0.033" info="syst" unit="" />
+<data type="theo" value="0.246196" info="e+e-_P0" unit="" />
+<data type="terr" value="0.00650863" info="e+e-_P0" unit="" />
+<data type="scale1" value="0.241348" info="e+e-_P0" unit="" />
+<data type="scale2" value="0.249289" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.07" info="dz" unit="" />
+<data type="kine" value="0.57" info="zmax" unit="" />
+<data type="kine" value="0.535" info="zmid" unit="" />
+<data type="kine" value="0.5" info="zmin" unit="" />
+<data type="data" value="0.155" info="e+e-_P0" unit="" />
+<data type="stat" value="0.004" info="stat" unit="" />
+<data type="syst" value="0.018" info="syst" unit="" />
+<data type="theo" value="0.144407" info="e+e-_P0" unit="" />
+<data type="terr" value="0.00394792" info="e+e-_P0" unit="" />
+<data type="scale1" value="0.141218" info="e+e-_P0" unit="" />
+<data type="scale2" value="0.146444" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.08" info="dz" unit="" />
+<data type="kine" value="0.65" info="zmax" unit="" />
+<data type="kine" value="0.61" info="zmid" unit="" />
+<data type="kine" value="0.57" info="zmin" unit="" />
+<data type="data" value="0.088" info="e+e-_P0" unit="" />
+<data type="stat" value="0.003" info="stat" unit="" />
+<data type="syst" value="0.01" info="syst" unit="" />
+<data type="theo" value="0.078917" info="e+e-_P0" unit="" />
+<data type="terr" value="0.00226038" info="e+e-_P0" unit="" />
+<data type="scale1" value="0.0769373" info="e+e-_P0" unit="" />
+<data type="scale2" value="0.080184" info="e+e-_P0" unit="" />
+</point>
+<point stat="fitted" >
+<data type="kine" value="8317.44" info="Q^2" unit="GeV^2 " />
+<data type="kine" value="-0.1" info="dz" unit="" />
+<data type="kine" value="0.75" info="zmax" unit="" />
+<data type="kine" value="0.7" info="zmid" unit="" />
+<data type="kine" value="0.65" info="zmin" unit="" />
+<data type="data" value="0.05" info="e+e-_P0" unit="" />
+<data type="stat" value="0.002" info="stat" unit="" />
+<data type="syst" value="0.006" info="syst" unit="" />
+<data type="theo" value="0.0376114" info="e+e-_P0" unit="" />
+<data type="terr" value="0.00116886" info="e+e-_P0" unit="" />
+<data type="scale1" value="0.036512" info="e+e-_P0" unit="" />
+<data type="scale2" value="0.0383161" info="e+e-_P0" unit="" />
+</point>
+</dataset>
+</expdata>

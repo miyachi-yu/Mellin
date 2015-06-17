@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE set [
+	  <!ELEMENT set (pdf*)>
+	  <!ATTLIST set
+		    scale CDATA #REQUIRED
+		    name  CDATA #REQUIRED >
+	  <!ELEMENT pdf (parameter*) >
+	  <!ATTLIST pdf
+		    name CDATA #REQUIRED
+		    pid  ID    #IMPLIED
+		    src  IDREF #IMPLIED
+		    dfav IDREF #IMPLIED
+		    fav  IDREF #IMPLIED
+		    >
+	  <!ELEMENT parameter (ems*) >
+	  <!ATTLIST parameter
+		    index  CDATA #REQUIRED
+		    srcid  CDATA #IMPLIED
+		    name   CDATA #IMPLIED
+		    value  CDATA #REQUIRED
+		    error  CDATA #IMPLIED
+		    state  (fixed|free|add|multi) #REQUIRED
+		    upper  CDATA #IMPLIED
+		    lower  CDATA #IMPLIED
+		    emid   CDATA #IMPLIED
+		    >
+	  <!ELEMENT ems EMPTY >
+	  <!ATTLIST ems
+		    emid   CDATA  #REQUIRED
+		    value  CDATA  #REQUIRED
+		    >
+	  ]>
+
+<set scale="1.0" name="Fragmentation">
+  
+  <pdf name="u" pid="u">
+    <parameter index="0" name="N" value="0.0732" error="0.0113" state="fixed" upper="1" lower="0"></parameter>
+    <parameter index="1" name="a" value="-1.022" error="0.219" state="fixed" upper="100" lower="-2"></parameter>
+    <parameter index="2" name="b" value="1.434" error="0.268" state="fixed" upper="100" lower="-100"></parameter>
+  </pdf>
+  <pdf name="d" src="u">
+    <parameter index="0" name="N" value="0.5" error="0.0" state="multi" upper="1" lower="0"></parameter>
+  </pdf>
+  
+  <pdf name="u-bar" pid="u-bar">
+    <parameter index="0" name="N" value="0.0084" error="0.0057" state="fixed" upper="1" lower="0"></parameter>
+    <parameter index="1" name="a" value="1.779" error="1.422" state="fixed" upper="100" lower="-2"></parameter>
+    <parameter index="2" name="b" value="4.763" error="1.882" state="fixed" upper="100" lower="-100"></parameter>
+  </pdf>
+  <pdf name="d-bar" src="u-bar"></pdf>
+  <pdf name="s"     src="u-bar"></pdf>
+  <pdf name="s-bar" src="u-bar"></pdf>
+  
+  <pdf name="c" pid="CHARM">
+    <parameter index="0" name="N" value="0.0184" error="0.0017" state="fixed" upper="1" lower="0"></parameter>
+    <parameter index="1" name="a" value="0.407" error="0.373" state="fixed" upper="100" lower="-2"></parameter>
+    <parameter index="2" name="b" value="6.784" error="1.555" state="fixed" upper="100" lower="-100"></parameter>
+  </pdf>
+  <pdf name="c-bar" src="CHARM"></pdf>
+  
+  <pdf name="b" pid="BOTTOM">
+    <parameter index="0" name="N" value="0.0155" error="0.0007" state="fixed" upper="1" lower="0"></parameter>
+    <parameter index="1" name="a" value="-.203" error="0.165" state="fixed" upper="100" lower="-2"></parameter>
+    <parameter index="2" name="b" value="8.209" error="0.950" state="fixed" upper="100" lower="-100"></parameter>
+  </pdf>
+  <pdf name="b-bar" src="BOTTOM"></pdf>
+  
+  <pdf name="g" dfav="FAVOR" fav="DISFAVOR">
+    <parameter index="0" name="N" value="0.078725" error="0.0099" state="fixed" upper="0" lower="0"></parameter>
+    <parameter index="1" name="a" value="5.000" error="0.000" state="fixed" upper="100" lower="-2"></parameter>
+    <parameter index="2" name="b" value="4.900" error="2.046" state="fixed" upper="100" lower="-100"></parameter>
+  </pdf>
+  
+</set>

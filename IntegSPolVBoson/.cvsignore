@@ -1,0 +1,17 @@
+Makefile.in
+Makefile
+testSPVB
+*.d
+*~
+*.o
+*.dat*
+*.o*
+*.e*
+cache
+plot
+*.lo
+*.la
+.deps
+.libs
+plots
+tmpplot

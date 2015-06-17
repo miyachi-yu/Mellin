@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+#  $Id: setup.sh.in,v 1.7 2009/01/16 08:46:24 miyachi Exp $
+#
+#  Mellin package basic setup file
+
+######  Mellin package top directory
+export MELLIN_TOP=@abs_top_srcdir@
+
+######  cache directory path
+export MELLIN_CACHE_DIR=./cache
+
+######  configration XML directory
+export MELLIN_CONFIG_DIR=${MELLIN_TOP}/config
+
+######  grid information for PDFLIB
+export MELLIN_PDFTAB_DIR=${MELLIN_TOP}/PDFLIB
+

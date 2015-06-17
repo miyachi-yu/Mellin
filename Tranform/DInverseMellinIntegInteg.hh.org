@@ -1,0 +1,44 @@
+#ifndef _DInverseMellinIntegInteg_hh_
+#define _DInverseMellinIntegInteg_hh_
+
+#include "RealFunction.hh"
+#include "ComplexFunction.hh"
+#include <vector>
+
+class DInverseMellinIntegInteg : public RealFunction {
+
+public:
+
+     DInverseMellinIntegInteg( ComplexFunction *g );
+
+     virtual ~DInverseMellinIntegInteg();
+
+     void SetParameter
+     ( const std::vector< double >& c, const std::vector< double >&  phi );
+
+     void SetMomParam( const std::vector< double >& mom ){ mom_ = mom; };
+
+     DInverseMellinIntegInteg& set( ComplexFunction *g );
+
+     DInverseMellinIntegInteg& set
+     ( const std::vector< double >& x, const std::vector< double >& z );
+  
+     DInverseMellinIntegInteg& setR( const double& rr );
+
+     virtual double operator() ( const double& r );
+     
+private:
+  
+     ComplexFunction* g_;
+     std::vector< double > c_;
+     std::vector< std::complex< double > > e_;
+     std::vector< std::complex< double > > ce_;
+     std::vector< std::complex< double > > zc_;
+     std::vector< std::complex< double > > czc_;
+     std::vector< double > x_;
+     std::vector< double > z_;
+     std::vector< double > mom_;
+     std::vector< std::complex< double > > temp_;
+};
+
+#endif 

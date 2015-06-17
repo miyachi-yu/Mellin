@@ -1,0 +1,448 @@
+<html>
+<head>
+<link href="mellin.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="navigator"><a href="index.html">HOME</a></div>
+
+<h1> Fitting ライブラリ </h1>
+
+<tt>TMinuit</tt>をつかって、断面積や構造関数のデーターを
+フィットするためのクラスライブラリです。
+Xsecライブラリ中のPDFはEvolutionライブラリをベースとしています。
+その初期分布関数中のパラメーターは外部から変更可能なので、
+フィッティングによって、最適値を決めます。
+
+
+<h2> Fit::Fitting クラスの使い方 </h2>
+
+基本的にはFit::Fittingクラスを継承して、
+継承したクラスで
+<tt>calc( const int& i )</tt>
+メソッドを実装し、
+その中でi番目のデーターに対する
+&chi;<sup>2</sup>の値を計算します。
+<span style="font-weight:bold;">
+<u>計算結果は<tt>fit_[ i ]</tt>に代入してください。</u>
+</span>
+
+<p>
+
+またKernel中のPdfParameterizationオブジェクトのパラメーターを
+TMinuitでコントロールするために、Xsection::Xsec オブジェクト
+へのポインターをsetModelメソッドで渡します。このメソッド中では
+利用されているPdfParameterization中のPdfBaseオブジェクトが管理
+しているパラメータとMinuitのパラメーターを関係付けています。
+
+</p>
+
+
+<h3>デバック用コメント</h3>
+
+<tt>Makefile</tt>で<tt>EXTRA_CPPFLAGS = -DDEBUG_FITTING</tt>を
+有効にすると、各&chi;<sup>2</sup>の計算毎に1行のデバッグ用コメントが
+出力されます。
+
+<tt>Makefile.am</tt>では、デバックコメント「付き」「無し」の２つの実行
+ファイルを作成するようになっています。参考にしてください。
+
+
+<h2> Fitting の仕方 </h2>
+
+フィットを行う場合はFittingライブラリのFittingクラスを継承
+したクラスを利用します。サンプルとして
+<tt>testFragXsecFit</tt>、
+<tt>testG1Fit</tt>が用意されています。
+また、デバッグ用出力が抑制された実行ファイルも
+<tt>fitFragXsec</tt>、<tt>fitG1</tt>用意されています。
+<pre id="command">
+Mellin $ make
+</pre>
+を行うと、これらの実行ファイルが
+<tt>Fitting</tt>ディレクトリの下にできます。
+<tt>fitFragXsec</tt>、<tt>fitG1</tt>は
+<pre id="command">Mellin $ make install</pre>
+とすると、<tt>${HOME}/mellin/bin</tt>の下にインストールされます。
+
+<h3>プログラムの使い方</h3>
+
+実行ファイルの使うためには、最低限下のオプションリスト中の
+<span id="comment">赤字</span>のものを指定
+する必要があります。
+<tt>testFragXsecFit</tt>、<tt>fitFragXsec</tt>の場合であれば
+<tt id="comment">--expdata=...</tt>、
+<tt id="comment">--FF=...</tt>です。
+<p>
+また必要な環境変数(
+<tt style="color:blue">MELLIN_CACHE_DIR</tt>等）
+を設定するために、<tt>setup.sh</tt>ファイルを読み込みます。
+<pre id="command">
+Mellin$ source setup.sh
+</pre>
+もしくは
+<pre id="command">
+~$ source ~/mellin/bin/setup.sh
+</pre>
+下の方法では<tt>~/mellin/bin</tt>が<tt>PATH</tt>にされるので、
+フィッティングプログラム(<tt>fitFragXsec</tt>、<tt>fitG1</tt>)
+へのパスを明示しなくても実行できるように
+なります。以下の例では実行ファイルへのパスは明示しません。
+<p>
+<dl>
+ <dt>実行例</dt>
+ <dd> 基本的な<tt>fitFragXsec</tt>の実行例です。
+<pre id="command">
+$ fitFragXsec <span style="color:red">--FF=${MELLIN_TOP}/config/FF_disfavored.xml</span>     \
+                  <span style="color:red">--expdata=${MELLIN_TOP}/ExpData/fragXsecPi.html</span> \
+                  --zmin=0.05 --zmax=0.8                          \
+                  <span style="color:red">--fit=pion</span>                                      \
+                  --writeDB | tee fitFragXsec.log
+</pre>
+      元々のMinuitライブラリとは違い、フィットの経過をファイルに
+      保存するようにはなっていません。
+      標準出力を表示しつつファイルに記録をとりたい場合は、
+      上記のように<tt>tee</tt>コマンドを使ってください。
+      </dd>
+      
+ <dt> 出力ファイル </dt>
+ <dd> フィットプログラムを実行すると、いくつか出力ファイルが生成されます。
+      <ul>
+       <li> <tt style="color:blue;font-weight:bold;">last_param_0.xml</tt>:
+	    直前の&chi;<sup>2</sup>計算に使われたパラメーター情報と、
+	    得られた&chi;<sup>2</sup>等の
+	    フィットの結果が保存されています。
+	    フォーマットは入力に利用された設定ファイルにしたがうので、
+	    フィットを中断した場合、このファイルを指定する事で
+	    途中のパラメーターの値からフィットを再開できます。
+	    <p>
+	    もしフィットに使われているモデルが、
+	    二つ以上のパラメーターセット(例：FFとpolPDF)を使う場合は
+	    <tt>last_param_0.xml</tt>、
+	    <tt>last_param_1.xml</tt>
+	    のように二つのファイルが生成されます。
+	    </p>
+	    </li>
+	    
+       <li>
+	    <tt style="color:blue;font-weight:bold;">
+	    FF_NLO_-zmin-zmax.xml </tt>:
+	    <u><tt>fitFragXsec</tt>限定。</u>
+	    フィットが終了した場合、最終結果が保存される。
+	    pQCDのオーダー、フィット時の
+	    <i>z</i>の範囲がファイル名に含まれる。
+	    </li>
+	    
+      </ul>
+      </dd>
+      
+ <dt> スクリプト(fitting.sh) </dt>	    
+ <dd> バッチシステムを利用すると、複数のフィットプログラムを効率良く
+      管理できます。
+      <tt>${HOME}/mellin/bin/fitting.sh</tt>
+      としてスクリプトサンプルをおいておきました。
+      <p>
+      バッチシステムでこの<tt>fitting.sh</tt>を実行したいとき時は、
+      適当なファイル(例：<tt>qsub.sh</tt>）を次のような内容で作成し、
+<pre id="file">
+#!/bin/bash
+
+export SETUP=~/mellin/bin/setup.sh
+export SCRIPT=~/mellin/bin/fitting.sh
+export EXEC=fitFragXsec
+export DATA=${MELLIN_TOP}/ExpData/fragXsecPI.xml
+export FF=${MELLIN_TOP}/conf/FF_disfavored.xml
+export ZMIN=0.03
+export ZMAX=0.8
+export WRITEDB=yes
+
+qsub -v SETUP,EXEC,DATA,FF,ZMIN,ZMAX,WRITEDB -q L -N "J0.03-0.8" ${SCRIPT}
+</pre>
+      実行許可を与え
+<pre id="command">
+$ chmod 755 qsub.sh
+</pre>
+      スクリプトを実行すると
+<pre id="command">
+$ ./qsub.sh
+</pre>
+      <tt>fitting.sh</tt>をバッチシステムに投げる事ができます。
+      バッチシステムの詳細は
+      <a href="http://www/document/network/OpenPBS.html">
+      柴田研究室内部向けホームページ</a>を参照してください。
+      </p>
+
+      <p>
+      <tt>fitting.sh</tt>の説明:<br>
+      スクリプトの動作管理は主に環境変数によって行います。
+      スクリプト中でつかわれる環境変数一覧は、引数なしで
+      <tt>fitting.sh</tt>を起動すると画面に出力されます。
+<pre id="command">
+Mellin $ ./script/fitting.sh
+Usage:   ./script/fitting.sh
+  This script requires several enviroment variables.
+These variables must be properly set before calling ./script/fitting.sh.
+<span id="comment">  SETUP    path to the mellin setup.sh script
+              e.g., /home/miyachi/mellin/bin/setuip.sh
+  EXEC     executable program to be performed.
+               (basename must be fitFragXsec,fitG1,...)
+  DATA     Experiment data file to be fitted.
+</span>
+These must be set depending on 
+<span id="comment">  FF Fragmentation function initial distribution file
+  polPDF   Helicity distribution function initial distribution file
+</span>
+There is also optional variables to control ./script/fitting.sh.
+  WRITEDB  require --writeDB option
+  CONTOUR  create CONTOUR plot file named with the variable
+  OFFSET   Mellin inversion path starting point
+  ANGLE    Mellin inversion path angle unit in PI.
+  LENGTH   Mellin inversion path lenght
+  ORDER    pQCD calculation order (LO|NLO)
+  ZMIN     lower limit for z ( for fitFragXsec )
+  ZMAX     upper limit for z ( for fitFragXsec )
+  OUTPUT   output directory name under .....
+  OPTIONS  arguments list to be given to EXEC program
+    
+Example:
+SETUP=~/mellin/bin/setup.sh EXEC=fitFragXsec FF=FF.xml DATA=data.xml ZMIN=0.04 ZMAX=0.8 WRITEDB=yes  ./script/fitting.sh 
+SETUP=~/mellin/bin/setup.sh EXEC=fitFragXsec FF=FF.xml DATA=data.xml qsub -v SETUP,EXEC,FF,DATA ./script/fitting.sh
+</pre>
+      <tt>OUTPUT</tt>環境変数を設定しておくと、
+      スクリプトを起動（もしくは<tt>qsub</tt>を起動）した
+      ディレクトリの下に<tt>${OUTPUT}</tt>サブディレクトリを作成し、
+      その中にフィットの出力ファイルをすべてコピーします。
+      </p>
+      詳しい内容はスクリプトの中身を直接みてください。
+      </dd>
+      
+</dl>
+
+<h3>オプション一覧</h3>
+
+<dl>
+ <dt> 共通オプション </dt>
+ <dd>
+      <ul>
+
+       <li> <tt>--angle=[value]</tt>:
+	    <a href="MellinInversion.html#straight">直線積分経路</a>
+	    の角度&pi;に対する割合で与える。
+	    虚軸に平行な場合は<span style="color:red;"> 0.5 </span>。
+	    </li>
+	    
+       <li> <tt>--offset=[value]</tt>:
+	    <a href="MellinInversion.html#straight">直線積分経路</a>
+	    開始点（実）座標
+	    </li>
+
+       <li> <tt>--length=[value]</tt>:
+	    <a href="MellinInversion.html#straight">直線積分経路</a>
+	    の経路長
+	    </li>
+       <li> <tt id="comment">--expdata=[data file]</tt>:
+	    フィットすべき実験データファイル。
+	    <a href="expdata.html"><tt>ExpData</tt>ライブラリをつかって
+	    生成したXMLファイル</a>の場所を指定する。
+	    </li>
+
+       <li> <tt>--contour=[root file name]</tt>:
+	    ２パラメーター間の&chi;<sup>2</sup> contour plotを作る。
+	    （＊注　実行時間が長くなる）
+	    </li>
+
+       <li> <tt>--Minuit=[Minuit command or command file]</tt>:
+	    <br>
+	    MINUITのコマンドを<tt>"|"</tt>区切りで指定可能。
+	    コマンドが沢山ある場合は、1行１コマンドで列記したテキスト
+	    ファイルを指定する事も可能。
+	    このオプションが指定されない場合は
+	    <tt>MIGRAD</tt>が呼び出される。
+	    </li>
+
+       <li> <tt>--MinuitPrintLevel=[Logレベル]</tt>:
+	    MINUITのLOGレベルを指定できる。
+	    </li>
+
+       <li> <tt>--writeDB</tt>:
+	    キャッシュファイル書き込みオプション
+	    </li>
+
+       <li> <tt>--order=[LO|NLO]</tt>:
+	    </li>
+	    
+       <li> <tt>--errorMatrix</tt>:
+	    Parameterization fileにerror matrix 情報を書き出す。
+	    </li>
+
+       <li> <tt>--iteration=[n]</tt>:
+	    繰り返し最大回数を設定する。既定値は1000。
+	    </li>
+
+
+       <li> <tt>--alphaMz=[数字]</tt>:
+	    Z<sup>0</sup>質量スケールでの&alpha;<sub>s</sub>の値
+	    </li>
+
+       <li> <tt id="comment">--FF=[file name]</tt>:
+	    &pi;破砕関数用のパラメーター設定ファイル(XML)を指定する
+	    </li>
+       <li> <tt id="comment">--FFK=[file name]</tt>:
+	    K破砕関数用のパラメーター設定ファイル(XML)を指定する
+	    </li>
+       <li> <tt id="comment">--FFR=[file name]</tt>:
+	    Rest破砕関数用のパラメーター設定ファイル(XML)を指定する
+	    </li>
+       <li> <tt id="comment">--KretzerFF=[file name]</tt>:
+	    &pi;破砕関数用のパラメーター設定ファイル(XML)を指定する。
+	    Kretzerと同じ条件をかす。
+	    </li>
+       <li> <tt id="comment">--KretzerFFK=[file name]</tt>:
+	    Ka破砕関数用のパラメーター設定ファイル(XML)を指定する。
+	    Kretzerと同じ条件をかす。
+	    </li>
+       <li> <tt id="comment">--KretzerFFR=[file name]</tt>:
+	    Rest破砕関数用のパラメーター設定ファイル(XML)を指定する。
+	    Kretzerと同じ条件をかす。
+	    </li>
+       <li> <tt id="comment">--DSSFF=[file name]</tt>:
+	    &pi;破砕関数用のパラメーター設定ファイル(XML)を指定する。
+	    DSSと同じ条件をかす。
+	    </li>
+       <li> <tt id="comment">--DSSFFK=[file name]</tt>:
+	    Ka破砕関数用のパラメーター設定ファイル(XML)を指定する。
+	    DSSと同じ条件をかす。
+	    </li>
+       <li> <tt id="comment">--DSSFFR=[file name]</tt>:
+	    Rest破砕関数用のパラメーター設定ファイル(XML)を指定する。
+	    DSSと同じ条件をかす。
+	    </li>
+       <li> <tt id="comment">--polPDF=[file name]</tt>:
+	    &Delta;q 用
+	    パラメーター設定ファイル(XML)を指定する
+	    </li>
+       <li> <tt id="comment">--unpolPDF=[file name]</tt>:
+	    非偏極分布関数用
+	    パラメーター設定ファイル(XML)を指定する
+	    </li>
+       <li> <tt id="comment">--fit=[フィットで決定するもの]</tt>:
+	    フィットで決定すべき破砕関数、分布関数を指定。
+	    <tt>pion|</tt>、
+	    <tt>kaon</tt>、
+	    <tt>rest</tt>、
+	    <tt>hadron</tt>、
+	    <tt>unpolPDF</tt>、
+	    <tt>polPDF</tt>
+	    から指定する。複数指定する場合は","で区切る。
+	    （例：<tt>--fit=pion,polPDF</tt>）
+	    </li>
+
+      </ul>
+      
+      
+      </dd>
+      
+ <dt><tt>FragXsecFit</tt>オプション</dt>
+ <dd>
+      <ul>
+       <li> <tt>--zmin=[value]</tt>: <tt>z</tt>下限値
+	    </li>
+       <li> <tt>--zmax=[value]</tt>: <tt>z</tt>上限値
+	    </li>
+       <li> <tt>--laguerre=[n=5]</tt>:
+	    Steepest Decent Contour上 で n-次のラゲール積分を行う。
+	    </li>
+       <li> <tt>--steepestMap=[cmap.dat]</tt>:
+	    Sttepest Decent Contour の経路パラメーター
+	    読み出し・保存ファイル名を指定
+	    </li>
+      </ul>
+      </dd>
+      
+ <dt> <tt>G1Fit</tt>オプション</dt>
+ <dd>
+      <ul>
+       <li> <tt>--xmin=[value]</tt>: <tt>x</tt>下限値
+	    </li>
+       <li> <tt>--xmax=[value]</tt>: <tt>x</tt>上限値
+	    </li>
+      </ul>
+      </dd>
+
+
+ <dt> <tt>A1hFit</tt>オプション</dt>
+ <dd>
+      <ul>
+      </ul>
+      </dd>
+
+
+ <dt> <tt>MultiFragFit</tt>オプション</dt>
+ <dd>
+      <ul>
+      </ul>
+      </dd>
+
+</dl>
+
+
+<h2>フィットの途中経過・結果をプロットする</h2>
+<p>
+<tt>browser</tt>ディレクトリの中で<tt>mellin</tt>実行ファイルが
+作られます。これは
+<pre id="command">
+Mellin$ make install
+</pre>
+で<tt>~/mellin/bin</tt>にも保存されます。
+使い方はフィットのプログラムと同様に
+<tt id="comment">--expdata</tt>、
+<tt id="comment">--FF</tt>、
+<tt id="comment">--KretzerFF</tt>もしくは
+<tt id="comment">--polPDF</tt>で実験データおよびパラメータセットの
+ファイルを指定します。フィットの入出力ファイル
+(<tt>last_param_0.xml</tt>も可)
+をパラメーターセットファイルに指定できます。
+</p>
+<p>
+使い方は
+<pre id="command">
+$ mellin <span id="comment">--FF=[...] --expdata=[...]</span>
+<span id="comment">ROOTが立ち上がります。ROOTに以下のコマンドを入力します。</span>
+mellin [0] Browser::instance()->draw()
+mellin [1] .q
+</pre>
+
+</p>
+
+
+<h3>FragXsecの例</h3>
+
+<center>
+<img src="fragXsecFit.png">
+</center>
+
+<h3>polDIFの例</h3>
+
+デフォルトの状態では、
+<tt id="formula">g<sub>1</sub><sup>p,d,n</sup></tt>
+を実験データと、計算値
+（<tt id="formula">Q<sup>2</sup> = 1.0, 2.5,
+10.0</tt> GeV<sup>2</sup></tt> ？？）
+を表示します。
+オプション<tt id="comment">--weight=1.0</tt>を指定すると
+<tt id="formula"> x g<sub>1</sub> </tt>を表示します。
+
+<center>
+<img src="g1.png">
+</center>
+
+また<tt id="comment">--plot=Q^2</tt>を指定すると、
+<tt id="formula">Q<sup>2</sup></tt>発展をプロットします。
+
+<center>
+<img src="g1_Q2.png">
+</center>
+
+
+</body>
+</html>

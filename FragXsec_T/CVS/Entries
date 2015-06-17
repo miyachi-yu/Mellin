@@ -1,0 +1,24 @@
+/.cvsignore/1.11/Fri Sep 26 02:14:25 2008//
+/COFbase.cc/1.3/Fri May 23 02:08:00 2008//
+/COFbase.hh/1.5/Fri Aug  1 09:44:03 2008//
+/Charge.cc/1.16/Fri Sep  5 12:19:43 2008//
+/Charge.hh/1.9/Fri May 23 02:08:00 2008//
+/CoeffFunc.cc/1.3/Fri May 23 02:08:00 2008//
+/CoeffFunc.hh/1.2/Fri May 23 02:08:00 2008//
+/FragXsec.cc/1.9/Tue Oct 28 09:12:26 2008//
+/FragXsec.hh/1.10/Tue Oct 28 09:12:26 2008//
+/Makefile.am/1.4/Tue Jul 28 05:44:29 2009//
+/WC.cc/1.8/Mon Dec  1 08:29:37 2008//
+/WC.hh/1.2/Mon Dec  1 08:29:37 2008//
+/XFragXsec.cc/1.2/Wed Oct 22 10:11:12 2008//
+/XFragXsec.hh/1.1/Thu Sep 25 02:10:14 2008//
+/XsecComp.cc/1.18/Mon Nov 17 15:52:58 2008//
+/XsecComp.hh/1.10/Thu Nov 13 09:06:21 2008//
+/main.cc/1.10/Mon Jun  9 08:19:00 2008//
+/qsub_xc.sh/1.3/Thu Aug 28 15:59:17 2008//
+/testCharge.cc/1.6/Mon Jun  9 08:19:00 2008//
+/testCharge_macro.cc/1.3/Thu Apr 24 13:13:03 2008//
+/testInversion.cc/1.5/Wed Aug 20 05:50:35 2008//
+/testXsec.cc/1.21/Tue Oct 28 09:12:26 2008//
+/testXsec_comp.cc/1.1/Thu Aug 28 15:59:17 2008//
+D

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE set [
+	  <!ELEMENT set (pdf*)>
+	  <!ATTLIST set  scale CDATA #REQUIRED
+		    name  CDATA #REQUIRED >
+	  
+	  <!ELEMENT pdf (parameter*) >
+	  <!ATTLIST pdf  
+		    name  CDATA #REQUIRED
+		    pid   ID    #IMPLIED
+		    src   IDREF #IMPLIED >
+	  
+	  <!ELEMENT parameter EMPTY >
+	  <!ATTLIST parameter 
+		    index  CDATA #REQUIRED
+		    name   CDATA #IMPLIED
+		    value  CDATA #REQUIRED
+		    error  CDATA #IMPLIED
+		    state  (fixed|free|add) #REQUIRED
+		    upper  CDATA #IMPLIED
+		    lower  CDATA #IMPLIED
+		    >
+	  ]>		      
+
+<set scale="4.0" name="BB NLO ISET=3">
+  
+  <pdf name="uv" pid="uv" >
+    <parameter index="0" name="eta" value="0.926"  error="0.0"   state="fixed" />
+    <parameter index="1" name="a"   value="0.294"  error="0.035" state="free" />
+    <parameter index="2" name="b"   value="3.167"  error="0.212" state="free" />
+    <parameter index="3" name="c"   value="-27.22" error="0.0"   state="fixed" />
+  </pdf>
+  
+  <pdf name="dv" pid="dv" >
+    <parameter index="0" name="eta" value="-0.341" error="0.0"   state="fixed" />
+    <parameter index="1" name="a"   value="0.254"  error="0.111" state="free" />
+    <parameter index="2" name="b"   value="3.420"  error="1.332" state="free"  />
+    <parameter index="3" name="c"   value="-19.06"  error="0.0"   state="fixed" />
+  </pdf>
+  
+  <pdf name="s" pid="SEA" >
+    <parameter index="0" name="eta" value="-0.0745" error="0.014" state="free" />
+    <parameter index="1" name="a"   value="0.424"   error="0.062" state="free" />
+    <parameter index="2" name="b"   value="8.93"    error="0.0"   state="fixed" />
+  </pdf>
+  
+  <pdf name="u-bar" src="SEA" ></pdf>
+  <pdf name="d-bar" src="SEA" ></pdf>
+  <pdf name="s-bar" src="SEA" ></pdf>
+  
+  <pdf name="gluon" pid="GLUON" src="SEA">
+    <parameter index="0" name="eta" value="1.026" error="0.554" state="free" />
+    <parameter index="1" name="a"   value="1.0"   error="0.0"   state="add" />
+    <parameter index="2" name="b"   value="5.51"  error="0.0"   state="fixed" />
+  </pdf>
+  
+</set>

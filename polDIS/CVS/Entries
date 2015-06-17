@@ -1,0 +1,19 @@
+/.cvsignore/1.11/Fri Sep 26 02:14:27 2008//
+/CoeffFunc.cc/1.2/Fri May 23 02:08:04 2008//
+/CoeffFunc.hh/1.3/Fri Oct 17 09:59:33 2008//
+/Makefile.am/1.5/Tue Jul 28 05:44:48 2009//
+/StrFunc.cc/1.2/Fri Feb 13 12:23:41 2009//
+/StrFunc.hh/1.2/Fri Feb 13 12:23:41 2009//
+/StructureFunction.cc/1.21/Thu Aug 28 11:21:48 2008//
+/StructureFunction.hh/1.10/Mon Jun  9 08:19:00 2008//
+/Wilson.cc/1.18/Fri Oct 17 09:59:33 2008//
+/Wilson.hh/1.6/Fri May 23 02:08:04 2008//
+/XsecComp.cc/1.16/Fri Feb 13 12:23:41 2009//
+/XsecComp.hh/1.10/Fri Feb 13 12:23:41 2009//
+/interpolation.cc/1.2/Fri Oct 17 09:59:33 2008//
+/main.cc/1.14/Fri Oct 17 09:59:33 2008//
+/pdf.xml/1.5/Fri May 23 10:04:27 2008//
+/qsub_xg1.sh/1.2/Thu Aug 28 11:21:48 2008//
+/testG1.cc/1.25/Thu Apr 16 10:31:33 2009//
+/testG1_imazu.cc/1.3/Thu Apr 16 10:31:33 2009//
+D

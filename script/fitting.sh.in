@@ -1,0 +1,193 @@
+#!/bin/bash
+# $Id: fitting.sh.in,v 1.9 2009/01/05 00:35:26 miyachi Exp $
+# $Revision: 1.9 $
+# $Author: miyachi $
+# $Date: 2009/01/05 00:35:26 $
+# --------------------------------------------------------------------------
+# Shell script for Fitting programs: 
+#
+#
+#
+# --------------------------------------------------------------------------
+SCRIPT=$0
+export LANG=C
+
+# --------------------------------------------------------------------------
+# check if the script is called for PBS queue or not
+if [ -z "${PBS_O_WORKDIR}" ] ; then
+    O__DIR=`pwd`
+else
+    O__DIR=${PBS_O_WORKDIR}
+fi
+
+# --------------------------------------------------------------------------
+# 
+function usage {
+    
+    cat <<EOF
+
+Usage:   $SCRIPT
+
+  This script requires several enviroment variables.
+
+These variables must be properly set before calling $SCRIPT.
+
+  SETUP    path to the mellin setup.sh script e.g., @prefix@/bin/setuip.sh
+           (SETUP=${SETUP})
+
+  EXEC     executable program to be performed. (basename must be fitFragXsec,fitG1,...,)
+           (EXEC=${EXEC})
+
+  DATA     Experiment data file to be fitted.
+           (DATA=${DATA})
+
+  FIT      pion,kaon,rest,proton,unpolPDF,polPDF
+           (FIT=${FIT})
+
+These must be set depending on ${EXEC}
+
+  FF        Fragmentation function initial distribution file (pion)
+  FFK       Fragmentation function initial distribution file (kaon)
+  FFR       Fragmentation function initial distribution file (rest)
+  FFP       Fragmentation function initial distribution file (proton)
+
+  unpolPDF  Density  distribution function initial distribution file
+  polPDF    Helicity distribution function initial distribution file
+
+  MRST      MRST unpol PDF parameterization
+  DSSV      DSSV pol PDF parameterization
+
+There is also optional variables to control $SCRIPT.
+
+  FFBASE    "FF", "KretzerFF", or "DSSFF" ( defalut is "FF" )
+  WRITEDB   require --writeDB option
+  CONTOUR   create CONTOUR plot file named with the variable
+  NCONTOUR  number of grid for contour plots ( default is 20 )
+  OFFSET    Mellin inversion path starting point
+  ANGLE     Mellin inversion path angle unit in PI.
+  LENGTH    Mellin inversion path lenght
+  ORDER     pQCD calculation order (LO|NLO)
+  ZMIN      lower limit for z ( for fitFragXsec )
+  ZMAX      upper limit for z ( for fitFragXsec )
+  OUTPUT    output directory name under ${O__DIR}
+  OPTIONS   arguments list to be given to EXEC program
+  
+Example:
+
+SETUP=@prefix@/bin/setup.sh EXEC=fitFragXsec FF=FF.xml DATA=data.xml ZMIN=0.04 ZMAX=0.8 WRITEDB=yes  $SCRIPT 
+SETUP=@prefix@/bin/setup.sh EXEC=fitFragXsec FF=FF.xml DATA=data.xml qsub -v SETUP,EXEC,FF,DATA $SCRIPT
+
+EOF
+    
+    exit
+}
+
+############################################################################
+####               check eviroment variables
+############################################################################
+[ "$1" == "--help" ] && usage
+[ -z "${SETUP}" ]    && usage
+[ -z "${EXEC}" ]     && usage
+[ -z "${DATA}" ]     && usage
+[ -z "${FIT}"  ]     && usage
+
+############################################################################
+####               load setup
+############################################################################
+source ${SETUP}
+
+############################################################################
+####               basename of executables
+############################################################################
+EXEC_BASE=`basename ${EXEC}`
+
+############################################################################
+####               basename of ff option
+############################################################################
+[ -z "${FFBASE}" ] && FFBASE="FF"
+
+############################################################################
+####               default pQCD order is NLO
+############################################################################
+[ -z "${ORDER}"] && ORDER=NLO
+
+############################################################################
+####                  Output dirctory preparation
+############################################################################
+[ -z "${OUTPUT}" ] && OUTPUT=fit_out
+OUTDIR=${O__DIR}/${OUTPUT}
+/bin/mkdir -p ${OUTDIR}
+
+############################################################################
+####                        LOG file setting
+############################################################################
+##LOG=${EXEC_BASE}.log
+LOG="`date +%y%m%d%H%M`.log"
+
+echo "-------------------------------------------------------------" > ${LOG}
+echo "  Date:  `date`"     >> ${LOG}
+echo "  Host:  `uname -n`" >> ${LOG}
+
+############################################################################
+####                       Working directory
+############################################################################
+SCRATCH="/scratch/`whoami`"
+if [ ! -z "${PBS_JOBID}" ] ; then
+    SCRATCH="${SCRATCH}/${PBS_JOBID}"
+else
+    SCRATCH="${SCRATCH}/`date +%Y%m%d%H%M.%S`"
+fi
+/bin/mkdir -p ${SCRATCH}
+cd ${SCRATCH}
+
+############################################################################
+####              Copy input files to local directory
+############################################################################
+for f in ${FF} ${FFK} ${FFR} ${FFP} ${DATA} \
+    ${polPDF} ${unpolPDF} ${MRST} ${DSSV}
+do
+    [ ! -z "${f}" ] && [ -e "${f}" ] && /bin/cp $f .
+done
+
+############################################################################
+####                       Option setting
+############################################################################
+DATA_IN=`basename ${DATA}`
+OPTS="--expdata=${DATA_IN} --order=${ORDER} --fit=${FIT}"
+
+[ ! -z "${FF}" ]       && OPTS="${OPTS} --${FFBASE}=${FF}"
+[ ! -z "${FFK}" ]      && OPTS="${OPTS} --${FFBASE}K=${FFK}"
+[ ! -z "${FFR}" ]      && OPTS="${OPTS} --${FFBASE}R=${FFR}"
+[ ! -z "${FFP}" ]      && OPTS="${OPTS} --${FFBASE}P=${FFP}"
+
+[ ! -z "${polPDF}" ]   && OPTS="${OPTS} --polPDF=${polPDF}"
+[ ! -z "${DSSV}" ]     && OPTS="${OPTS} --DSSV=${DSSV}"
+[ ! -z "${unpolPDF}" ] && OPTS="${OPTS} --unpolPDF=${unpolPDF}"
+[ ! -z "${MRST}" ]     && OPTS="${OPTS} --MRST=${MRST}"
+
+[ ! -z "${ZMIN}" ]     && OPTS="${OPTS} --zmin=${ZMIN}"
+[ ! -z "${ZMAX}" ]     && OPTS="${OPTS} --zmax=${ZMAX}"
+
+[ ! -z "${WRITEDB}" ]  && OPTS="${OPTS} --writeDB"
+[ ! -z "${CONTOUR}" ]  && OPTS="${OPTS} --contour=${CONTOUR}"
+[ ! -z "${NCONTOUR}" ] && OPTS="${OPTS} --ncontour=${NCONTOUR}"
+
+# ----------- integration path for Mellin inversion ----------------------
+[ ! -z "${OFFSET}" ]   && OPTS="${OPTS} --offset=${OFFSET}"
+[ ! -z "${ANGLE}" ]    && OPTS="${OPTS} --angle=${ANGLE}"
+[ ! -z "${LENGTH}" ]   && OPTS="${OPTS} --length=${LENGTH}"
+
+[ ! -z "${OPTIONS}" ]  && OPTS="${OPTS} ${OPTIONS}"
+
+############################################################################
+####                   execute fitting program
+############################################################################
+echo "  *** execute ${EXEC} ${OPTS}"  | tee --append ${LOG}
+time ${EXEC} ${OPTS} 2>&1 | tee --append ${LOG} 
+
+############################################################################
+####        Copy input and output files to output directory
+############################################################################
+/bin/cp -r * ${OUTDIR}/.
+
+echo "  END:    `date`" >> ${LOG}

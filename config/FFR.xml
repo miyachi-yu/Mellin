@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE set [
+<!ELEMENT set (pdf*)>
+<!ATTLIST set
+  scale CDATA #REQUIRED
+  name  CDATA #REQUIRED >
+<!ELEMENT pdf (parameter*) >
+<!ATTLIST pdf
+  name CDATA #REQUIRED
+  pid  ID    #IMPLIED
+  src  IDREF #IMPLIED
+  dfav IDREF #IMPLIED
+  fav  IDREF #IMPLIED
+>
+<!ELEMENT parameter (ems*) >
+<!ATTLIST parameter
+  index  CDATA #REQUIRED
+  name   CDATA #IMPLIED
+  value  CDATA #REQUIRED
+  error  CDATA #IMPLIED
+  state  (fixed|free|add|multi) #REQUIRED
+  upper  CDATA #IMPLIED
+  lower  CDATA #IMPLIED
+  emid   CDATA #IMPLIED
+>
+<!ELEMENT ems EMPTY >
+<!ATTLIST ems
+  emid   CDATA  #REQUIRED
+  value  CDATA  #REQUIRED
+>
+]>
+
+<set scale="1" name="Fragmentation">
+
+<pdf name="gluon">
+<parameter index="0" name="N" value="0.0227398" error="0.0090376" state="free" upper="1" lower="0"></parameter>
+<parameter index="1" name="a" value="4.81981" error="0.750941" state="free" upper="100" lower="-2"></parameter>
+<parameter index="2" name="b" value="10.5437" error="1.31008" state="free" upper="100" lower="-100"></parameter>
+</pdf>
+
+<pdf name="u" pid="favore">
+<parameter index="0" name="N" value="0.0306512" error="0.0166433" state="free" upper="1" lower="0"></parameter>
+<parameter index="1" name="a" value="-1.31435" error="0.0407971" state="free" upper="100" lower="-2"></parameter>
+<parameter index="2" name="b" value="0.961653" error="0.0634618" state="free" upper="100" lower="-100"></parameter>
+</pdf>
+<pdf name="u-bar" src="favore"></pdf>
+<pdf name="d"     src="favore"></pdf>
+<pdf name="d-bar" src="favore"></pdf>
+<pdf name="s"     src="favore"></pdf>
+<pdf name="s-bar" src="favore"></pdf>
+
+<pdf name="c" pid="c">
+<parameter index="0" name="N" value="0.015304" error="0.0140559" state="free" upper="1" lower="0"></parameter>
+<parameter index="1" name="a" value="-0.897289" error="0.157444" state="free" upper="100" lower="-2"></parameter>
+<parameter index="2" name="b" value="2.56185" error="0.319074" state="free" upper="100" lower="-100"></parameter>
+</pdf>
+<pdf name="c-bar" src="c"></pdf>
+
+<pdf name="b" pid="b">
+<parameter index="0" name="N" value="0.0273915" error="0.0136281" state="free" upper="1" lower="0"></parameter>
+<parameter index="1" name="a" value="-1.38381" error="0.0510297" state="free" upper="100" lower="-2"></parameter>
+<parameter index="2" name="b" value="5.32594" error="0.287072" state="free" upper="100" lower="-100"></parameter>
+</pdf>
+<pdf name="b-bar" src="b"></pdf>
+
+</set>
+

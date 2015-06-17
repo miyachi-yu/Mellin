@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE set [
+	  <!ELEMENT set (pdf*)>
+	  <!ATTLIST set
+		    scale CDATA #REQUIRED
+		    name  CDATA #REQUIRED >
+	  <!ELEMENT pdf (parameter*) >
+	  <!ATTLIST pdf
+		    name CDATA #REQUIRED
+		    pid  ID    #IMPLIED
+		    src  IDREF #IMPLIED
+		    dfav IDREF #IMPLIED
+		    fav  IDREF #IMPLIED
+		    >
+	  <!ELEMENT parameter (ems*) >
+	  <!ATTLIST parameter
+		    index  CDATA #REQUIRED
+		    name   CDATA #IMPLIED
+		    value  CDATA #REQUIRED
+		    error  CDATA #IMPLIED
+		    state  (fixed|free) #REQUIRED
+		    upper  CDATA #IMPLIED
+		    lower  CDATA #IMPLIED
+		    emid   CDATA #IMPLIED
+		    >
+	  <!ELEMENT ems EMPTY >
+	  <!ATTLIST ems
+		    emid   CDATA  #REQUIRED
+		    value  CDATA  #REQUIRED
+		    >
+	  ]>
+<!--
+    Parameters are copied from Y. Miyachi Thesis (Tab. 5.1)
+    SMC NLO QCD Analysis in the MS-bar scheme
+-->
+<set scale="1" name="polDIS SU(3)">
+  <pdf name="gluon" pid="GLUON">
+    <parameter index="0" name="eta" value="0.21" error="0.27" state="free" upper="100" lower="-100"></parameter>
+    <parameter index="1" name="a"   value="1.48" error="3.24" state="free" upper="100" lower="-2"></parameter>
+    <parameter index="2" name="b"   value="4.00" error="0.00" state="free" upper="100" lower="-1"></parameter>
+    <parameter index="3" name="c"   value="0"    error="0.00" state="free" upper="100" lower="-40"></parameter>
+  </pdf>
+  <pdf name="a0" pid="a0">
+    <parameter index="0" name="eta" value="0.19" error="0.04" state="free" upper="100" lower="-100"></parameter>
+    <parameter index="1" name="a"   value="0.54" error="0.12" state="free" upper="100" lower="-2"></parameter>
+    <parameter index="2" name="b"   value="3.05" error="0.38" state="free" upper="100" lower="-1"></parameter>
+    <parameter index="3" name="c"   value="13.0" error="1.2"  state="free" upper="100" lower="-100"></parameter>
+  </pdf>
+  <pdf name="a3" pid="a3">
+    <parameter index="0" name="eta" value="1.269" error="0.00" state="free" upper="100" lower="-100"></parameter>
+    <parameter index="1" name="a"   value="0.89"  error="0.05" state="free" upper="100" lower="-2"></parameter>
+    <parameter index="2" name="b"   value="1.69"  error="0.16" state="free" upper="100" lower="-1"></parameter>
+    <parameter index="3" name="c"   value="0"     error="0.00" state="free" upper="100" lower="-100"></parameter>
+  </pdf>
+  <pdf name="a8" src="a3">
+    <parameter index="0" name="eta" value="0.586" error="0" state="free" upper="100" lower="-100"></parameter>
+  </pdf>
+</set>

@@ -1,0 +1,37 @@
+ error 1000 return
+ ABE 98   PR D59,052001
+ Measured differential cross section for the production of charged kaons perZ0 d
+ ecay into light, charm and bottom quarks separately. The errors given are t he 
+ sum in quadrature of the statistical errors and those systematic errors arising
+  from the unfolding procedure. Systematic errors common to the three flavours a
+ re not included.
+ RE(Q=UDS)   E+ E- --&gt; (UQ + DQ + SQ) &lt; K+- X &gt; X + CC
+ RE(Q=C)   E+ E- --&gt; CQ &lt; K+- X &gt; X + CC
+ RE(Q=B)   E+ E- --&gt; BQ &lt; K+- X &gt; X + CC
+ SQRT(S) IN GEV   91.2
+ x = X(DEF=2*P(P=K+-)/SQRT(S))
+ y = (1/N(C=HAD)*D(N(Q=C))/DX
+ x1  TO x2     y    +- dy             
+
+1 42
+0.016  0.022  19.5    5.0    
+0.022  0.027  26.8    4.7    
+0.027  0.033  16.4    4.4    
+0.033  0.038  14.9    4.4    
+0.038  0.044  18.5    4.5    
+0.044  0.049  13.6    4.9    
+0.049  0.055   6.1    5.2    
+0.055  0.066  10.7    3.6    
+0.066  0.077   9.5    3.1    
+0.077  0.088   8.9    3.0    
+0.088  0.099  10.5    3.0    
+0.099  0.110  10.2    3.2    
+0.110  0.132   8.1    2.5    
+0.132  0.164   8.0    2.6    
+0.208  0.230   2.64   0.70   
+0.230  0.274   3.29   0.37   
+0.274  0.318   1.30   0.27   
+0.318  0.384   0.66   0.17   
+0.384  0.471   0.65   0.12   
+0.471  0.603   0.229  0.073  
+0.603  0.768  -0.003  0.046  

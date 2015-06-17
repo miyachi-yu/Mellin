@@ -1,0 +1,14 @@
+InverseMellinTest
+polygamma
+Makefile
+mellin
+testCGamma
+mcgama
+MellinInverse
+*.d
+*.o
+testPdfBase
+testPolDis
+browser
+testdb
+integPath

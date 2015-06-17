@@ -1,0 +1,43 @@
+ error 1000 return
+ ABE 98   PR D59,052001
+ Measured differential cross section for the production of charged pions perZ0 d
+ ecay into light, charm and bottom quarks separately. The errors given are t he 
+ sum in quadrature of the statistical errors and those systematic errors arising
+  from the unfolding procedure. Systematic errors common to the three flavours a
+ re not included.
+ RE(Q=UDS)   E+ E- --> (UQ + DQ + SQ) < PI+- X > X + CC
+ RE(Q=C)   E+ E- --> CQ < PI+- X > X + CC
+ RE(Q=B)   E+ E- --> BQ < PI+- X > X + CC
+ SQRT(S) IN GEV   91.2
+ x = X(DEF=2*P(P=PI+-)/SQRT(S))
+ y = (1/N(C=HAD)*D(N(Q=C))/DX
+ x1  TO x2     y     +- dy              
+
+1 32
+0.008  0.010  493.     37.     
+0.010  0.012  413.     34.     
+0.012  0.014  403.     30.     
+0.014  0.016  375.     27.     
+0.016  0.022  301.     19.     
+0.022  0.027  230.     15.     
+0.027  0.033  178.     13.     
+0.033  0.038  141.     11.     
+0.038  0.044  111.     10.     
+0.044  0.049   96.     10.     
+0.049  0.055   86.     10.     
+0.055  0.066   65.8     5.9    
+0.066  0.077   48.8     4.8    
+0.077  0.088   43.4     4.0    
+0.088  0.099   32.3     3.5    
+0.099  0.110   23.6     3.1    
+0.110  0.132   21.3     2.1    
+0.132  0.164   12.4     1.4    
+0.164  0.186    8.8     1.1    
+0.186  0.208    6.66    0.90   
+0.208  0.230    6.03    0.77   
+0.230  0.274    3.77    0.48   
+0.274  0.318    2.62    0.36   
+0.318  0.384    1.69    0.23   
+0.384  0.471    0.42    0.14   
+0.471  0.603    0.146   0.084  
+0.603  0.768    0.027   0.054 

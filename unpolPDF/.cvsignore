@@ -1,0 +1,13 @@
+Makefile.in
+Makefile
+main
+testCteq6
+*.so
+*.d
+*.o
+*~
+*.lo
+*.la
+.deps
+.libs
+cache

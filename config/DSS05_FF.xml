@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  $Id: DSS05_FF.xml,v 1.1 2008/11/12 09:58:52 miyachi Exp $
+  
+  Parameters are taken from PHYSICAL REVIEW D 75, 114010 (2007)
+  for positive charged pion at NLO
+  
+  -->
+<!DOCTYPE set [
+	  <!ELEMENT set (pdf*)>
+	  <!ATTLIST set   scale CDATA #REQUIRED
+		    name  CDATA #REQUIRED >
+	  
+	  <!ELEMENT pdf (parameter*) >
+	  <!ATTLIST pdf  
+		    name  CDATA  #REQUIRED
+		    pid   ID     #IMPLIED
+		    src   IDREF  #IMPLIED
+		    dfav  IDREF  #IMPLIED
+		    >
+	  
+	  <!ELEMENT parameter EMPTY >
+	  <!ATTLIST parameter 
+		    index  CDATA        #REQUIRED
+		    name   CDATA        #IMPLIED
+		    value  CDATA        #REQUIRED
+		    error  CDATA        #IMPLIED
+		    state  (fixed|free) #REQUIRED
+		    upper  CDATA        #IMPLIED
+		    lower  CDATA        #IMPLIED
+		    >
+	  
+	  ]>		      
+
+<set scale="1.0" name="Fragmentation">
+  
+  <pdf name="gluon">
+    <parameter index="0" name="eta" value="0.279" error="0.1" state="free" upper="1" lower="0" />
+    <parameter index="1" name="a" value="0.899"   error="0.0" state="free" lower="-2" />
+    <parameter index="2" name="b" value="1.57"    error="0.0" state="free" />
+    <parameter index="3" name="c" value="20.00"   error="0"   state="free" />
+    <parameter index="4" name="d" value="4.91"    error="0"   state="free" />
+  </pdf>
+  
+  <pdf name="U" pid="U" >
+    <parameter index="0" name="eta" value="0.345" error="0.0" state="free" upper="1" lower="0" />
+    <parameter index="1" name="a" value="-0.015"  error="0.0" state="free" lower="-2" />
+    <parameter index="2" name="b" value="1.20"    error="0.0" state="free" />
+    <parameter index="3" name="c" value="11.06"   error="0.0" state="free" />
+    <parameter index="4" name="d" value="4.23"    error="0.0" state="free" />
+  </pdf>
+  
+  <pdf name="u-bar" pid="DISFAVOR" >
+    <parameter index="0" name="eta" value="0.115" error="0.0" state="fixed" upper="1.0" lower="0.0" />
+    <parameter index="1" name="a"   value="0.520" error="0.0" state="fixed" lower="-2.0" />
+    <parameter index="2" name="b"   value="3.27"  error="0.0" state="fixed" />
+    <parameter index="3" name="c"   value="16.26" error="0.0" state="fixed" />
+    <parameter index="4" name="d"   value="8.46"  error="0.0" state="fixed" />
+  </pdf>
+  
+  <pdf name="D" pid="D" src="U" >
+    <parameter index="0" name="eta" value="0.380" error="0.0" state="free" upper="1" lower="0" />
+  </pdf>
+  
+  <pdf name="d" src="DISFAVOR" ></pdf>
+  
+  <pdf name="S" pid="STRANGE" src="DISFAVOR">
+    <parameter index="0" name="eta" value="0.190" error="0.0" state="fixed" upper="1.0" lower="0.0" />
+  </pdf>
+  
+  <pdf name="C" pid="CHARM" >
+    <parameter index="0" name="eta" value="0.271"  error="0.0" state="fixed" upper="1.0" lower="0.0" />
+    <parameter index="1" name="a"   value="-0.905" error="0.0" state="fixed" lower="-2.0" />
+    <parameter index="2" name="b"   value="3.23"   error="0.0" state="fixed" />
+    <parameter index="3" name="c"   value="0.00"   error="0.0" state="fixed" />
+    <parameter index="4" name="d"   value="0.00"   error="0.0" state="fixed" />
+  </pdf>
+  
+  <pdf name="B" pid="BOTTOM" >
+    <parameter index="0" name="eta" value="0.501"  error="0.0" state="fixed" upper="1.0" lower="0.0" />
+    <parameter index="1" name="a"   value="-1.305" error="0.0" state="fixed" lower="-2.0" />
+    <parameter index="2" name="b"   value="5.67"   error="0.0" state="fixed" />
+    <parameter index="3" name="c"   value="0.00"   error="0.0" state="fixed" />
+    <parameter index="4" name="d"   value="0.00"   error="0.0" state="fixed" />
+  </pdf>
+  
+</set>

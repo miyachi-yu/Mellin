@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE set [
+	  <!ELEMENT set (pdf*)>
+	  <!ATTLIST set  scale CDATA #REQUIRED
+		    name  CDATA #REQUIRED >
+	  
+	  <!ELEMENT pdf (parameter*) >
+	  <!ATTLIST pdf  
+		    name  CDATA #REQUIRED
+		    pid   ID    #IMPLIED
+		    src   IDREF #IMPLIED >
+	  
+	  <!ELEMENT parameter EMPTY >
+	  <!ATTLIST parameter 
+		    index  CDATA #REQUIRED
+		    name   CDATA #IMPLIED
+		    value  CDATA #REQUIRED
+		    error  CDATA #IMPLIED
+		    state  (fixed|free|add) #REQUIRED
+		    upper  CDATA #IMPLIED
+		    lower  CDATA #IMPLIED
+		    >
+	  ]>		      
+
+<set scale="1.0" name="polDIS SU(3)">
+  
+  <pdf name="gluon" pid="GLUON" >
+    <parameter index="0" name="eta" value="0.15" error="0.1" state="free" />
+    <parameter index="1" name="a"   value="2.0"  error="0.3" lower="-2.0" state="free" />
+    <parameter index="2" name="b"   value="2.0"  error="0.0" state="free" />
+    <parameter index="3" name="c"   value="0.00" error="0.0" state="free" />
+  </pdf>
+  
+  <pdf name="u" pid="UP" >
+    <parameter index="0" name="eta" value="0.86"  error="0.5" state="free" />
+    <parameter index="1" name="a"   value="1.75"  error="0.6" lower="-2.0" state="free" />
+    <parameter index="2" name="b"   value="4.00"  error="1.0" state="free" />
+    <parameter index="3" name="c"   value="0.0"   error="1.0" state="free" />
+  </pdf>
+  
+  <pdf name="d" pid="DOWN" >
+    <parameter index="0" name="eta" value="-0.42" error="0.1" state="free" />
+    <parameter index="1" name="a"   value="2.00"  error="0.7" lower="-2.0" state="free" />
+    <parameter index="2" name="b"   value="4.94" error="1.0" state="free" />
+    <parameter index="3" name="c"   value="0.00" error="1.0" state="free" />
+  </pdf>
+  
+  <pdf name="u-bar" pid="SEA" >
+    <parameter index="0" name="eta" value="-0.07" error="0.1" state="free" />
+    <parameter index="1" name="a"   value="4.82"  error="1.0" lower="-2.0" state="free"  />
+    <parameter index="2" name="b"   value="17.9"  error="5.0" state="free" />
+    <parameter index="3" name="c"   value="0.0"   error="0.0" state="fixed" />
+  </pdf>
+  
+  <pdf name="c" pid="HEAVY" >
+    <parameter index="0" name="eta" value="0.0" error="0.0" state="fixed"  />
+    <parameter index="1" name="a"   value="0.0" error="0.0" state="fixed"  />
+    <parameter index="2" name="b"   value="0.0" error="0.0" state="fixed" />
+    <parameter index="3" name="c"   value="0.0" error="0.0" state="fixed" />
+  </pdf>
+  
+  <pdf name="d-bar" src="SEA" ></pdf>
+  <pdf name="s"     src="SEA" ></pdf>
+  <pdf name="s-bar" src="SEA" ></pdf>
+  
+  <pdf name="c-bar" src="HEAVY" ></pdf>
+  <pdf name="b"     src="HEAVY" ></pdf>
+  <pdf name="b-bar" src="HEAVY" ></pdf>
+  
+</set>

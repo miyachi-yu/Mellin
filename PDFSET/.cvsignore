@@ -1,0 +1,15 @@
+Makefile.in
+Makefile
+main
+*.so
+*.d
+*.o
+*~
+testPdfBase
+*.lo
+*.loT
+*.la
+.deps
+.libs
+alpha
+pdfManip

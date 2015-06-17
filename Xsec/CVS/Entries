@@ -1,0 +1,26 @@
+/.cvsignore/1.3/Fri Sep 26 02:14:26 2008//
+/CKernel.cc/1.30/Thu Apr 16 10:31:32 2009//
+/CKernel.hh/1.18/Thu Apr 16 10:31:32 2009//
+/CKernelBase.cc/1.1/Fri Apr 17 01:06:00 2009//
+/CKernelBase.hh/1.3/Fri Apr 24 09:33:33 2009//
+/Charge.cc/1.7/Thu Aug 28 10:30:31 2008//
+/Charge.hh/1.6/Tue Jun 25 00:59:12 2013//
+/Coefficient.cc/1.10/Fri Apr 24 09:33:34 2009//
+/Coefficient.hh/1.13/Fri Apr 24 09:33:34 2009//
+/Makefile.am/1.4/Thu Apr 16 10:31:32 2009//
+/PDF_SW.cc/1.1/Thu Nov 20 09:50:51 2008//
+/PDF_SW.hh/1.2/Thu Apr 16 10:31:32 2009//
+/Wilsons.cc/1.3/Fri May 23 02:08:03 2008//
+/Wilsons.hh/1.3/Fri May 23 02:08:03 2008//
+/Xsec.cc/1.27/Tue Apr 21 06:36:24 2009//
+/Xsec.hh/1.20/Thu Apr 16 10:31:32 2009//
+/XsecComp.cc/1.19/Thu Apr 16 10:31:32 2009//
+/XsecComp.hh/1.19/Thu Apr 16 10:31:32 2009//
+/XsecCompBase.cc/1.1/Fri Apr 17 01:06:00 2009//
+/XsecCompBase.hh/1.2/Fri Apr 24 09:33:35 2009//
+/Xsection.dia/1.1/Tue Apr 15 07:00:08 2008//
+/xXsec.cc/1.12/Mon Dec  1 06:02:33 2008//
+/xXsec.hh/1.10/Tue Jul 28 05:44:48 2009//
+/xzXsec.cc/1.7/Thu Aug 28 10:30:32 2008//
+/xzXsec.hh/1.5/Thu Oct 23 04:50:51 2008//
+D

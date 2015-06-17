@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE set [
+<!ELEMENT set (pdf*)>
+<!ATTLIST set
+  scale CDATA #REQUIRED
+  name  CDATA #REQUIRED >
+<!ELEMENT pdf (parameter*) >
+<!ATTLIST pdf
+  name CDATA #REQUIRED
+  pid  ID    #IMPLIED
+  src  IDREF #IMPLIED
+  dfav IDREF #IMPLIED
+  fav  IDREF #IMPLIED
+>
+<!ELEMENT parameter (ems*) >
+<!ATTLIST parameter
+  index  CDATA #REQUIRED
+  name   CDATA #IMPLIED
+  value  CDATA #REQUIRED
+  error  CDATA #IMPLIED
+  state  (fixed|free|add|multi) #REQUIRED
+  upper  CDATA #IMPLIED
+  lower  CDATA #IMPLIED
+  emid   CDATA #IMPLIED
+>
+<!ELEMENT ems EMPTY >
+<!ATTLIST ems
+  emid   CDATA  #REQUIRED
+  value  CDATA  #REQUIRED
+>
+]>
+
+<!--
+    original numbers can be found in 
+    http://ribf.riken.jp/~marco/DSSV/fortran/dssv.html
+
+    N values are comverted to the corresponding first moment.
+    The 0-th values for U, D, S are simply ignored in calculation 
+    with PdfDSSV class.
+
+    Using the first moment, the value of a0, a3, a8 are computed.
+
+-->
+<set scale="1.0" name="polDIS SU(3)">
+  
+  <pdf name="gluon" pid="gluon" >
+    <parameter index="0" name="N" value="0.12814" error="0.1" state="free" />
+    <parameter index="1" name="a" value="2.0"  error="0.0" lower="-2.0" state="fixed" />
+    <parameter index="2" name="b" value="6.0"   error="0.0" state="fixed" />
+    <parameter index="3" name="c" value="0.0"   error="0.0" state="fixed" />
+  </pdf>
+  
+<!-- 0.1324 -->
+  <pdf name="a0" >
+    <parameter index="0" name="N" value="0.1324" error="0.1" state="free" />
+  </pdf>
+  
+  <pdf name="a3" >
+    <parameter index="0" name="N" value="1.2573" error="0.0" state="fixed" />
+  </pdf>
+
+<!-- 0.575 * ( 1 + 0.1502 ) = 0.661 -->
+  <pdf name="a8" >
+    <parameter index="0" name="N" value="0.661" error="0.1" state="free" />
+  </pdf>
+  
+  <pdf name="U" pid="U" >
+    <parameter index="1" name="a" value="0.347860233" error="0.1" lower="-2.0" state="free" />
+    <parameter index="2" name="b" value="3.42281557"  error="0.1" state="free" />
+    <parameter index="3" name="c" value="0.0" error="0.0" state="fixed" />
+    <parameter index="4" name="d" value="64.5434539" error="0.1" state="free" />
+  </pdf>
+  
+  <pdf name="D" pid="D" >
+    <parameter index="1" name="a" value="0.255323963" error="0.1" lower="-2.0" state="free" />
+    <parameter index="2" name="b" value="2.56010784"  error="0.1" state="free" />
+    <parameter index="3" name="c" value="0.0" error="0.0" state="fixed" />
+    <parameter index="4" name="d" value="0.0" error="0.0" state="fixed" />
+  </pdf>
+
+  <pdf name="u-bar" pid="u-bar" >
+    <parameter index="0" name="N" value="-0.0856975339" error="0.01" state="free" />
+    <parameter index="1" name="a" value="2.36950202" error="0.1" lower="-2.0" state="free"  />
+    <parameter index="2" name="b" value="18.3978111"  error="0.1" state="free" />
+  </pdf>
+  
+  <pdf name="d-bar" pid="d-bar" src="u-bar" ></pdf>
+
+  <pdf name="S" pid="S" src="d-bar" >
+    <parameter index="0" name="N" value="2.0" error="0" state="multi" upper="100" lower="-100"></parameter>
+  </pdf>
+  
+</set>

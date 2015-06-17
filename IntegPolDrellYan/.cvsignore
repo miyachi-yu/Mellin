@@ -1,0 +1,15 @@
+Makefile.in
+Makefile
+testPDY
+*.d
+*~
+*.o
+*.dat*
+*.o*
+*.e*
+cache
+*.lo
+*.la
+.deps
+.libs
+*.sh

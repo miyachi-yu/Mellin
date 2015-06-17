@@ -1,0 +1,54 @@
+/.cvsignore/1.4/Wed May 12 06:26:00 2010//
+/AAC.cc/1.5/Wed Oct  8 12:43:54 2008//
+/AAC.hh/1.3/Tue Jan 20 05:58:30 2009//
+/BB.cc/1.3/Wed Oct  8 12:43:54 2008//
+/BB.hh/1.3/Tue Jan 20 05:58:30 2009//
+/CTEQ6.cc/1.4/Tue Oct  7 14:48:47 2008//
+/CTEQ6.hh/1.4/Tue Jan 20 05:58:30 2009//
+/Cteq6Pdf-2004.f/1.1/Thu Jun 21 06:39:52 2007//
+/EM.inc/1.1/Mon Oct  6 10:04:39 2008//
+/FF.cc/1.2/Fri Jan 16 04:24:10 2009//
+/FF.hh/1.2/Tue Jan 20 05:58:30 2009//
+/GRSV2000.cc/1.6/Wed Oct  8 12:43:54 2008//
+/GRSV2000.hh/1.6/Tue Jan 20 05:58:30 2009//
+/HKNS07.cc/1.1/Wed May 12 06:26:00 2010//
+/HKNS07.hh/1.1/Wed May 12 06:26:00 2010//
+/LSS.cc/1.5/Wed Oct  8 12:43:54 2008//
+/LSS.hh/1.6/Tue Jan 20 05:58:30 2009//
+/LSS2001.f/1.1/Thu Oct  2 09:54:12 2008//
+/LSS2005pdf_g1.f/1.1/Thu Oct  2 09:54:12 2008//
+/LSS2006pdf_g1.f/1.2/Tue Oct  7 14:48:48 2008//
+/MRST2001.cc/1.2/Wed Feb  4 08:24:24 2009//
+/MRST2001.hh/1.1/Wed Feb  4 07:05:09 2009//
+/MSTW2008.cc/1.2/Tue Jul 28 08:05:31 2009//
+/MSTW2008.hh/1.1/Tue Jul 28 05:44:29 2009//
+/Makefile.am/1.14/Fri Apr  5 09:02:13 2013//
+/Package.cc/1.7/Tue Jul 28 05:44:29 2009//
+/Package.hh/1.9/Tue Jul 28 05:44:29 2009//
+/aac08.f/1.3/Mon Oct  6 11:32:59 2008//
+/bb_ppdf.f/1.2/Wed Oct  8 12:43:55 2008//
+/cfortran.h/1.1/Fri Apr  5 09:02:13 2013//
+/dfint.f/1.2/Tue Oct  7 14:48:48 2008//
+/dlib.f/1.1/Wed Oct  8 13:09:46 2008//
+/grille_had_charged.f/1.1/Wed Oct  8 13:09:46 2008//
+/grsv2000pdf_g1.f/1.3/Tue Oct  7 14:48:48 2008//
+/hkns.cc/1.1/Wed May 12 06:26:00 2010//
+/hknsff07.f/1.1/Wed May 12 06:26:00 2010//
+/kkp.f/1.1/Wed Oct  8 13:09:46 2008//
+/locate.f/1.1/Wed Oct  8 13:09:46 2008//
+/main.cc/1.7/Wed Oct  8 12:43:55 2008//
+/mrst2001E.f/1.1/Wed Feb  4 07:05:10 2009//
+/mstwpdf.cc/1.1/Tue Jul 28 05:44:29 2009//
+/mstwpdf.hh/1.1/Tue Jul 28 05:44:29 2009//
+/pkhff.f/1.1/Wed Oct  8 13:09:46 2008//
+/polin2.f/1.1/Wed Oct  8 13:09:46 2008//
+/polint.f/1.1/Wed Oct  8 13:09:46 2008//
+D/aac08_table////
+D/bb_table////
+D/cteq6_table////
+D/ff_tables////
+D/grsv2000_table////
+D/hkns07_table////
+D/lss06_table////
+D/mrst2001_table////
+D/mstw2008_table////

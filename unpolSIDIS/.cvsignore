@@ -1,0 +1,17 @@
+Makefile.in
+Makefile
+main
+testF1h
+testF1h_imazu
+*.d
+*~
+*.o
+*.dat*
+*.o*
+*.e*
+cache
+*.lo
+*.la
+.deps
+.libs
+hadron

@@ -1,0 +1,21 @@
+EXPeriment = SLAC-PEP-004 (TPC)                                                
+sqrt(s)    = 29 GeV
+Author     = Aihara et al 
+REFerence  = 1985 Zeit. Phys. C27, 187
+
+
+          xE      (1/sig(h)beta) dsig/dxE      stat.
+                                               error    
+					   
+1 33
+         0.079            29.6                 5.8   
+         0.100            19.5                 2.7    
+         0.123            10.9                 1.8     
+         0.151             7.42                1.2    
+         0.181             3.62                0.62    
+         0.216             3.04                0.46  
+         0.253             1.94                0.29   
+         0.297             1.57                0.25    
+         0.345             1.12                0.25   
+         0.401             0.51                0.24     
+

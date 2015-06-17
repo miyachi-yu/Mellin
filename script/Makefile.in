@@ -1,0 +1,23 @@
+# $Id: Makefile.in,v 1.2 2008/09/25 09:19:58 miyachi Exp $
+#
+#
+
+TARGET = fitting.sh  mellin-conf.sh  setup.sh
+prefix      = @prefix@
+exec_prefix = @exec_prefix@
+
+.PHONY: all clean
+
+all: $(TARGET)
+
+%: %.in @abs_top_srcdir@/config.status
+	cd @abs_top_srcdir@; ./config.status
+
+install: $(TARGET)
+	@INSTALL@ --mode=755 $(TARGET) @bindir@
+
+install-bin:
+
+
+clean:
+	-@/bin/rm -f *~

@@ -1,0 +1,16 @@
+Makefile.in
+Makefile
+testERR
+cache
+*.d
+*~
+*.o
+*.dat*
+*.o*
+*.e*
+*.so*
+*.lo
+*.la
+.deps
+.libs
+

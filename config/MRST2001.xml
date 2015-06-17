@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE set [
+	  <!ELEMENT set (pdf*)>
+	  <!ATTLIST set
+		    scale CDATA #REQUIRED
+		    name  CDATA #REQUIRED >
+	  <!ELEMENT pdf (parameter*) >
+	  <!ATTLIST pdf
+		    name CDATA #REQUIRED
+		    pid  ID    #IMPLIED
+		    src  IDREF #IMPLIED
+		    dfav IDREF #IMPLIED
+		    >
+	  <!ELEMENT parameter (ems*) >
+	  <!ATTLIST parameter
+		    index  CDATA #REQUIRED
+		    name   CDATA #IMPLIED
+		    value  CDATA #REQUIRED
+		    error  CDATA #IMPLIED
+		    state  (fixed|free) #REQUIRED
+		    upper  CDATA #IMPLIED
+		    lower  CDATA #IMPLIED
+		    emid   CDATA #IMPLIED
+		    >
+	  <!ELEMENT ems EMPTY >
+	  <!ATTLIST ems
+		    emid   CDATA  #REQUIRED
+		    value  CDATA  #REQUIRED
+		    >
+	  ]>
+
+<!--
+    MRST2001 parameterization:  hep-ph/0110215v2
+    NLO, MS-bar,
+    a_s(M_z^2) = 0.119 ( Lamda = 323 MeV )
+-->
+<set scale="1" name="MRST2001">
+  
+  <pdf name="gluon">
+    <parameter index="0" name="A"  value="1.90"  error="0.0" state="fixed"></parameter>
+    <parameter index="1" name="a" value="0.09"  error="0.0" state="fixed"></parameter>
+    <parameter index="2" name="b" value="3.70"  error="0.0" state="fixed"></parameter>
+    <parameter index="3" name="c"  value="1.26"  error="0.0" state="fixed"></parameter>
+    <parameter index="4" name="d"  value="-1.43" error="0.0" state="fixed"></parameter>
+    <parameter index="5" name="e"   value="-0.21" error="0.0" state="fixed"></parameter>
+    <parameter index="6" name="f"   value="-0.33" error="0.0" state="fixed"></parameter>
+    <parameter index="7" name="g"   value="10.0"  error="0.0" state="fixed"></parameter>
+  </pdf>
+  
+  <pdf name="uv">
+    <parameter index="0" name="A"  value="0.158" error="0.0" state="fixed"></parameter>
+    <parameter index="1" name="a" value="0.25"  error="0.0" state="fixed"></parameter>
+    <parameter index="2" name="b" value="3.33"  error="0.0" state="fixed"></parameter>
+    <parameter index="3" name="c"  value="5.61"  error="0.0" state="fixed"></parameter>
+    <parameter index="4" name="d"  value="55.49" error="0.0" state="fixed"></parameter>
+  </pdf>
+  
+  <pdf name="dv">
+    <parameter index="0" name="A"  value="0.040" error="0.0" state="fixed"></parameter>
+    <parameter index="1" name="a" value="0.27"  error="0.0" state="fixed"></parameter>
+    <parameter index="2" name="b" value="3.88"  error="0.0" state="fixed"></parameter>
+    <parameter index="3" name="c"  value="52.73" error="0.0" state="fixed"></parameter>
+    <parameter index="4" name="d"  value="30.65" error="0.0" state="fixed"></parameter>
+  </pdf>
+  
+  <pdf name="SEA" pid="SEA" >
+    <parameter index="0" name="A"  value="0.222" error="0.0" state="fixed"></parameter>
+    <parameter index="1" name="a" value="-0.26" error="0.0" state="fixed"></parameter>
+    <parameter index="2" name="b" value="7.10"  error="0.0" state="fixed"></parameter>
+    <parameter index="3" name="c"  value="3.42"  error="0.0" state="fixed"></parameter>
+    <parameter index="4" name="d"  value="10.30" error="0.0" state="fixed"></parameter>
+  </pdf>
+  
+  <pdf name="DELTA" src="SEA" >
+    <parameter index="0" name="A"  value="1.195"  error="0.0" state="fixed"></parameter>
+    <parameter index="1" name="a" value="1.24"   error="0.0" state="fixed"></parameter>
+    <parameter index="3" name="c"  value="14.05"  error="0.0" state="fixed"></parameter>
+    <parameter index="4" name="d"  value="-45.52" error="0.0" state="fixed"></parameter>
+  </pdf>
+
+</set>

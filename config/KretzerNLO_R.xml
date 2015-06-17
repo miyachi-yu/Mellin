@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  $Id: KretzerNLO_R.xml,v 1.4 2008/12/09 08:16:20 miyachi Exp $
+  
+  This is an example of initial distributions for fragmentation function.
+  It should be read by 
+  Fragmentation::ConfigFF, Fragmentation::ConfigFFK and
+  polFrag::ConfigFF class objects.
+  
+  Not it is implemented to copy contents of the existing pdf to another
+  pdf, with attribute src.
+  
+  Author:  $Author: miyachi $
+  Date:    $Date: 2008/12/09 08:16:20 $
+  Version: $Revision: 1.4 $
+  
+  *****************  caution  *****************
+  ** Lower limit for parameter a ( power of z ).
+  Usually, for hadron production crossection 
+  the offset on the real axis for Mellin inversion is set to 2.0.
+  In that case, a must be grater than -2.0.
+  
+  -->
+<!DOCTYPE set [
+	  <!ELEMENT set (pdf*)>
+	  <!ATTLIST set  
+		    scale CDATA #REQUIRED
+		    name  CDATA #REQUIRED >
+	  
+	  <!ELEMENT pdf (parameter*) >
+	  <!ATTLIST pdf  
+		    name  CDATA  #REQUIRED
+		    pid   ID     #IMPLIED
+		    src   IDREF  #IMPLIED
+		    dfav  IDREF  #IMPLIED
+		    >
+	  
+	  <!ELEMENT parameter (ems*) >
+	  <!ATTLIST parameter 
+		    index  CDATA        #REQUIRED
+		    name   CDATA        #IMPLIED
+		    value  CDATA        #REQUIRED
+		    error  CDATA        #IMPLIED
+		    state  (fixed|free) #REQUIRED
+		    upper  CDATA        #IMPLIED
+		    lower  CDATA        #IMPLIED
+		    emid   CDATA        #IMPLIED
+		    >
+
+	  <!ELEMENT ems EMPTY >
+	  <!ATTLIST ems
+		    emid   CDATA  #REQUIRED
+		    value  CDATA  #REQUIRED 
+		    >
+	  
+	  ]>		      
+
+<set scale="0.4" name="Fragmentation">
+  
+  <pdf name="gluon">
+    <parameter index="0" name="eta" value="0.044"  error="1.0" state="free" upper="1.0" lower="0.0" />
+    <parameter index="1" name="a"   value="6.387" error="1.0" state="free" lower="-2.0" />
+    <parameter index="2" name="b"   value="6.435"  error="1.0" state="free"  />
+  </pdf>
+  
+  <pdf name="u" pid="P001" >
+    <parameter index="0" name="eta" value="0.0215"  error="1.0"  state="free" upper="1.0" lower="0.0" />
+    <parameter index="1" name="a"   value="1.006" error="1.0" state="free" lower="-2.0"/>
+    <parameter index="2" name="b"   value="5.843" error="1.0" state="free" />
+  </pdf>
+
+  <pdf name="c" pid="P003" >
+    <parameter index="0" name="eta" value="0.041" error="1.0" state="free" upper="1.0" lower="0.0" />
+    <parameter index="1" name="a"   value="-1.103" error="1.0" state="free" lower="-2.0" />
+    <parameter index="2" name="b"   value="3.917" error="1.0" state="free" />
+  </pdf>
+
+  <pdf name="b" pid="P004" >
+    <parameter index="0" name="eta" value="0.0565"  error="1.0" state="free" upper="1.0" lower="0.0" />
+    <parameter index="1" name="a"   value="-0.605" error="1.0" state="free" lower="-2.0" />
+    <parameter index="2" name="b"   value="3.330"  error="1.0" state="free" />
+  </pdf>
+
+  <pdf name="d"     src="P001" ></pdf>
+  <pdf name="s"     src="P001" ></pdf>  
+  <pdf name="u-bar" src="P001" ></pdf>
+  <pdf name="d-bar" src="P001" ></pdf>
+  <pdf name="s-bar" src="P001" ></pdf>
+  <pdf name="c-bar" src="P003" ></pdf>
+  <pdf name="b-bar" src="P004" ></pdf>
+
+</set>

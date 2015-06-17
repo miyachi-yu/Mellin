@@ -1,0 +1,40 @@
+#!/bin/bash
+
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+
+export MELLIN_TOP=@prefix@
+export MELLIN_LIB=@libdir@
+export MELLIN_INC=@includedir@
+export MELLIN_BIN=@bindir@
+export MELLIN_CACHE_DIR=./cache
+export MELLIN_CONFIG_DIR=${MELLIN_TOP}/config
+export MELLIN_PDFTAB_DIR=${MELLIN_TOP}/include/PDFLIB
+
+### --- LD_LIBRARY_PATH
+function insert() {
+    if [ -z "${1}" ]; then
+	exit
+    fi
+
+    ldir=${1}
+    
+    if [ -z "${LD_LIBRARY_PATH}" ]; then
+	LD_LIBRARY_PATH=${ldir}
+    else
+	check=`echo ${LD_LIBRARY_PATH} | grep ${ldir}`
+	[ -z "${check}" ] && LD_LIBRARY_PATH=${ldir}:${LD_LIBRARY_PATH}
+    fi
+    
+    export LD_LIBRARY_PATH
+}
+
+[ ! -z "${ROOTSYS}" ] && insert ${ROOTSYS}/lib
+insert ${MELLIN_LIB}
+
+### --- PATH 
+check=`echo ${PATH} | grep ${MELLIN_BIN}`
+if [ -z "${check}" ] ; then
+    PATH=${MELLIN_BIN}:${PATH}
+    export PATH
+fi

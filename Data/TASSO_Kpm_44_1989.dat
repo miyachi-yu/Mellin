@@ -1,0 +1,15 @@
+EXPeriment = DESY-PETRA-TASSO                                                
+   sqrt(s)    = 44 GeV
+   Author     = Braunschweig et al 
+   REFerence  = 1989 Zeit. Phys. C42, 189
+   
+
+
+    xp       xp       1/sig(h) dsig/dxp   
+    min      max                       error
+1 42
+    0.0136   0.0182         8.8        1.2      
+    0.0182   0.0227        19.8        5.3      
+    0.0227   0.0273        21.3        2.6      
+    0.0273   0.0318        23.3        3.1    
+
