@@ -22,8 +22,8 @@ namespace Transform {
     It can be re-written
     \f[
     S_{l}^{\prime}( n/2 ) = 
-    = { 1 + eta \over 2 } S_l( n \over 2 ) + 
-    { 1 - eta \over 2 } S_l( n - 1 \over 2) 
+    = { 1 + eta \over 2 } S_l( { n \over 2 } ) + 
+    { 1 - eta \over 2 } S_l( { n - 1 \over 2 } ) 
     \f]
   */
   class GeneralHarmonicPrime : public ComplexFunction {
