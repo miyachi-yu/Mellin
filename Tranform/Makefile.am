@@ -16,6 +16,8 @@ libTransform_la_SOURCES = 					\
 	ConfluentHG.cc	ConfluentHG2.cc				\
 	GeneralHarmonicTilde.cc	GeneralHarmonicPrime.cc 	\
 	GeneralHarmonic.cc 					\
+	CZeta.cc	CPolyLog.cc				\
+	Binomial.cc	Eulerian.cc				\
 	IntegFunc.cc 						\
 	Mellin.cc	MellinIntegrand.cc			\
 	PartialInverseMellinIntegrand.cc 			\
@@ -25,6 +27,7 @@ libTransform_la_SOURCES = 					\
 	DInverseMellinIntegInteg.cc				\
 	DInverseMellinIntegrand.cc 				\
 	GridIntegration.cc	TrapInt.cc	LegQuadrature.cc \
+	RTransform.cc						\
 	Trapezoid.cc Rectangle.cc RungeKutta.cc \
 	CKey.cc DataCache.cc DataCache2.cc \
 	ErrorFunction.cc Laguerre.cc \
@@ -95,11 +98,21 @@ noinst_PROGRAMS += mcint
 mcint_SOURCES = mcint.cc
 mcint_LDADD   = libTransform.la $(LIB_UTILITY)
 
+noinst_PROGRAMS += zeta
+zeta_SOURCES = zeta.cc
+zeta_LDADD   = libTransform.la $(LIB_UTILITY)
+
+noinst_PROGRAMS += polylog
+polylog_SOURCES = polylog.cc
+polylog_LDADD   = libTransform.la $(LIB_UTILITY)
+
 
 # ----------------------------------------------------------------------- #
 #                                HEADERS                                  #
 # ----------------------------------------------------------------------- #
 MYHEADERS =	\
+CZeta.hh	\
+CPolyLog.hh	\
 CBeta.hh	\
 CGamma.hh	\
 CKey.hh	\
@@ -141,6 +154,7 @@ PolyInt.hh	\
 RealFunction.hh	\
 Rectangle.hh	\
 Romberg.hh	\
+RTransform.hh	\
 RungeKutta.hh	\
 SteepestDescent.hh	\
 StraightLine.hh	\
