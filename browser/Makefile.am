@@ -89,11 +89,13 @@ dist_plot_SOURCES = dist_plot.cc
 dist_plot_LDFLAGS = `@ROOTCONF@ --libs`
 dist_plot_LDADD = $(LIB_XSEC) $(LIB_ERR)
 
+ROOTCINT = `@ROOTCONF@ --prefix`/bin/@ROOTCINT@
+
 ## ----------------------------------------------------------------------- #
 ##                   ROOT Object Dictionary Management                     #
 ## ----------------------------------------------------------------------- #
 $(ROOTDICT_CC) : $(ROOTOBJ_HH) $(ROOTLINKDEF)
-	@ROOTCINT@ -f $@ -c $(ROOTOBJ_HH) $(ROOTLINKDEF)
+	$(ROOTCINT) -f $@ -c $(ROOTOBJ_HH) $(ROOTLINKDEF)
 
 # ----------------------------------------------------------------------- #
 #                           Test programs                                 #
