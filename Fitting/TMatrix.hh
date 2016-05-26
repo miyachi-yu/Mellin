@@ -42,8 +42,8 @@ namespace Fit {
     TMatrix::STYLE style_;
     int precision_;
 
-    void header( ostream& os, const std::vector< std::string >& head );
-    void footer( ostream& os );
+    void header( std::ostream& os, const std::vector< std::string >& head );
+    void footer( std::ostream& os );
   };
   
 }
