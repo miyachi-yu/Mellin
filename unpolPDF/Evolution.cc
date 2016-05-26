@@ -9,6 +9,9 @@
 #include <PDFSET/MRSTParam.hh>
 #include <PDFSET/MSTWParam.hh>
 
+#include <PDFSET/ConfigStat.hh>
+#include <PDFSET/StatParam.hh>
+
 #include <PDFSET/ConfigCteq6.hh>
 #include <PDFSET/Cteq6Param.hh>
 
@@ -54,6 +57,7 @@ vector< string > Evo::options(){
   opts.push_back( string( "MRST" ) );
   opts.push_back( string( "MSTW" ) );
   opts.push_back( string( "CTEQ" ) );
+  opts.push_back( string( "Stat" ) );
   return opts;
 }
 
@@ -72,6 +76,7 @@ Evo::Evo( Arguments& args, const string& option ) throw( int ) :
       ARG_ERR << "\t--" << opts[i] << endl;
     throw( 1 );
   }
+
 
   string& opt = *itr;
 
@@ -136,7 +141,18 @@ Evo::Evo( Arguments& args, const string& option ) throw( int ) :
       this->alpha().atMz( args.get( "CTEQMz", atMz ) );
       ARG_LOG << "CTEQ PDF: alpha_s( Mz ) = " << atMz << endl;
       
-    } 
+    } else if( opt == "Stat" ) {
+      
+      this->alpha().atMz( args.get( "StatMz", 0.119 ) );
+      ARG_LOG << "Statistical Model PDF: alpha_s( Mz ) = "
+	      << this->alpha().atMz() << endl;
+
+      ARG_LOG << "Statistical Model PDF initiation" << endl;
+      
+      PDFSET::ConfigStat config( opt );
+      init = new PDFSET::StatParam( config );
+      
+    }
 
     if( ! init->check() ) throw 2;
     
