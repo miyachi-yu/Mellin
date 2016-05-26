@@ -71,8 +71,10 @@ drawTool_LDADD = libDrawTool.la $(LIB_EXPDATA) $(LIB_STRFUNC) $(LIB_XSEC)
 ## ----------------------------------------------------------------------- #
 ##                   ROOT Object Dictionary Management                     #
 ## ----------------------------------------------------------------------- #
+ROOTCINT = `@ROOTCONF@ --prefix`/bin/@ROOTCINT@
+
 $(ROOTDICT_CC) : $(ROOTOBJ_HH) $(ROOTLINKDEF)
-	@ROOTCINT@ -f $@ -c -I../ $(ROOTOBJ_HH) $(ROOTLINKDEF)
+	$(ROOTCINT) -f $@ -c -I../ $(ROOTOBJ_HH) $(ROOTLINKDEF)
 
 ## ----------------------------------------------------------------------- #
 ##                       Local clean rule                                  #
