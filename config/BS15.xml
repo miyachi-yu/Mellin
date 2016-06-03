@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE set [
+	  <!ELEMENT set (pdf*)>
+	  <!ATTLIST set  scale CDATA #REQUIRED
+		    name  CDATA #REQUIRED >
+	  
+	  <!ELEMENT pdf (parameter*) >
+	  <!ATTLIST pdf  
+		    name  CDATA #REQUIRED
+		    pid   ID    #IMPLIED
+		    src   IDREF #IMPLIED >
+	  
+	  <!ELEMENT parameter EMPTY >
+	  <!ATTLIST parameter 
+		    index  CDATA #REQUIRED
+		    name   CDATA #IMPLIED
+		    value  CDATA #REQUIRED
+		    error  CDATA #IMPLIED
+		    state  (fixed|free) #REQUIRED
+		    upper  CDATA #IMPLIED
+		    lower  CDATA #IMPLIED
+		    >
+	  ]>		      
+
+<!--
+This is Statistical Model PDF parameterization given in NPA941(2015)307.
+-->
+<set scale="1.0" name="Statistical Model PDF">
+  
+  <pdf name="u" pid="u">
+    <parameter index="0" name="A"    value="1.943" error="0.005" state="fixed" />
+    <parameter index="1" name="b"    value="0.471" error="0.001" state="fixed" />
+    <parameter index="2" name="Atil" value="0.147" error="0.003" state="fixed" />
+    <parameter index="3" name="btil" value="0.043" error="0.003" state="fixed" />
+    <parameter index="4" name="X+"   value="0.475" error="0.001" state="fixed" />
+    <parameter index="5" name="X-"   value="0.307" error="0.001" state="fixed" />
+    <parameter index="6" name="xbar" value="0.090" error="0.002" state="fixed" />
+    <parameter index="7" name="c"    value="0.0"   error="0.000" state="fixed" />
+    <parameter index="8" name="d"    value="0.0"   error="0.000" state="fixed" />
+  </pdf>
+
+  <pdf name="d" pid="d" src="u">
+    <parameter index="4" name="X+"   value="0.245" error="0.001" state="fixed" />
+    <parameter index="5" name="X-"   value="0.309" error="0.001" state="fixed" />
+  </pdf>
+
+  <pdf name="ubar" pid="ubar" src="u">
+    <parameter index="0" name="A"    value="8.915" error="0.005" state="fixed" />
+    <parameter index="1" name="b"    value="1.301" error="0.004" state="fixed" />
+  </pdf>
+
+  <pdf name="dbar" pid="dbar" src="d">
+    <parameter index="0" name="A"    value="8.915" error="0.005" state="fixed" />
+    <parameter index="1" name="b"    value="1.301" error="0.004" state="fixed" />
+  </pdf>
+
+  <pdf name="s" pid="s" src="u">
+    <parameter index="0" name="A"    value="28.508" error="0.005" state="fixed" />
+    <parameter index="1" name="b"    value="0.370"  error="0.002" state="fixed" />
+    <parameter index="2" name="Atil" value="13.689" error="0.050" state="fixed" />
+    <parameter index="3" name="btil" value="9.065"  error="0.020" state="fixed" />
+    <parameter index="4" name="X+"   value="0.011"  error="0.001" state="fixed" />
+    <parameter index="5" name="X-"   value="0.015"  error="0.001" state="fixed" />
+  </pdf>
+
+  <pdf name="sbar" pid="sbar" src="s">
+    <parameter index="0" name="A"    value="0.0026" error="0.0002" state="fixed" />
+    <parameter index="1" name="b"    value="0.201"  error="0.003"  state="fixed" />
+  </pdf>
+  
+  <pdf name="g" pid="g" src="u">
+    <parameter index="0" name="A"    value="36.778" error="0.085" state="fixed" />
+    <parameter index="1" name="b"    value="1.020"  error="0.014" state="fixed" />
+    <parameter index="2" name="Atil" value="26.887" error="0.050" state="fixed" />
+    <parameter index="3" name="btil" value="0.163"  error="0.005" state="fixed" />
+    <parameter index="4" name="X+"   value="0.0"    error="0.000" state="fixed" />
+    <parameter index="5" name="X-"   value="0.0"    error="0.000" state="fixed" />
+    <parameter index="7" name="c"    value="0.006"  error="0.0005" state="fixed" />
+    <parameter index="8" name="d"    value="-6.072" error="0.350" state="fixed" />
+  </pdf>
+  
+</set>
