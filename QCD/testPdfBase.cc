@@ -12,8 +12,12 @@ int main( int argc, char* argv[] ){
   
   Arguments *args = Arguments::instance( argc, argv );
   
-  /*
-  ConfigPdf config( args );
+  if( ! args->hasOpt( "pdf" ) ){
+    cerr << "This requires --pdf=psfset.xml option" << endl;
+    return 1;
+  }
+  
+  ConfigPdfBase config( "pdf" );
   cout << "*****************************************************************"
        << endl;
   cout << config << endl; 
@@ -26,7 +30,6 @@ int main( int argc, char* argv[] ){
   cout <<  param << endl;
   
   vector< PdfBase* > pdfs = param.pdfs();
-  */
 
   return 0;
 }
