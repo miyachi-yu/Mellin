@@ -1,6 +1,5 @@
 *.o
 *~
-INSTALL
 Doxyfile
 Makefile.in
 Makefile
@@ -95,7 +94,6 @@ QCD/alpha
 QCD/main
 QCD/pdfManip
 QCD/testPdfBase
-README
 StrFncParam/main
 Tranform/cbeta
 Tranform/checkPartialInteg
@@ -182,19 +180,6 @@ unpolDIS/testF1
 unpolDIS/testF1_imazu
 unpolDISXsec/main
 unpolDISXsec/testF1
-unpolPDF/BS15.cc
-unpolPDF/BS15.pdf
-unpolPDF/BS15.png
-unpolPDF/BS15_1.dat
-unpolPDF/BS15_100.dat
-unpolPDF/BS15_29.dat
-unpolPDF/GS15.cc
-unpolPDF/GS15.dat
-unpolPDF/GS15.pdf
-unpolPDF/GS15.png
-unpolPDF/MSTW2008_1.dat
-unpolPDF/MSTW2008_100.dat
-unpolPDF/MSTW2008_29.dat
 unpolPDF/dbar_ubar
 unpolPDF/main
 unpolPDF/testCteq6
