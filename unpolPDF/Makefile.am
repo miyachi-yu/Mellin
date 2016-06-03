@@ -4,11 +4,12 @@
 #AM_CPPFLAGS = 
 
 LIB_UTILITY   = ../Utility/libUtility.la @LIBXML_LIBS@
-LIB_TRANSFORM = ../Tranform/libTransform.la
-LIB_QCD       = ../QCD/libQCD.la ../PDFSET/libPDFSET.la
+LIB_TRANSFORM = ../Tranform/libTransform.la 
+LIB_QCD       = ../PDFSET/libPDFSET.la ../QCD/libQCD.la $(LIB_TRANSFORM)
 LIB_PDFLIB    = ../PDFLIB/libPDFLIB.la
+
 LIB_EVOLUTION = ../Evolution/libEvolution.la \
-		$(LIB_TRANSFORM) $(LIB_QCD) $(LIB_PDFLIB)
+		$(LIB_QCD) $(LIB_PDFLIB) $(LIB_UTILITY)
 
 # ----------------------------------------------------------------------- #
 #                            libUtility                                   #
@@ -24,13 +25,16 @@ libunpolPDF_la_SOURCES = Evolution.cc P.cc CTEQ6pdf.cc
 # ----------------------------------------------------------------------- #
 #                           Test programs                                 #
 # ----------------------------------------------------------------------- #
-noinst_PROGRAMS = main testCteq6
+noinst_PROGRAMS = main testCteq6 dbar_ubar
 
 main_SOURCES = main.cc
-main_LDADD = libunpolPDF.la $(LIB_EVOLUTION) $(LIB_UTILITY)
+main_LDADD = libunpolPDF.la $(LIB_EVOLUTION)
 
 testCteq6_SOURCES = testCteq6.cc
-testCteq6_LDADD = libunpolPDF.la $(LIB_EVOLUTION) $(LIB_UTILITY)
+testCteq6_LDADD = libunpolPDF.la $(LIB_EVOLUTION)
+
+dbar_ubar_SOURCES = dbar_ubar.cc
+dbar_ubar_LDADD = libunpolPDF.la $(LIB_EVOLUTION)
 
 # ----------------------------------------------------------------------- #
 #                                HEADERS                                  #

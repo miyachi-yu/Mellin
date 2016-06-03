@@ -165,7 +165,7 @@ double PdfBase::getValue( const int& i ){
   
   double ref( 0.0 );
   
-  // if there is reference, chech the reference value at first.
+  // if there is reference, check the reference value at first.
   if( reference_ ) ref = reference_->getValue( i );
 
   // if PdfBase has no corresponding entry, just return reference value

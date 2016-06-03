@@ -91,7 +91,7 @@ complex< double > CBeta::operator()( const complex< double >& z ) {
     return CBeta::data;
   }
   complex< double > c = 1.0 / gamma_( z + a_ + b_ + 1.0 );
-  return ( isnan( c.real() ) ? 0.0 : 
+  return ( std::isnan( c.real() ) ? 0.0 : 
 	   c * gamma_( b_ + 1.0 ) * gamma_( z + a_ ) );
 }
 

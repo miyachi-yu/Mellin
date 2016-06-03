@@ -35,8 +35,8 @@ CKey::~CKey() {
 
 CKey& CKey::operator=( const CKey& c ){
   if( this != &c ){ 
-    this->real() = c.real(); 
-    this->imag() = c.imag();
+    this->real( c.real() ); 
+    this->imag( c.imag() );
   }
   return *this;
 }

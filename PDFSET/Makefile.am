@@ -17,8 +17,9 @@ MSTWParam.cc
 # ----------------------------------------------------------------------- #
 #                           Test programs                                 #
 # ----------------------------------------------------------------------- #
-#noinst_PROGRAMS =
-
+noinst_PROGRAMS = gs15
+gs15_SOURCES = gs15.cc
+gs15_LDADD   = libPDFSET.la ../QCD/libQCD.la ../Tranform/libTransform.la ../Utility/libUtility.la @LIBXML_LIBS@
 
 # ----------------------------------------------------------------------- #
 #                                HEADERS                                  #

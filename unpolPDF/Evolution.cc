@@ -53,11 +53,13 @@ void Evo::atExit() {
 
 vector< string > Evo::options(){
   vector< string > opts( 0 );
+
   opts.push_back( "unpolPDF" );
-  opts.push_back( string( "MRST" ) );
-  opts.push_back( string( "MSTW" ) );
-  opts.push_back( string( "CTEQ" ) );
-  opts.push_back( string( "Stat" ) );
+  opts.push_back( "MRST"  );
+  opts.push_back( "MSTW"  );
+  opts.push_back( "CTEQ"  );
+  opts.push_back( "Stat"  );
+  
   return opts;
 }
 
@@ -151,6 +153,7 @@ Evo::Evo( Arguments& args, const string& option ) throw( int ) :
       
       PDFSET::ConfigStat config( opt );
       init = new PDFSET::StatParam( config );
+      this->alpha().scheme().order() = Scheme::NLO; // force to NLO
       
     }
 

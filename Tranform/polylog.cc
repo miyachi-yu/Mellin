@@ -39,6 +39,23 @@ int main( int argc, char* argv[] ){
        << setw(12) << ( 4.0 * pow( l2, 3 ) - 2.0 * pow( M_PI, 2 ) * l2 +
 			21.0 * abs( zeta( 3.0 ) ) ) / 24.0
        << endl;
+
+  //  plog.max(20);
+  
+  cout << setw(16) << "Li(0.471, -0.0051 )"
+       << setw(16) << plog( 0.471, -0.0051 )
+       << setw(12) << -0.00508   // from wolfram alpha
+       << endl;
+  
+  cout << setw(16) << "Li(0.471, -0.033 )"
+       << setw(16) << plog( 0.471, -0.033 )
+       << setw(12) << -0.0322351   // from wolfram alpha
+       << endl;
+  
+  cout << setw(16) << "Li(0.0431, -1.0 )"
+       << setw(16) << plog( 0.0431, -1.0 )
+       << setw(12) << -0.509675   // from wolfram alpha
+       << endl;
   
   
   

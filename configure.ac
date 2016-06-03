@@ -4,7 +4,7 @@
 AC_PREREQ(2.0)
 
 AC_INIT( Mellin, 1.0.0, slab-qcd@nucl.phys.titech.ac.jp )
-AM_INIT_AUTOMAKE
+AM_INIT_AUTOMAKE([subdir-objects])
 
 AC_CONFIG_SRCDIR([.])
 AC_CONFIG_HEADER([config.h])

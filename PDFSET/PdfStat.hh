@@ -38,6 +38,17 @@ namespace PDFSET {
     
     //!< update local stored variables using the present parameters
     virtual void update();
+
+    double A1() { return A1_; }
+    double b1() { return b1_; }
+    
+    double A2() { return A2_; }
+    double b2() { return b2_; }
+
+    double Xp() { return Xp_; }
+    double Xm() { return Xm_; }
+
+    double xb() { return xb_; }
     
   private:
     double A1_;  //! A in ref.
@@ -47,13 +58,15 @@ namespace PDFSET {
     double Xp_;  //! X_0^+ in ref.
     double Xm_;  //! X_0^- in ref.
     double xb_;  //! bar{x} in ref.
+    double vXp_;  //! X_0^+ inverse for anti-quark
+    double vXm_;  //! X_0^- inverse for anti-quark
     
     std::complex< double > eXp_; // exp( \pm X_0 / xbar ) for q, qbar.
     std::complex< double > eXm_; // exp( \pm X_0 / xbar ) for q, qbar.
     
     double G( const double& x );
     std::complex< double > G( const std::complex< double >& z );
-
+    
     static Transform::CGamma   Ga_;
     static Transform::CPolyLog Li_;
     static Transform::CZeta    ze_;

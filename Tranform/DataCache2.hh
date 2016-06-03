@@ -63,7 +63,7 @@ namespace Transform {
       double Q2_;                                 //!< Q2 value
     };
     
-    DataCache2();                           //!< a default constructor
+    DataCache2( const bool& newmethod = true );                           //!< a default constructor
     virtual ~DataCache2();                  //!< a destructor
     
     /*!
@@ -106,6 +106,22 @@ namespace Transform {
 		const std::complex< double >& m, 
 		const double& q2, 
 		std::vector< std::complex< double > >& data );
+    
+    /*!
+      \param[in] n is a value of moment
+      \param[in] m is a value of moment
+      \param[in] q2 is a value of scale Q2
+      \param[in] data is a data to be cached
+      \brief  This try to insert the give data to the cache buffer.
+      
+      User can store the data with this method. 
+      If there is no data cached at the given ( n, q2 ), 
+      data will be stored.
+  */
+    void cache( const std::complex< double >& n, 
+		const std::complex< double >& m, 
+		const double& q2, 
+		const std::complex< double >& data );
     
     void clear();                              //!< make the buffer empty
   

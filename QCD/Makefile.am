@@ -26,11 +26,11 @@ bin_PROGRAMS = pdfManip
 pdfManip_SOURCES = pdfManip.cc
 pdfManip_LDADD   = libQCD.la ../Tranform/libTransform.la ../Utility/libUtility.la @LIBXML_LIBS@
 
-#noinst_PROGRAMS = testPdfBase alpha main
-noinst_PROGRAMS = main alpha
+noinst_PROGRAMS = testPdfBase alpha main
+#noinst_PROGRAMS = main alpha
 
-#testPdfBase_SOURCES = testPdfBase.cc
-#testPdfBase_LDADD = libQCD.la ../Tranform/libTransform.la ../Utility/libUtility.la @LIBXML_LIBS@
+testPdfBase_SOURCES = testPdfBase.cc
+testPdfBase_LDADD = libQCD.la ../Tranform/libTransform.la ../Utility/libUtility.la @LIBXML_LIBS@
 
 alpha_SOURCES = alpha.cc
 alpha_LDADD   = libQCD.la ../Tranform/libTransform.la ../Utility/libUtility.la @LIBXML_LIBS@

@@ -59,8 +59,8 @@ ostream& Transform::operator<<( ostream& os, const DataCache2::Grid& grid ){
 
 
 // ---- DataCache2 ---- //
-DataCache2::DataCache2() : 
-  cache_( ), cnew_( ), newmeth_( true ), ndata_( 0 )
+DataCache2::DataCache2( const bool& newmeth ) : 
+  cache_( ), cnew_( ), newmeth_( newmeth ), ndata_( 0 )
 {
 }
 
@@ -106,6 +106,15 @@ DataCache2::cache( const complex< double >& n,
   //  cout << endl;
   //  return cache_[ Grid( n, m, q2 ) ];
 }
+
+void DataCache2::cache( const complex< double >& n, 
+			const complex< double >& m, 
+			const double& q2,
+			const complex< double >& data   ){
+  vector< complex< double > > vd( 1, data );
+  this->cache( n, m, q2, vd );
+}
+
 
 void DataCache2::cache( const complex< double >& n, 
 			const complex< double >& m, 
