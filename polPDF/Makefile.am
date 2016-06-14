@@ -5,8 +5,8 @@
 
 LIB_UTILITY   = ../Utility/libUtility.la @LIBXML_LIBS@
 LIB_TRANSFORM = ../Tranform/libTransform.la
-LIB_QCD       = ../QCD/libQCD.la ../PDFSET/libPDFSET.la
-LIB_EVOLUTION = ../Evolution/libEvolution.la $(LIB_TRANSFORM) $(LIB_QCD)
+LIB_QCD       = ../PDFSET/libPDFSET.la ../QCD/libQCD.la $(LIB_TRANSFORM)
+LIB_EVOLUTION = ../Evolution/libEvolution.la $(LIB_QCD)
 
 # ----------------------------------------------------------------------- #
 #                            libUtility                                   #
