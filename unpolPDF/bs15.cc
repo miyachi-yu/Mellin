@@ -48,8 +48,8 @@ int main( int argc, char* argv[] ) {
     }
     
     double length = args.get( "length", 25.0 );
-    double angle  = args.get( "angle",   0.51 );
-    double offset = args.get( "offset",  1.6 );
+    double angle  = args.get( "angle",   0.512 );
+    double offset = args.get( "offset",  2.6 );
     double precision = args.get( "precision", 1.0E-5 );
     
     int    ndiv1 = args.get( "ndiv1", 6 );
