@@ -25,10 +25,13 @@ libunpolPDF_la_SOURCES = Evolution.cc P.cc CTEQ6pdf.cc
 # ----------------------------------------------------------------------- #
 #                           Test programs                                 #
 # ----------------------------------------------------------------------- #
-noinst_PROGRAMS = main testCteq6 dbar_ubar
+noinst_PROGRAMS = main testCteq6 dbar_ubar bs15
 
 main_SOURCES = main.cc
 main_LDADD = libunpolPDF.la $(LIB_EVOLUTION)
+
+bs15_SOURCES = bs15.cc
+bs15_LDADD = libunpolPDF.la $(LIB_EVOLUTION)
 
 testCteq6_SOURCES = testCteq6.cc
 testCteq6_LDADD = libunpolPDF.la $(LIB_EVOLUTION)

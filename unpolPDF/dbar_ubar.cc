@@ -41,13 +41,28 @@ int main( int argc, char* argv[] ){
   
   // prepare PDFs based on KernelPdfLib
   unpolPDF::Evo evo( args );
+
+  double length = 20.0;
+  double offset = 1.8;
+  double angle = 0.51;
+  int leg1  = 6;
+  int leg2  = 8;
+  double precision = 1.0E-4;
+
+  if( evo.initialDistribution()->name() == "BS15" ){
+    length = 25.0;
+    offset = 2.6;
+    angle  = 0.512;
+    precision = 1.0E-5;
+  }
   
-  double length = args.get( "length", 20.0 );
-  double offset = args.get( "offset", 1.8 );
-  double angle  = args.get( "angle",  0.51 );
-  int    leg1   = args.get( "leg1", 6 );
-  int    leg2   = args.get( "leg2", 8 );
-  double precision = args.get( "precision", 1.0E-4 );
+  
+  length = args.get( "length", length );
+  offset = args.get( "offset", offset );
+  angle  = args.get( "angle",  angle );
+  leg1   = args.get( "leg1", leg1 );
+  leg2   = args.get( "leg2", leg2 );
+  precision = args.get( "precision", precision );
 
   PDFx xub( &evo, Flavor::ubar, leg1, leg2, precision, length, offset, angle );
   PDFx xdb( &evo, Flavor::dbar, leg1, leg2, precision, length, offset, angle );

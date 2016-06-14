@@ -25,7 +25,7 @@
 <!--
 This is Statistical Model PDF parameterization given in NPA941(2015)307.
 -->
-<set scale="1.0" name="Statistical Model PDF">
+<set scale="1.0" name="BS15">
   
   <pdf name="u" pid="u">
     <parameter index="0" name="A"    value="1.943" error="0.005" state="fixed" />
