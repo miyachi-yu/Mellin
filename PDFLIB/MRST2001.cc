@@ -14,7 +14,7 @@
 #include <iomanip>
 
 extern "C" {
-#include <cfortran.h>
+#include "cfortran.h"
 #include <unistd.h>
   
 //! macro for MRST2001 fortran routine

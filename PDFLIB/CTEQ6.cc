@@ -13,7 +13,7 @@
 #include <iostream>
 
 extern "C" {
-#include <cfortran.h>
+#include "cfortran.h"
 #include <unistd.h>
 
 //! macro for CTEQ6 fortran routine

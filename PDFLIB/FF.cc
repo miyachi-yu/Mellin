@@ -14,7 +14,7 @@
 #include <QCD/Flavor.hh>
 
 extern "C" {
-#include <cfortran.h>
+#include "cfortran.h"
 
 PROTOCCALLSFSUB9(DLIB,dlib,DOUBLE,DOUBLE,DOUBLEV,INT,INT,INT,INT,INT,INT)
 #define DLIB(z,Q2,dff,ffset,fforder,ihadron,icharge,icp,ipi) CCALLSFSUB9(DLIB,dlib,DOUBLE,DOUBLE,DOUBLEV,INT,INT,INT,INT,INT,INT,z,Q2,dff,ffset,fforder,ihadron,icharge,icp,ipi)
