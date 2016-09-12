@@ -1,6 +1,6 @@
 include_directories( ${LIBXMLXX_INCLUDE_DIRS} )
 add_library( QCD
-  alpha.cc
+  Alpha.cc
   Flavor.cc
   Scheme.cc
   Parameter.cc
