@@ -1,5 +1,5 @@
 include_directories( ${PROJECT_SOURCE_DIR} )
-add_library( Transform #SHARED
+add_library( Transform
   RealFunction.cc ComplexFunction.cc
   CBeta.cc	ComplexBeta.cc
   CGamma.cc	CLogGamma.cc
@@ -29,5 +29,5 @@ add_library( Transform #SHARED
   DbKey.cc DbKey2.cc
   DataCacheInteg.cc DataCacheInteg2.cc MCInt.cc Pvalue.cc )
 
-add_executable( cbeta cbeta.cc )
-target_link_libraries( cbeta Transform Utility ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY})
+#add_executable( cbeta cbeta.cc )
+#target_link_libraries( cbeta Transform Utility ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY})
