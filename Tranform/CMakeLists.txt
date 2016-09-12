@@ -1,5 +1,5 @@
 include_directories( ${PROJECT_SOURCE_DIR} )
-add_library( Transform SHARED
+add_library( Transform #SHARED
   RealFunction.cc ComplexFunction.cc
   CBeta.cc	ComplexBeta.cc
   CGamma.cc	CLogGamma.cc
