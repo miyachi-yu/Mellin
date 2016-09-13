@@ -5,10 +5,9 @@
 
 LIB_UTILITY   = ../Utility/libUtility.la @LIBXML_LIBS@
 LIB_TRANSFORM = ../Tranform/libTransform.la
-LIB_QCD       = ../QCD/libQCD.la ../PDFSET/libPDFSET.la
+LIB_QCD       = ../PDFSET/libPDFSET.la ../QCD/libQCD.la $(LIB_TRANSFORM)
 LIB_PDFLIB    = ../PDFLIB/libPDFLIB.la
-LIB_EVOLUTION = ../Evolution/libEvolution.la \
-		$(LIB_TRANSFORM) $(LIB_QCD) $(LIB_PDFLIB) $(LIB_UTILITY)
+LIB_EVOLUTION = ../Evolution/libEvolution.la $(LIB_QCD) $(LIB_PDFLIB) $(LIB_UTILITY)
 LIB_UNPOLPDF  = ../unpolPDF/libunpolPDF.la $(LIB_EVOLUTION)
 LIB_EXPDATA   = ../ExpData/libExpData.la
 LIB_XSEC      = ../Xsec/libXsec.la $(LIB_EXPDATA) $(LIB_UNPOLPDF)
