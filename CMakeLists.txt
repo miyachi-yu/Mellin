@@ -1,6 +1,15 @@
+############################################################
+#
+#
+#
+#
+############################################################
 cmake_minimum_required( VERSION 2.6 )
+
+###  Project name
 project( Mellin )
 
+###  Required external libraries
 find_package( PkgConfig )
 pkg_check_modules( LIBXMLXX REQUIRED libxml++-2.6 )
 
@@ -8,8 +17,18 @@ find_library( DB_CXX_LIBRARY  NAMES db_cxx )
 find_library( MATH_LIBRARY    NAMES m )
 find_library( FORTRAN_LIBRARY NAMES gfortran )
 
-include_directories( ${PROJECT_SOURCE_DIR} )
+###  Installation directory
+#-  Installation prefix
+set( CMAKE_INSTALL_PREFIX "$ENV{HOME}/mellin" )
 
+file( GLOB XMLFILES "${PROJECT_SOURCE_DIR}/config/*.xml" )
+install( FILES ${XMLFILES} DESTINATION config )
+
+###  compiler options
+include_directories( ${PROJECT_SOURCE_DIR} )
+set( BUILD_SHARED_LIBS ON )
+
+###  subdirectories
 add_subdirectory( Utility )
 add_subdirectory( Tranform )
 add_subdirectory( StrFncParam )
@@ -47,4 +66,3 @@ add_subdirectory( unpolDISXsec )
 #add_subdirectory( plotter )
 #add_subdirectory( script )
 #add_subdirectory( DrawTool )
-
