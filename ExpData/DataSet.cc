@@ -216,39 +216,40 @@ string DataSet::summary( const SUMMARY_LEVEL& level ){
   return ostr.str();
 }
 
+namespace Exp {
+  ostream& operator<<( ostream& os, DataSet& set ){
+    os << "<" << DataSet::xmlTag << flush;
+    os << " info=\"" << set.info() << "\" " << flush;
+    if( set.ref() != "" ) os << "ref=\"" << set.ref() << "\" " << flush;
+    if( set.norm() != 0.0 ) { 
+      os << "norm=\"" << set.norm() << "\" " << flush;
+      os << "ncoef=\"" << set.ncoef() << "\" " << flush;
+      os << "ncerr=\"" << set.ncerr() << "\" " << flush;
+      os << "nstat=\"" << set.ncstat() << "\" " << flush;
+      if( set.emid() > -1 ){
+	os << "emid=\"" << flush;
+	if( set.emNumber() > 0 ) os << set.emNumber() << "-" << flush;
+	os << set.emid() << "\" " << flush;
+      }
+    }
+    
+    if( set.cite() != "" ) os << "cite=\"" << set.cite() << "\" " << flush;
+    os << "stat=\"";
+    os << ( set.enable() ? "enable" : "disable" ) << flush;
+    os << "\"" << flush;
+    os << ">" << endl;
+    
+    if( set.norm() != 0.0 ) { 
+      for( int i = 0; i < set.ems().size(); i++ ){
+	os << "<ems emid=\"" << i << "\" "
+	   << "value=\"" <<  set.ems()[ i ] << "\"" << " />" << endl;
+      }
+    }
+    
+    for( DataSet::iterator itr = set.begin(); itr != set.end(); itr++ )
+      os << *(itr) << endl;
+    os << "</" << DataSet::xmlTag << ">" << flush;
+    return os;
+  }
 
-ostream& Exp::operator<<( ostream& os, DataSet& set ){
-  os << "<" << DataSet::xmlTag << flush;
-  os << " info=\"" << set.info() << "\" " << flush;
-  if( set.ref() != "" ) os << "ref=\"" << set.ref() << "\" " << flush;
-  if( set.norm() != 0.0 ) { 
-    os << "norm=\"" << set.norm() << "\" " << flush;
-    os << "ncoef=\"" << set.ncoef() << "\" " << flush;
-    os << "ncerr=\"" << set.ncerr() << "\" " << flush;
-    os << "nstat=\"" << set.ncstat() << "\" " << flush;
-    if( set.emid() > -1 ){
-      os << "emid=\"" << flush;
-      if( set.emNumber() > 0 ) os << set.emNumber() << "-" << flush;
-      os << set.emid() << "\" " << flush;
-    }
-  }
-  
-  if( set.cite() != "" ) os << "cite=\"" << set.cite() << "\" " << flush;
-  os << "stat=\"";
-  os << ( set.enable() ? "enable" : "disable" ) << flush;
-  os << "\"" << flush;
-  os << ">" << endl;
-  
-  if( set.norm() != 0.0 ) { 
-    for( int i = 0; i < set.ems().size(); i++ ){
-      os << "<ems emid=\"" << i << "\" "
-	 << "value=\"" <<  set.ems()[ i ] << "\"" << " />" << endl;
-    }
-  }
-  
-  for( DataSet::iterator itr = set.begin(); itr != set.end(); itr++ )
-    os << *(itr) << endl;
-  os << "</" << DataSet::xmlTag << ">" << flush;
-  return os;
 }
-

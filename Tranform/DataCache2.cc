@@ -53,10 +53,6 @@ bool DataCache2::Grid::operator> ( const Grid& grid ) const {
 	   ( m_  != grid.m_ ? m_ > grid.m_ : n_ > grid.n_ ) );
 }
 
-ostream& Transform::operator<<( ostream& os, const DataCache2::Grid& grid ){
-  return ( os << "(" << grid.n_ << ", " << grid.Q2_ << ")" << flush );
-}
-
 
 // ---- DataCache2 ---- //
 DataCache2::DataCache2( const bool& newmeth ) : 
@@ -167,6 +163,15 @@ void DataCache2::clear() {
   ndata_ = 0;
 }
 
-ostream& Transform::operator<<( ostream& os, DataCache2& cache ){
-  return os;
+namespace Transform {
+  
+  ostream& operator<<( ostream& os, const DataCache2::Grid& grid ){
+    return ( os << "(" << grid.n_ << ", " << grid.Q2_ << ")" << flush );
+  }
+  
+  
+  ostream& operator<<( ostream& os, DataCache2& cache ){
+    return os;
+  }
+
 }

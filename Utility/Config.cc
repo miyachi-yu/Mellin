@@ -125,7 +125,9 @@ void Config::dump( ostream& os ){
 }
 
 
-ostream& Utility::operator<<( ostream& os, Config& conf ){
-  conf.dump( os );
-  return os;
+namespace Utility {
+  ostream& operator<<( ostream& os, Config& conf ){
+    conf.dump( os );
+    return os;
+  }
 }

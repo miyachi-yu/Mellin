@@ -110,24 +110,26 @@ bool XsecComp::insert( KernelBase* kernel, const Flavor::HADRON& hadron ){
   return true;
 }
 
-ostream& Xsection::operator<<( ostream& os, XsecComp& xc ){
-  
-  os << "Xsecion::XsecComp information" << endl;
-  
-  for( int i = 0; i < xc.vevo().size(); i++ ){
-    os << "Evolution::KernelBase "<< setw(4) << i << endl;
-    os << *( xc.vevo()[ i ] ) << endl;
+namespace Xsection {
+  ostream& operator<<( ostream& os, XsecComp& xc ){
     
-    os << "PDF information:" << endl;
-    for( int j = 0; j < xc.vpdf()[ i ].size(); j++ ){
-      os << *( dynamic_cast< Evolution::PDF* >( xc.vpdf()[ i ][ j ] ) ) 
-	 << flush;
+    os << "Xsecion::XsecComp information" << endl;
+    
+    for( int i = 0; i < xc.vevo().size(); i++ ){
+      os << "Evolution::KernelBase "<< setw(4) << i << endl;
+      os << *( xc.vevo()[ i ] ) << endl;
+      
+      os << "PDF information:" << endl;
+      for( int j = 0; j < xc.vpdf()[ i ].size(); j++ ){
+	os << *( dynamic_cast< Evolution::PDF* >( xc.vpdf()[ i ][ j ] ) ) 
+	   << flush;
+      }
+      
     }
     
+    if( dynamic_cast< Xsection::CKernel* >( xc.coeff() ) ) 
+      os << *( dynamic_cast< Xsection::CKernel* >( xc.coeff() ) ) << endl;
+    
+    return os;
   }
-  
-  if( dynamic_cast< Xsection::CKernel* >( xc.coeff() ) ) 
-    os << *( dynamic_cast< Xsection::CKernel* >( xc.coeff() ) ) << endl;
-  
-  return os;
 }

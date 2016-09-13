@@ -72,7 +72,9 @@ QCD::PdfBase* PDF::parameters(){
 	   k->initialDistribution()->find( this->name() ) : NULL );
 }
 
-ostream& Evolution::operator<<( ostream& os, PDF& pdf ){
-  os << "PDF: " << setw(10) << pdf.name() << endl;
-  return os;
+namespace Evolution {
+  ostream& operator<<( ostream& os, PDF& pdf ){
+    os << "PDF: " << setw(10) << pdf.name() << endl;
+    return os;
+  }
 }

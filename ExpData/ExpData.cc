@@ -185,15 +185,17 @@ void ExpData::summary( ostream& os, const SUMMARY_LEVEL& level ){
   os << endl;
 }
 
-ostream& Exp::operator<<( ostream& os, ExpData& ed ){
-  os << ExpData::xmlHeader() << endl;
-  os << "<" << ExpData::xmlTag 
-     << " version=\"" << ed.version() << "\""
-     << " lambda=\"" << ed.lambda() << "\""
-     << " >" << endl;
-  for( int i = 0; i < ed.data().size(); i++ ) os << ed.data()[i] << endl;
-  os << "</" << ExpData::xmlTag << ">" << flush;
-  return os;
+namespace Exp {
+  ostream& operator<<( ostream& os, ExpData& ed ){
+    os << ExpData::xmlHeader() << endl;
+    os << "<" << ExpData::xmlTag 
+       << " version=\"" << ed.version() << "\""
+       << " lambda=\"" << ed.lambda() << "\""
+       << " >" << endl;
+    for( int i = 0; i < ed.data().size(); i++ ) os << ed.data()[i] << endl;
+    os << "</" << ExpData::xmlTag << ">" << flush;
+    return os;
+  }
 }
 
 // return the emNumber of the first Parameter, assuming 

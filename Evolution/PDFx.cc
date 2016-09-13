@@ -60,7 +60,9 @@ void PDFx::initialization( const int& low, const int& high,
   
 }
 
-ostream& Evolution::operator<<( ostream& os, PDFx& pdfx ){
-  os << "PDFx: " << setw(10) << pdfx.pdf().name() << endl;
-  return os;
+namespace Evolution {
+  ostream& operator<<( ostream& os, PDFx& pdfx ){
+    os << "PDFx: " << setw(10) << pdfx.pdf().name() << endl;
+    return os;
+  }
 }

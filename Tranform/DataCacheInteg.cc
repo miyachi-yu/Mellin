@@ -40,12 +40,6 @@ bool DataCacheInteg::Grid::operator> ( const Grid& grid ) const {
   return ( Q2_ != grid.Q2_  ? Q2_ > grid.Q2_ : n_ > grid.n_ );
 }
 
-ostream& Transform::operator<<( ostream& os, const DataCacheInteg::Grid& grid )
-{
-  return ( os << "(" << grid.n_ << ", " << grid.Q2_ << ")" << flush );
-}
-
-
 // ---- DataCacheInteg ---- //
 DataCacheInteg::DataCacheInteg() : 
   cache_( )
@@ -124,6 +118,14 @@ void DataCacheInteg::clear() {
   cache_.clear();
 }
 
-ostream& Transform::operator<<( ostream& os, DataCacheInteg& cache ){
-  return os;
+namespace Transform {
+  ostream& operator<<( ostream& os, const DataCacheInteg::Grid& grid )
+  {
+    return ( os << "(" << grid.n_ << ", " << grid.Q2_ << ")" << flush );
+  }
+  
+  ostream& operator<<( ostream& os, DataCacheInteg& cache ){
+    return os;
+  }
 }
+

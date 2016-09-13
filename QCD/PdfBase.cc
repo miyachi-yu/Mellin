@@ -110,44 +110,46 @@ PdfBase::operator() ( const complex< double >& z ){
   return (*mellin_)( z );
 }
 
-ostream& QCD::operator<<( ostream& os, PdfBase& pdf ){
-  
-  os << "<pdf name=\"" << pdf.name() << "\""<< flush;
-  
-  if( pdf.pid_ != "" ) os << " pid=\"" << pdf.pid_ << "\"" << flush;
-  if( pdf.src_ != "" ) os << " src=\"" << pdf.src_ << "\"" << flush;
-  if( pdf.dfav_ != "" ) os << " dfav=\"" << pdf.dfav_ << "\"" << flush;
-  if( pdf.fav_ != "" ) os << " fav=\"" << pdf.fav_ << "\"" << flush;
-  
-  os  << ">" << flush; 
-  
-  if( pdf.dfav_ != "" && pdf.fav_ != "" ){ // KretzerFF or FFSimple(FavDFav)
-    os << "<!--  This is a Kretzer type fragmentation function"
-       << " 0th parameter will be ignored. -->" << flush;
-  } else if( pdf.dfav_ != "" ) { // dis-favored ff
-    os << "<!--  This is a dis-favored fragmentation function:"
-       << " N = " << pdf.getValue( 0 ) 
-       << ", a = " << pdf.getValue( 1 ) 
-       << ", b = " << pdf.getValue( 2 ) 
-       << " -->" << flush;
-  }
-  
-  if( pdf.size() > 0 ) {
-    os << endl;
-    for( PdfBase::iterator itr = pdf.begin(); itr != pdf.end(); itr++ ) {
-      if( itr->second.checkSrcid() || itr->second.add() || itr->second.multi() ) {
-	os << "<!-- "
-	   << "index=\"" << itr->second.index() 
-	   << "\" name=\"" << itr->second.name() 
-	   << "\" value=\"" << pdf.getValue( itr->second.index() ) << "\""
-	   << " -->" << endl;
-      }
-      os << itr->second << endl;
+namespace QCD {
+  ostream& operator<<( ostream& os, PdfBase& pdf ){
+    
+    os << "<pdf name=\"" << pdf.name() << "\""<< flush;
+    
+    if( pdf.pid_ != "" ) os << " pid=\"" << pdf.pid_ << "\"" << flush;
+    if( pdf.src_ != "" ) os << " src=\"" << pdf.src_ << "\"" << flush;
+    if( pdf.dfav_ != "" ) os << " dfav=\"" << pdf.dfav_ << "\"" << flush;
+    if( pdf.fav_ != "" ) os << " fav=\"" << pdf.fav_ << "\"" << flush;
+    
+    os  << ">" << flush; 
+    
+    if( pdf.dfav_ != "" && pdf.fav_ != "" ){ // KretzerFF or FFSimple(FavDFav)
+      os << "<!--  This is a Kretzer type fragmentation function"
+	 << " 0th parameter will be ignored. -->" << flush;
+    } else if( pdf.dfav_ != "" ) { // dis-favored ff
+      os << "<!--  This is a dis-favored fragmentation function:"
+	 << " N = " << pdf.getValue( 0 ) 
+	 << ", a = " << pdf.getValue( 1 ) 
+	 << ", b = " << pdf.getValue( 2 ) 
+	 << " -->" << flush;
     }
-  }
+    
+    if( pdf.size() > 0 ) {
+      os << endl;
+      for( PdfBase::iterator itr = pdf.begin(); itr != pdf.end(); itr++ ) {
+	if( itr->second.checkSrcid() || itr->second.add() || itr->second.multi() ) {
+	  os << "<!-- "
+	     << "index=\"" << itr->second.index() 
+	     << "\" name=\"" << itr->second.name() 
+	     << "\" value=\"" << pdf.getValue( itr->second.index() ) << "\""
+	     << " -->" << endl;
+	}
+	os << itr->second << endl;
+      }
+    }
   
-  os << "</pdf>" << flush;
-  return os;
+    os << "</pdf>" << flush;
+    return os;
+  }
 }
 
 double& PdfBase::value( const int& i ){

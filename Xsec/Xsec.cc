@@ -229,16 +229,18 @@ void Xsec::setPDFswitch( const Xsection::Charge::TARGET& n ){
   }
 }
 
-ostream& Xsection::operator<<( ostream& os, Xsec& xs ){
-  
-  os << "#----------------------------------------------------#" << endl;
-  os << " Xsection::Xsec Information " << endl;
-  os << "   Q2 = " << setw(6) << xs.q2() << endl;
-  
-  
-  if( xs.xsecComp() ) os << *(  xs.xsecComp() ) << endl;
-  
-  os << "#----------------------------------------------------#" << endl;
-  
-  return os;
+namespace Xsection {
+  ostream& operator<<( ostream& os, Xsec& xs ){
+    
+    os << "#----------------------------------------------------#" << endl;
+    os << " Xsection::Xsec Information " << endl;
+    os << "   Q2 = " << setw(6) << xs.q2() << endl;
+    
+    
+    if( xs.xsecComp() ) os << *(  xs.xsecComp() ) << endl;
+    
+    os << "#----------------------------------------------------#" << endl;
+    
+    return os;
+  }
 }

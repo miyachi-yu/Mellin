@@ -231,42 +231,43 @@ int DGLAPMatrix::cache_size() {
   //  return cacheS_.size();
 }
 
-ostream& Evolution::operator<<( ostream& os, DGLAPMatrix& m ){
-
-  os 
-    << "********************************************************\n"
-    << "*  DGLAP Equation (Matrix Elements)                    *\n"
-    << "********************************************************\n"
-    << flush;
-
-  os << m.scale() << endl;
-
-  os << "------ Single components: " << endl;
-  
-  os << "Anomalous dimension ( LO, NLO ) : normalized by beta2" << endl;
-  os << m.r()[0] << endl;
-  os << m.r()[1] << endl;
-  
-  os 
-    << "Lambda : " 
-    << "+ " << setw(16) << m.lambda( +1 ) << ", " 
-    << "- " << setw(16) << m.lambda( -1 ) << ", "
-    << "diff " << setw(16) << m.lambda( 0 ) 
-    << endl; 
-
-  os << "R = r(1) - " 
-     << setw(10) << m.scale().rbeta_[1] << "* r(0)" 
-     << endl;
-  os << m.R() << endl;
-  
-  os << "P+ = (r(0) - lM )/(lP - lM):" << endl;
-  os << m.P( +1 ) << endl; 
-  os << "P- = (r(0) - lP )/(lM - lP):" << endl;
-  os << m.P( -1 ) << endl;
-
-  /*
-  os << "   ***** check (P+)^2 - P+ = 0" << endl;
-  os << m.P( +1 ) * m.P( +1 ) - m.P( +1 ) << endl;
+namespace Evolution {
+  ostream& operator<<( ostream& os, DGLAPMatrix& m ){
+    
+    os 
+      << "********************************************************\n"
+      << "*  DGLAP Equation (Matrix Elements)                    *\n"
+      << "********************************************************\n"
+      << flush;
+    
+    os << m.scale() << endl;
+    
+    os << "------ Single components: " << endl;
+    
+    os << "Anomalous dimension ( LO, NLO ) : normalized by beta2" << endl;
+    os << m.r()[0] << endl;
+    os << m.r()[1] << endl;
+    
+    os 
+      << "Lambda : " 
+      << "+ " << setw(16) << m.lambda( +1 ) << ", " 
+      << "- " << setw(16) << m.lambda( -1 ) << ", "
+      << "diff " << setw(16) << m.lambda( 0 ) 
+      << endl; 
+    
+    os << "R = r(1) - " 
+       << setw(10) << m.scale().rbeta_[1] << "* r(0)" 
+       << endl;
+    os << m.R() << endl;
+    
+    os << "P+ = (r(0) - lM )/(lP - lM):" << endl;
+    os << m.P( +1 ) << endl; 
+    os << "P- = (r(0) - lP )/(lM - lP):" << endl;
+    os << m.P( -1 ) << endl;
+    
+    /*
+      os << "   ***** check (P+)^2 - P+ = 0" << endl;
+      os << m.P( +1 ) * m.P( +1 ) - m.P( +1 ) << endl;
   os << "   ***** check (P-)^2 - P- = 0" << endl;
   os << m.P( -1 ) * m.P( -1 ) - m.P( -1 ) << endl;
   
@@ -281,74 +282,75 @@ ostream& Evolution::operator<<( ostream& os, DGLAPMatrix& m ){
      << endl;
   */
 
-  os << "(P+)*R*(P+)" << endl;
-  os << "C: " << m.CR( +1, +1 ) << endl;
-  os << m.P( +1 ) * m.R() * m.P( +1 ) << endl;
-  
-  os << "(P+)*R*(P-)" << endl;
-  os << "C: " << m.CR( +1, -1 ) << endl;
-  os << m.P( +1 ) * m.R() * m.P( -1 ) << endl;
-  
-  os << "(P-)*R*(P-)" << endl;
-  os << "C: " << m.CR( -1, -1 ) << endl;
-  os << m.P( -1 ) * m.R() * m.P( -1 ) << endl;
-  
-  os << "(P-)*R*(P+)" << endl;
-  os << "C: " << m.CR( -1, +1 ) << endl;
-  os << m.P( -1 ) * m.R() * m.P( +1 ) << endl;
-  
-  os << "ralpha^{lamnda-} : " 
-     << pow( m.scale().ralpha_, m.lambda( -1 ) ) << endl;
-  os << "ralpha^{lamnda+} : " 
-     << pow( m.scale().ralpha_, m.lambda( +1 ) ) << endl;
-  os << "ralpha^{dlamnda} : " 
-     << pow( m.scale().ralpha_, m.lambda( 0 ) ) << endl;
-  
-  os << "( a(Q02)-a(q2)*(r_alpha^{+dlambda}) ) / 4PI: "
+    os << "(P+)*R*(P+)" << endl;
+    os << "C: " << m.CR( +1, +1 ) << endl;
+    os << m.P( +1 ) * m.R() * m.P( +1 ) << endl;
+    
+    os << "(P+)*R*(P-)" << endl;
+    os << "C: " << m.CR( +1, -1 ) << endl;
+    os << m.P( +1 ) * m.R() * m.P( -1 ) << endl;
+    
+    os << "(P-)*R*(P-)" << endl;
+    os << "C: " << m.CR( -1, -1 ) << endl;
+    os << m.P( -1 ) * m.R() * m.P( -1 ) << endl;
+    
+    os << "(P-)*R*(P+)" << endl;
+    os << "C: " << m.CR( -1, +1 ) << endl;
+    os << m.P( -1 ) * m.R() * m.P( +1 ) << endl;
+    
+    os << "ralpha^{lamnda-} : " 
+       << pow( m.scale().ralpha_, m.lambda( -1 ) ) << endl;
+    os << "ralpha^{lamnda+} : " 
+       << pow( m.scale().ralpha_, m.lambda( +1 ) ) << endl;
+    os << "ralpha^{dlamnda} : " 
+       << pow( m.scale().ralpha_, m.lambda( 0 ) ) << endl;
+    
+    os << "( a(Q02)-a(q2)*(r_alpha^{+dlambda}) ) / 4PI: "
        << ( m.scale().alpha_[0] - 
 	    m.scale().alpha_[1] * pow( m.scale().ralpha_, m.lambda(0) ) ) /
-    4.0 / M_PI 
-     << endl;
-  
-  os << "( a(Q02)-a(q2)*(r_alpha^{-dlambda}) ) / 4PI: "
-     << ( m.scale().alpha_[0] - 
-	  m.scale().alpha_[1] * pow( m.scale().ralpha_, - m.lambda(0) ) ) /
-    4.0 / M_PI 
-    //     << "\t"
-    //     << ( m.scale().alpha_[0] - 
-    //	  m.scale().alpha_[1] / pow( m.scale().ralpha_, m.lambda(0) ) ) /
-    //    4.0 / M_PI 
-     << endl;
-  
-  os << "Singlet Matrix:" << endl;
-  os << m.PS() << endl;
-  os << "   - component" << endl;
-  os << m.PS( -1 ) << endl;
-  os << "   + component" << endl;
-  os << m.PS( +1 ) << endl;
-  
-  os
-    << "*********************************************\n"
-    << "* Non-singlet calculation:                  *\n"
-    << "*********************************************\n"
-    << endl;
-  
-  os << "Anomalous dimension : normalized by " << endl;
-  os << "  " << setw(16) << "LO" << setw(16) << "NLO" << endl;
-  os << "+:" 
-     << setw(16) << m.rns()[0][0]
-     << setw(16) << m.rns()[1][0]
-     << endl;
-  os << "-:" 
-     << setw(16) << m.rns()[0][1]
-     << setw(16) << m.rns()[1][1]
-     << endl;
-  
-  os << "Singlet Matrix (factor):" << endl;
-  os << "+: " << setw(16) << m.PNS( +1 ) << endl;
-  os << "-: " << setw(16) << m.PNS( -1 ) << endl;
-  
-  return os;
+      4.0 / M_PI 
+       << endl;
+    
+    os << "( a(Q02)-a(q2)*(r_alpha^{-dlambda}) ) / 4PI: "
+       << ( m.scale().alpha_[0] - 
+	    m.scale().alpha_[1] * pow( m.scale().ralpha_, - m.lambda(0) ) ) /
+      4.0 / M_PI 
+      //     << "\t"
+      //     << ( m.scale().alpha_[0] - 
+      //	  m.scale().alpha_[1] / pow( m.scale().ralpha_, m.lambda(0) ) ) /
+      //    4.0 / M_PI 
+       << endl;
+    
+    os << "Singlet Matrix:" << endl;
+    os << m.PS() << endl;
+    os << "   - component" << endl;
+    os << m.PS( -1 ) << endl;
+    os << "   + component" << endl;
+    os << m.PS( +1 ) << endl;
+    
+    os
+      << "*********************************************\n"
+      << "* Non-singlet calculation:                  *\n"
+      << "*********************************************\n"
+      << endl;
+    
+    os << "Anomalous dimension : normalized by " << endl;
+    os << "  " << setw(16) << "LO" << setw(16) << "NLO" << endl;
+    os << "+:" 
+       << setw(16) << m.rns()[0][0]
+       << setw(16) << m.rns()[1][0]
+       << endl;
+    os << "-:" 
+       << setw(16) << m.rns()[0][1]
+       << setw(16) << m.rns()[1][1]
+       << endl;
+    
+    os << "Singlet Matrix (factor):" << endl;
+    os << "+: " << setw(16) << m.PNS( +1 ) << endl;
+    os << "-: " << setw(16) << m.PNS( -1 ) << endl;
+    
+    return os;
+  }
 }
 
 void DGLAPMatrix::cache_dump( ostream& os ) {
@@ -371,40 +373,41 @@ void DGLAPMatrix::cache_dump( ostream& os ) {
   }
 }
 
-ostream& Evolution::operator<<( ostream& os, DGLAPMatrix::Scales& s ){
-  os << "------ Hard scales:"
-     << endl;
-  
-  os << setw(12) << "Q" 
-     << setw(12) << "Q^2" 
-     << setw(12) << "alpha(Q^2)" << endl;
-  for( int i = 0; i < 2; i++ ){
-    os 
-      << setw(2)  << i
-      << setw(10) << s.q_[i] 
-      << setw(12) << s.q2_[i]
-      << setw(12) << s.alpha_[i] 
-      << endl;
+namespace Evolution {
+  ostream& operator<<( ostream& os, DGLAPMatrix::Scales& s ){
+    os << "------ Hard scales:"
+       << endl;
+    
+    os << setw(12) << "Q" 
+       << setw(12) << "Q^2" 
+       << setw(12) << "alpha(Q^2)" << endl;
+    for( int i = 0; i < 2; i++ ){
+      os 
+	<< setw(2)  << i
+	<< setw(10) << s.q_[i] 
+	<< setw(12) << s.q2_[i]
+	<< setw(12) << s.alpha_[i] 
+	<< endl;
+    }
+    
+    os << "alpha ratio:  " << setw(10) << s.ralpha_ << endl;
+    os << "alpha diff.:  " << setw(10) << s.dalpha_ << endl;
+    
+    
+    os << "beta:  " << flush;
+    for( int i = 0; i < 3; i++ ) os << setw(8) << s.beta_[i] << flush;
+    os << endl;
+    
+    os << "rbeta: " << flush;
+    for( int i = 0; i < 3; i++ ) os << setw(8) << s.rbeta_[i] << flush;
+    os << endl;
+    
+    os << "2.0 * beta_0: " << setw(8) << s.beta2_ << endl;
+    os << "( alpha(Q_0^2) - alpha(Q^2) ) / ( 4pi ): " 
+       << setw(10) << s.da_4pi_ << endl;
+    os << "( alpha(Q_0^2) - alpha(Q^2) ) / ( 4pi ) / ( 2.0 * beta_0 ): " 
+       << setw(10) << s.da_4pi_2b_ << endl;
+    
+    return os;
   }
-  
-  os << "alpha ratio:  " << setw(10) << s.ralpha_ << endl;
-  os << "alpha diff.:  " << setw(10) << s.dalpha_ << endl;
-
-  
-  os << "beta:  " << flush;
-  for( int i = 0; i < 3; i++ ) os << setw(8) << s.beta_[i] << flush;
-  os << endl;
-  
-  os << "rbeta: " << flush;
-  for( int i = 0; i < 3; i++ ) os << setw(8) << s.rbeta_[i] << flush;
-  os << endl;
-  
-  os << "2.0 * beta_0: " << setw(8) << s.beta2_ << endl;
-  os << "( alpha(Q_0^2) - alpha(Q^2) ) / ( 4pi ): " 
-     << setw(10) << s.da_4pi_ << endl;
-  os << "( alpha(Q_0^2) - alpha(Q^2) ) / ( 4pi ) / ( 2.0 * beta_0 ): " 
-     << setw(10) << s.da_4pi_2b_ << endl;
-  
-  return os;
 }
-

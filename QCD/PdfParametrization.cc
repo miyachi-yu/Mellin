@@ -478,17 +478,19 @@ string PdfParametrization::xmlHeader(){
   return ostr.str();
 }
 
-ostream& QCD::operator<<( ostream& os, const PdfParametrization& param ){
-  os << PdfParametrization::xmlHeader() << endl;
-  os << "<" << PdfParametrization::tagName 
-     << " scale=\"" << param.scale() 
-     << "\" name=\"" << param.name() << "\">" << endl;
-  
-  vector< PdfBase* > pdfs = param.pdfs();
-  for( int i = 0; i < pdfs.size(); i++ ) os << *pdfs[ i ] << endl;
-  
-  os << "</" << PdfParametrization::tagName << ">" << flush;
-  return os;
+namespace QCD {
+  ostream& operator<<( ostream& os, const PdfParametrization& param ){
+    os << PdfParametrization::xmlHeader() << endl;
+    os << "<" << PdfParametrization::tagName 
+       << " scale=\"" << param.scale() 
+       << "\" name=\"" << param.name() << "\">" << endl;
+    
+    vector< PdfBase* > pdfs = param.pdfs();
+    for( int i = 0; i < pdfs.size(); i++ ) os << *pdfs[ i ] << endl;
+    
+    os << "</" << PdfParametrization::tagName << ">" << flush;
+    return os;
+  }
 }
 
 PdfErrMatrix PdfParametrization::errorMatrix() {
