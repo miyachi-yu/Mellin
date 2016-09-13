@@ -1,5 +1,7 @@
 set( CMAKE_CXX_FLAGS "-Df2cFortran ${CMAKE_CXX_FLAGS}" )
 
+enable_language( Fortran )
+
 add_library( PDFLIB
   CTEQ6.cc GRSV2000.cc Package.cc Cteq6Pdf-2004.f grsv2000pdf_g1.f
   LSS.cc LSS2006pdf_g1.f LSS2001.f  LSS2005pdf_g1.f dfint.f

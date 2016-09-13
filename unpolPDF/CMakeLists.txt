@@ -1,7 +1,7 @@
 add_library( unpolPDF Evolution.cc P.cc CTEQ6pdf.cc )
 
-add_executable( main main.cc )
-target_link_libraries( main
+add_executable( unpolpdf main.cc )
+target_link_libraries( unpolpdf
   unpolPDF
   Evolution
   PDFSET
@@ -18,7 +18,7 @@ target_link_libraries( bs15
   QCD
   Transform
   Utility
-  ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY}  ${MATH_LIBRARY} )
+  ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} )
 
 #add_executable( testCteq6 testCteq6.cc )
 #target_link_libraries( testCteq6
