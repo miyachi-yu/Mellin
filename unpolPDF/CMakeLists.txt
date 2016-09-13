@@ -7,7 +7,6 @@ target_link_libraries( main
   PDFSET
   QCD
   Transform
-  PDFLIB
   Utility
   ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} )
 
@@ -18,9 +17,8 @@ target_link_libraries( bs15
   PDFSET
   QCD
   Transform
-  PDFLIB
   Utility
-  ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} )
+  ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY}  ${MATH_LIBRARY} )
 
 #add_executable( testCteq6 testCteq6.cc )
 #target_link_libraries( testCteq6
@@ -33,7 +31,6 @@ target_link_libraries( dbar_ubar
   PDFSET
   QCD
   Transform
-  PDFLIB
   Utility
   ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} )
 

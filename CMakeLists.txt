@@ -1,10 +1,11 @@
-cmake_minimum_required (VERSION 2.6)
-project (Mellin)
+cmake_minimum_required( VERSION 2.6 )
+project( Mellin )
 
-find_package(PkgConfig)
-pkg_check_modules(LIBXMLXX REQUIRED libxml++-2.6)
+find_package( PkgConfig )
+pkg_check_modules( LIBXMLXX REQUIRED libxml++-2.6 )
 
-find_library(DB_CXX_LIBRARY NAMES db_cxx)
+find_library( DB_CXX_LIBRARY NAMES db_cxx )
+find_library( MATH_LIBRARY NAMES m )
 
 include_directories( ${PROJECT_SOURCE_DIR} )
 

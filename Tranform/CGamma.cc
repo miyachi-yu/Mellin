@@ -39,13 +39,14 @@ complex< double > CGamma::Integrand::operator()( const double& t ){
 }
 
 DataCache CGamma::dcache_;
-vector< complex< double > > CGamma::cdata_( 1, complex< double >( 0.0 ) );
+
+vector< complex< double > > CGamma::cdata_( 1, complex< double >( 0.0, 0.0 ) );
 
 CGamma::CGamma() : 
   IntegFunc(), integrand_()
 {
-  //  CGamma::initCache();
-  dcache_.clear();
+  // CGamma::initCache();
+  // dcache_.clear();
 }
 
 CGamma::~CGamma(){

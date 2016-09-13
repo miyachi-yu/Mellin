@@ -29,5 +29,12 @@ add_library( Transform
   DbKey.cc DbKey2.cc
   DataCacheInteg.cc DataCacheInteg2.cc MCInt.cc Pvalue.cc )
 
-#add_executable( cbeta cbeta.cc )
-#target_link_libraries( cbeta Transform Utility ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY})
+add_executable( cbeta cbeta.cc )
+target_link_libraries( cbeta
+  Transform Utility
+  ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} ${MATH_LIBRARY} )
+
+add_executable( gamma gamma.cc )
+target_link_libraries( gamma
+  Transform Utility
+  ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} ${MATH_LIBRARY} )

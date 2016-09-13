@@ -15,7 +15,7 @@ using namespace Utility;
 using namespace QCD;
 
 int main( int argc, char* argv[] ) {
-  
+
   Arguments& args = Arguments::ref( argc, argv );
   args.set( "Stat", "BS15.xml" );
   
