@@ -10,3 +10,4 @@ target_link_libraries( polFF
   Utility
   ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} )
 
+install( TARGETS polFrag DESTINATION lib )

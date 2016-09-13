@@ -8,3 +8,5 @@ target_link_libraries( polpdf
   Transform
   Utility
   ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} )
+
+install( TARGETS polPDF DESTINATION lib )

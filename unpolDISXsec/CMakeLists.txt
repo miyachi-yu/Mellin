@@ -16,3 +16,4 @@ target_link_libraries( unpoldisxsec
   PDFLIB
   ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} ${FORTRAN_LIBRARY} )
   
+install( TARGETS unpolDISXsec DESTINATION lib )

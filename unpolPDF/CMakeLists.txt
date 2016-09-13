@@ -7,6 +7,7 @@ target_link_libraries( unpolpdf
   PDFSET
   QCD
   Transform
+  PDFLIB
   Utility
   ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} )
 
@@ -17,12 +18,20 @@ target_link_libraries( bs15
   PDFSET
   QCD
   Transform
+  PDFLIB
   Utility
   ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} )
 
-#add_executable( testCteq6 testCteq6.cc )
-#target_link_libraries( testCteq6
-#  unpolPDF Evolution PDFSET QCD Transform PDFLIB Utility ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} )
+add_executable( testCteq6 testCteq6.cc )
+target_link_libraries( testCteq6
+  unpolPDF
+  Evolution
+  PDFSET
+  QCD
+  Transform
+  PDFLIB
+  Utility
+  ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} )
 
 add_executable( dbar_ubar dbar_ubar.cc )
 target_link_libraries( dbar_ubar
@@ -31,6 +40,8 @@ target_link_libraries( dbar_ubar
   PDFSET
   QCD
   Transform
+  PDFLIB
   Utility
   ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} )
 
+install( TARGETS unpolPDF DESTINATION lib )

@@ -38,3 +38,5 @@ add_executable( gamma gamma.cc )
 target_link_libraries( gamma
   Transform Utility
   ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} ${MATH_LIBRARY} )
+
+install( TARGETS Transform DESTINATION lib )

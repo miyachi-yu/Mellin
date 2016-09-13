@@ -20,3 +20,4 @@ target_link_libraries( printFF
   Utility
   ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} )
 
+install( TARGETS Fragmentation DESTINATION lib )

@@ -9,3 +9,5 @@ add_library( Evolution
   AnomalousDimension.cc
   KernelSum.cc
   KernelDiff.cc )
+
+install( TARGETS Evolution DESTINATION lib )

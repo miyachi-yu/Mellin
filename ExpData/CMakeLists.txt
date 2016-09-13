@@ -92,3 +92,7 @@ target_link_libraries( seaQuestPseudoData
 add_executable( hermesMultiplicities hermesMultiplicities.cc HERMES_multiplicities.cc )
 target_link_libraries( hermesMultiplicities
   ExpData Transform Utility ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} )
+
+install( TARGETS ExpData  DESTINATION lib )
+install( TARGETS expManip DESTINATION bin )
+

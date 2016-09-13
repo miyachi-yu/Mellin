@@ -15,3 +15,4 @@ target_link_libraries( unpoldis
   ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} ${FORTRAN_LIBRARY} )
   
   
+install( TARGETS unpolDIS DESTINATION lib )

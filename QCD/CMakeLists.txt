@@ -18,3 +18,5 @@ add_library( QCD
 
 add_executable( pdfManip pdfManip.cc )
 target_link_libraries( pdfManip QCD Transform Utility ${LIBXMLXX_LIBRARIES} ${DB_CXX_LIBRARY} )
+
+install( TARGETS QCD DESTINATION lib )

@@ -9,4 +9,4 @@ add_library( PDFLIB
   polin2.f polint.f locate.f FF.cc MRST2001.cc mrst2001E.f
   mstwpdf.cc MSTW2008.cc hknsff07.f HKNS07.cc )
 
-
+install( TARGETS PDFLIB DESTINATION lib )

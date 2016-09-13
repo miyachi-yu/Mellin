@@ -1,4 +1,5 @@
 include_directories( ${LIBXMLXX_INCLUDE_DIRS} )
+
 add_library( PDFSET
   BBParam.cc
   MRSTParam.cc  PdfMRST.cc  PdfMRSTXml.cc  ConfigMRST.cc
@@ -8,3 +9,5 @@ add_library( PDFSET
   StatParam.cc  PdfStat.cc  PdfStatXml.cc  ConfigStat.cc
   Cteq6Param.cc  PdfCteq6.cc  PdfCteq6Xml.cc  ConfigCteq6.cc
   MSTWParam.cc )
+
+install( TARGETS PDFSET DESTINATION lib )
