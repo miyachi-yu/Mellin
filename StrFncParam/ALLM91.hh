@@ -21,7 +21,7 @@ namespace StrFncParam {
     ALLM91 virtual photon absorption cross section is implemented in ALLM91 class.
     The parameterization can be found in 
     "A Parameterization of sigma-T (gamma* p) above the resonance region Q**2>=0."
-    , H. Abramowicz, E.M. Levin, and A. Levy, Phys. Lett. B465 (1991) 465-476.
+    , H. Abramowicz, E.M. Levin, and A. Levy, Phys. Lett. B269 (1991) 465-476.
   */
   class ALLM91 : public PhotoAbsorbXsec {
   public:
