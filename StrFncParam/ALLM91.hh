@@ -72,7 +72,6 @@ namespace StrFncParam {
     C1 cr;
     C1 br;
     C1 ar;
-    
     C1 bp;
     C2 cp;
     C2 ap;

@@ -10,7 +10,11 @@
 
 namespace StrFncParam {
   /*!
-    \brief class for photo-abs xsec param by Dominik and Lara
+    \brief class for photo-abs xsec param by Dominik and Lara (GD07-P)
+
+    Parameterization of photo-absorption cross section, known as GD07-P 
+    (hep-ph/0708.3196)
+
    */
   class DoLara : public ALLM91 {
   public:

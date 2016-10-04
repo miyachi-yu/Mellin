@@ -91,12 +91,13 @@ double ALLM91::operator() ( const double& W2 ) {
   double xp = this->x( W2, mp2 );
   double xr = this->x( W2, mr2 );
   
-  double f2p = cp( t_ ) * pow( xp, ap( t_ ) ) * pow( 1.0 - xp, bp( t_ ) );
-  double f2r = cr( t_ ) * pow( xr, ar( t_ ) ) * pow( 1.0 - xr, br( t_ ) );
+  double f2p = cp( t_ ) * pow( xp, ap( t_ ) ) * pow( 1.0 - x, bp( t_ ) );
+  double f2r = cr( t_ ) * pow( xr, ar( t_ ) ) * pow( 1.0 - x, br( t_ ) );
   
   double v = FineConstant / ( q2_ + m02 );
   v /= 1.0 - x ;
-  v *= 1.0 + 4.0 * Mp2 * q2_ / pow( q2_ + W2 - Mp2, 2 );
+  //  v *= 1.0 + 4.0 * Mp2 * q2_ / pow( q2_ + W2 - Mp2, 2 );
+  v *= ( q2_ + 4.0 * Mp2 * x * x ) / q2_;
   v *= ( f2p + f2r );
   
   return v;
